@@ -3,7 +3,6 @@ import { utilService } from "../../../services/util.service.js"
 
 export const noteService = {
     query,
-    check,
     addNote
 }
 
@@ -12,7 +11,7 @@ const NOTES_KEY = 'noteDB'
 const gNotes = [
     {
      id: "n101",
-     type: "note-txt",
+     type: "text",
      isPinned: true,
      info: {
      txt: "Fullstack Me Baby!"
@@ -20,7 +19,15 @@ const gNotes = [
     },
     {
         id: "n102",
-        type: "note-txt",
+        type: "video",
+        isPinned: false,
+        info: {
+        txt: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
+        }
+    },
+    {
+        id: "n103",
+        type: "text",
         isPinned: false,
         info: {
         txt: `And if I only could
@@ -29,24 +36,19 @@ const gNotes = [
         Be running up that road
         Be running up that hill
         Be running up that building`
-        }
-    },
-    {
-        id: "n103",
-        type: "note-txt",
-        isPinned: false,
-        info: {
-        txt: `You don't want to hurt me (Iyeh-yeh-yo)
-        But see how deep the bullet lies (Iyeh-yeh-yo)
-        Unaware I'm tearing you asunder (Iyeh-yeh-yo)
-        Ooh, there is thunder in our hearts (Iyeh-yeh-yo)
-        Is there so much hate for the ones we love? (Iyeh-yeh-yo)
-        Tell me, we both matter, don't we? (Iyeh-yeh-yo)`
     }
     },
     {
         id: "n104",
-        type: "note-txt",
+        type: "image",
+        isPinned: false,
+        info: {
+        txt: `https://thumbs.dreamstime.com/b/crazy-cat-tongue-hanging-out-40087599.jpg`
+    }
+    },
+    {
+        id: "n105",
+        type: "text",
         isPinned: false,
         info: {
         txt: `Say, if I only could
@@ -59,18 +61,30 @@ const gNotes = [
     }
 ]
 
-function query() {
+const gTrash = [
+    {
+        id: "n110",
+        type: "text",
+        isPinned: true,
+        info: {
+        txt: "Trashcanning!"
+        }
+    }
+]
+
+function query(filterBy) {
     let notes = storageService.loadFromStorage(NOTES_KEY)
-  if (!notes) {
+    if (!notes) {
     notes = gNotes
     storageService.saveToStorage(NOTES_KEY, notes)
+    
   }
 
-  return Promise.resolve(notes)
+  if (filterBy) {
+    notes = notes.filter(note => note.type === filterBy)
 }
 
-function check() {
-    console.log('Yep')
+  return Promise.resolve(notes)
 }
 
 function addNote(txt, type) {

@@ -5,26 +5,42 @@ import { AddNote } from '../apps/keep/cmps/add-note.jsx'
 
 export class KeepApp extends React.Component {
     state = {
-        notes: null
+        notes: null,
+        filterBy: null
     }
 
     componentDidMount() {
+        const {filterBy} = this.state
         this.loadNotes()
     }
 
     loadNotes() {
-        noteService.query()
+        const {filterBy} = this.state
+        noteService.query(filterBy)
             .then(notes => this.setState({ notes }))
+    }
+
+    handleFilterChange = (filterBy) => {
+        this.setState({filterBy}, this.loadNotes)
+    }
+
+    handleAddNote = (text, type) => {
+        noteService.addNote(text, type)
+                    .then(this.loadNotes())
+    }
+
+    handleRemoveNote = (id) => {
+
     }
 
     render() {
         const { notes } = this.state
 
         return <section className="app-keep">
-            <NoteFilter />
+            <NoteFilter handleFilterChange={this.handleFilterChange}/>
             <div className="main-container">
-                <AddNote/>
-                <NoteList notes={notes} />
+                <AddNote handleAddNote={this.handleAddNote}/>
+                <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote}/>
             </div>
         </section>
     }

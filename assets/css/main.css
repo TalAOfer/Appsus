@@ -1,2 +1,7 @@
 @import url(cmp/app-header.css);
 @import url(cmp/app-home.css);
+
+/* KEEP */
+@import url(apps/keep/app-keep.css);
+@import url(apps/keep/note-preview.css);
+@import url(apps/keep/note-list.css);

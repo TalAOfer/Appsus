@@ -1,6 +1,6 @@
 import { AppHome } from './pages/app-home.jsx'
 import { AppHeader } from './cmps/app-header.jsx'
-import { AppKeep } from './pages/app-keep.jsx'
+import { KeepApp } from './pages/keep-app.jsx'
 import { AppEmail } from './pages/app-email.jsx'
 import { AppBook } from './pages/app-book.jsx'
 // import { AppFooter } from './cmps/app-footer.jsx'
@@ -16,7 +16,7 @@ export function App() {
         
         <Route path="/book" component={AppBook} />
         <Route path="/email" component={AppEmail} />
-        <Route path="/keep" component={AppKeep} />
+        <Route path="/keep" component={KeepApp} />
         <Route path="/" component={AppHome} />
         </Switch>
     </section>

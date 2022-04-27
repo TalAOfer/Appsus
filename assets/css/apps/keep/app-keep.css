@@ -1,7 +1,13 @@
 .app-keep {
-    margin-top: 1rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    height: 100%;
+}
+
+.app-keep .main-container {
+    margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    
 }

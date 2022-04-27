@@ -5,6 +5,8 @@
 @import url(apps/keep/app-keep.css);
 @import url(apps/keep/note-preview.css);
 @import url(apps/keep/note-list.css);
+@import url(apps/keep/note-filter.css);
+@import url(apps/keep/add-note.css);
 /* Mail */
 
 @import url(./mail/app-email.css);

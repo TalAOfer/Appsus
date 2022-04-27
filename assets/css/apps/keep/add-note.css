@@ -1,0 +1,23 @@
+.add-note {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.558);
+    width: 20rem;
+}
+
+.add-note input {
+    border: none;
+    height: 30px;
+}
+
+.add-note .option-container {
+    display: flex;
+    align-content: center;
+}
+
+.add-note img {
+    height: 25px;
+    margin-inline-end: 10px;
+}

@@ -1,0 +1,9 @@
+.email-preview{
+    display: flex;
+    padding: 0px 10px 0px 10px
+}
+
+.email-preview:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}

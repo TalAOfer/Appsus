@@ -14,19 +14,21 @@ export class AppEmail extends React.Component {
     }
 
     componentDidMount() {
-        this.loadEmails();
+        this.loadEmails()
     }
 
     loadEmails = () => {
         emailService
-            .query(/*this.state.filterBy*/)
+            .query(this.state.selectedStatus)
             .then((emails) => this.setState({ emails }));
     }
 
     getCurrStatus = (status) => {
         // const {selectedStatus} this.state
         console.log(status);
-        this.setState({selectedStatus: status})
+        this.setState({selectedStatus: status}, ()=>{
+            this.loadEmails()
+        })
     }
 
     render() {

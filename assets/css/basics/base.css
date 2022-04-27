@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-/* body {
-    background-color: #383838;
-    color: #FFFFFF	;
-    text-align: center;
-    font-family: Roboto-Regular;
-    margin: 0 auto
-} */
+body {
+    font-family: Lato-Light;
+}

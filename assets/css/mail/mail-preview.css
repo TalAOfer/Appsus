@@ -1,4 +1,4 @@
-.email-preview{
+.email-preview {
     display: flex;
     padding: 0px 10px 0px 10px
 }
@@ -7,3 +7,28 @@
     background-color: lightgray;
     cursor: pointer;
 }
+
+.mail-name {
+    font-family: Lato-Black;
+    font-size: 15px;
+}
+
+.txt-container{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 6px;
+}
+
+.mail-subject {
+    font-family: Lato-Black;
+    font-size: 15px;
+}
+
+.mail-body {
+    color: rgb(190, 190, 190);
+    font-family: Lato-Black;
+    font-size: 13px;
+}
+
+.mail-from {}

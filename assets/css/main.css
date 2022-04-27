@@ -1,5 +1,6 @@
 /*  */
 
+@import url(setup/fonts.css);
 @import url(basics/base.css);
 @import url(cmp/app-header.css);
 @import url(cmp/app-home.css);

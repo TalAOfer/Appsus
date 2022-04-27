@@ -57,7 +57,7 @@ const emails = [{
     subject: 'Job interview',
     body: 'Come to work with us at Google',
     isRead: false,
-    isStared: false,
+    isStared: true,
     receivedAt: 1551133930594,
     sentAt: '',
     removeAt: '',
@@ -76,19 +76,37 @@ const criteria = {
 
 _createEmails()
 
-function query(/*filter*/) {
+function query(status) {
     let emails = _loadFromStorage()
-    // if (filter) {
-    //     let { name, priceFrom, priceTo } = filter
-    //     if (!priceFrom) priceFrom = 0
-    //     if (!priceTo) priceTo = Infinity
-
-    //     books = books.filter(book =>
-    //         book.title.toLowerCase().includes(name) &&
-    //         book.listPrice.amount >= priceFrom &&
-    //         book.listPrice.amount <= priceTo)
+    let emailFilterd = []
+    if (status === 'inbox') {
+        for (const email in emails) {
+            if (emails[email].receivedAt && !emails[email].removeAt) emailFilterd.push(emails[email])
+        }
+    }
+    else if (status === 'starred') {
+        for (const email in emails) {
+            if (!emails[email].isStared) continue
+            emailFilterd.push(emails[email])
+        }
+    }
+    else if (status === 'sent') {
+        for (const email in emails) {
+            if (emails[email].sentAt && !emails[email].removeAt) emailFilterd.push(emails[email])
+        }
+    }
+    // else if (status === 'draft') {
+    //     for (const email in emails) {
+    //         if (emails[email].receivedAt && !emails[email].removeAt) emailFilterd.push(emails[email])
+    //     }
     // }
-    return Promise.resolve(emails)
+    else if (status === 'trash') {
+        for (const email in emails) {
+            if (emails[email].removeAt) emailFilterd.push(emails[email])
+        }
+    }
+
+    return Promise.resolve(emailFilterd)
 }
 
 function _createEmails() {

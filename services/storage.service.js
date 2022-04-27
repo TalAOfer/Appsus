@@ -3,17 +3,11 @@ export const storageService = {
     saveToStorage
 }
 
-const KEY = 'notesDB'
-
-function saveToStorage(notes) {
-    localStorage.setItem(KEY, JSON.stringify(notes))
+function saveToStorage(key, val) {
+    localStorage.setItem(key, JSON.stringify(val))
 }
 
-function loadFromStorage() {
-    var notes = localStorage.getItem(KEY)
-    return JSON.parse(notes)
-}
-
-function checkStorage() {
-    console.log('storage Indeed')
+function loadFromStorage(key) {
+    var val = localStorage.getItem(key)
+    return JSON.parse(val)
 }

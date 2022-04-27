@@ -1,0 +1,29 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(214, 214, 220);
+  }
+  
+  .app-header * {
+    margin: 0 10px 0 10px;
+  }
+  .app-header h3{
+      font-size: 25px;
+      color: gold;
+  }
+  .app-header nav *{
+      font-size: 20px;
+      text-decoration: none;
+      color: black;
+  }
+  
+  .app-header nav *:hover{
+      color: gold;   
+  }
+  
+  .app-header nav>*:not(:last-child) {
+      margin-inline-end: 10px;
+  }

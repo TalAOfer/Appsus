@@ -1,0 +1,20 @@
+.app-home {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    margin: auto;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-home * {
+    cursor: pointer;
+    border: 1px solid rgb(214, 214, 220);
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

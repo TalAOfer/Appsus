@@ -10,7 +10,7 @@ export class MailSideBar extends React.Component {
                 <button className="sidbar-btn">+ Compose</button>
             </div>
             <ul className="sidbar-list">
-                <li onClick={() => { status('inbox') }}>Inbok</li>
+                <li onClick={() => { status('inbox') }}>Inbox</li>
                 <li onClick={() => { status('starred') }}>Starred</li>
                 <li onClick={() => { status('sent') }}>Sent Mail</li>
                 <li onClick={() => { status('Drafts') }}>Drafts</li>

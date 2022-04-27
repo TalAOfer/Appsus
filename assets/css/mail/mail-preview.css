@@ -1,19 +1,26 @@
 .email-preview {
     display: flex;
-    padding: 0px 10px 0px 10px
+    padding: 0px 10px 0px 10px;
+    border-bottom: 1px solid rgb(214, 214, 220);
 }
 
-.email-preview:hover {
+/* .email-preview:hover {
     background-color: lightgray;
+    cursor: pointer;
+} */
+
+.email-preview:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    z-index: 2;
     cursor: pointer;
 }
 
+
 .mail-name {
-    font-family: Lato-Black;
     font-size: 15px;
 }
 
-.txt-container{
+.txt-container {
     display: flex;
     align-items: center;
     align-content: center;
@@ -21,14 +28,67 @@
 }
 
 .mail-subject {
-    font-family: Lato-Black;
     font-size: 15px;
 }
 
 .mail-body {
     color: rgb(190, 190, 190);
     font-family: Lato-Black;
-    font-size: 13px;
+    font-size: 12px;
 }
 
-.mail-from {}
+.mail-time {
+    font-size: 14px;
+}
+
+.email-display {
+    background-color: rgb(239, 235, 235);
+    /* height: 150px; */
+}
+
+.email-display {
+    padding: 0px 10px 0px 10px
+}
+
+.fullmail-subject {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.fullmail-subject button {
+    border: unset;
+    /* background-color:  lightgray;
+    padding: 10px; */
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.fullmail-name {
+    margin-top: 0;
+}
+
+.fullmail-name span {
+    color: gray;
+    font-size: 12px;
+    font-weight: bolder;
+
+}
+
+.fullmail-body {
+    padding-left: 40px;
+    padding-bottom: 25px;
+    margin-bottom: 0;
+    font-family: Lato-Black;
+    font-size: 12px;
+}
+
+.unread-mail {
+    background-color: rgb(230 226 226 / 41%);
+}

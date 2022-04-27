@@ -2,7 +2,10 @@ import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
 
 export const emailService = {
-    query
+    query,
+    changeReadStatus,
+    removeEmailMethod
+
 }
 
 const MAIL_KEY = 'emailDB'
@@ -28,11 +31,24 @@ const emails = [{
 {
     // Inbox
     id: 'e102',
-    subject: 'Hey Eran',
-    body: 'Leave me in your mother',
+    subject: 'Bank Leumi',
+    body: 'The msg systems ag uses cookies to provide an optimal website experience that is tailored to your specific needs. These includes cookies. ',
     isRead: false,
     isStared: false,
-    receivedAt: 1551133930594,
+    receivedAt: 1651064829019,
+    sentAt: '',
+    removeAt: '',
+    from: 'hen@leumi.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e103',
+    subject: 'Hey Eran',
+    body: 'Leave me in your mother',
+    isRead: true,
+    isStared: false,
+    receivedAt: 1651064829019,
     sentAt: '',
     removeAt: '',
     from: 'momo@momo.com',
@@ -40,25 +56,25 @@ const emails = [{
 },
 {
     // Trash
-    id: 'e103',
+    id: 'e104',
     subject: 'Fishing',
     body: 'Give your money!',
-    isRead: false,
+    isRead: true,
     isStared: false,
-    receivedAt: 1551133930594,
+    receivedAt: 1651064829019,
     sentAt: '',
-    removeAt: 1551133930594,
+    removeAt: 1651064829019,
     from: 'money@gamil.com',
     to: loggedinUser.email
 },
 {
     // Inbox
-    id: 'e104',
+    id: 'e105',
     subject: 'Job interview',
     body: 'Come to work with us at Google',
-    isRead: false,
+    isRead: true,
     isStared: true,
-    receivedAt: 1551133930594,
+    receivedAt: 1651064829019,
     sentAt: '',
     removeAt: '',
     from: 'hr@gmail.com',
@@ -137,4 +153,23 @@ function _saveToStorage(emails) {
 
 function _loadFromStorage() {
     return storageService.loadFromStorage(MAIL_KEY)
+}
+
+function changeReadStatus(isRead, emailId) {
+    let emails = _loadFromStorage()
+    let emailIdx = emails.findIndex(email => email.id === emailId)
+    emails[emailIdx].isRead = isRead
+    _saveToStorage(emails)
+    return Promise.resolve()
+}
+
+function removeEmailMethod(emailId) {
+    let emails = _loadFromStorage()
+    let emailIdx = emails.findIndex(email => email.id === emailId)
+
+    if (emails[emailIdx].removeAt) emails.splice(emailIdx, 1)
+    else emails[emailIdx].removeAt = Date.now()
+    
+    _saveToStorage(emails)
+    return Promise.resolve()
 }

@@ -10,7 +10,7 @@
 }
 
 .sidbar-list *:hover {
-    background-color: blueviolet;
+    background-color: lightgray;
     cursor: pointer;
 }
 

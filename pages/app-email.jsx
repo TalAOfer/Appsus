@@ -24,11 +24,24 @@ export class AppEmail extends React.Component {
     }
 
     getCurrStatus = (status) => {
-        // const {selectedStatus} this.state
         console.log(status);
         this.setState({selectedStatus: status}, ()=>{
             this.loadEmails()
         })
+    }
+
+    getUpdateMail = (isRead, emailId) => {
+        emailService.changeReadStatus(isRead, emailId)
+            .then(()=> {
+                this.loadEmails()
+            })
+    }
+
+    getRemoveMail = (emailId) => {
+        emailService.removeEmailMethod(emailId)
+            .then(()=> {
+                this.loadEmails()
+            })
     }
 
     render() {
@@ -36,7 +49,7 @@ export class AppEmail extends React.Component {
         if (!emails) return <section>Loader...</section>
         return <section className="app-email">
             <MailSideBar status={this.getCurrStatus}/>
-            <EmailList emails={emails}/>
+            <EmailList emails={emails} isReadUpdate={this.getUpdateMail} removeEmail={this.getRemoveMail}/>
         </section>
     }
 

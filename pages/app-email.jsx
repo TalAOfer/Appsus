@@ -25,9 +25,11 @@ export class AppEmail extends React.Component {
     }
 
     render() {
+        const {emails} = this.state
+        if (!emails) return <section>Loader...</section>
         return <section className="app-email">
             <MailSideBar />
-            <MailDisplay />
+            <MailDisplay emails={emails}/>
         </section>
     }
 

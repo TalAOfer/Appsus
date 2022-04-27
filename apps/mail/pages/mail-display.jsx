@@ -1,3 +1,6 @@
+import { EmailList } from "../cmps/mail-list.jsx";
+
+
 export class MailDisplay extends React.Component {
     state = {
 
@@ -6,14 +9,14 @@ export class MailDisplay extends React.Component {
     componentDidMount() {
 
     }
+
     render() {
+        console.log(this.props);
+        
+    
+        const {emails} = this.props
         return <section className="mail-display">
-            MailDisplay
-{/* 
-            <BookFilter filterBy={filterBy} onSetFilter={this.onSetFilter} />
-
-            <BookList selectBook={this.onSelectBook} books={books} /> */}
-
+            <EmailList emails={emails}/>
         </section>
     }
 

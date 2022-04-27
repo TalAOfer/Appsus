@@ -1,0 +1,39 @@
+.sidbar-list {
+    list-style-type: none;
+    line-height: 30px;
+    padding-left: 0;
+}
+
+.sidbar-list * {
+    padding-left: 20px;
+
+}
+
+.sidbar-list *:hover {
+    background-color: blueviolet;
+    cursor: pointer;
+}
+
+.sidebar-precantage {
+    background-color: white;
+    text-align: center;
+    border: 1px solid #121212;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.sidebar-btn-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 10px
+}
+
+.sidbar-btn{
+    background-color: unset;
+    border-radius: 10px;
+    border: 1px solid #121212;
+    height: 40px;
+    width: 100px;
+}

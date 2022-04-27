@@ -1,3 +1,7 @@
+/*  */
+
+@import url(setup/fonts.css);
+@import url(basics/base.css);
 @import url(cmp/app-header.css);
 @import url(cmp/app-home.css);
 
@@ -9,4 +13,12 @@
 @import url(apps/keep/add-note.css);
 /* Mail */
 
+/* EMAIL */
+
+/* eMail */
+
 @import url(./mail/app-email.css);
+@import url(./mail/mail-preview.css);
+
+/* SidBar */
+@import url(./mail/side-bar.css);

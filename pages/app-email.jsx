@@ -1,8 +1,7 @@
 import { emailService } from "../apps/mail/services/mail.service.js";
-import { MailDisplay } from "../apps/mail/pages/mail-display.jsx";
-import { MailSideBar } from "../apps/mail/pages/mail-sidebar.jsx";
+import { MailSideBar } from "../apps/mail/cmps/mail-sidebar.jsx";
 
-// import { BookFilter } from "../cmps/book-filter.jsx";
+import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
 // import { GoogleBookApi } from "../cmps/book-api.jsx";
 // import { eventBusService } from "../services/event-bus-service.js";
 
@@ -11,25 +10,33 @@ import { MailSideBar } from "../apps/mail/pages/mail-sidebar.jsx";
 export class AppEmail extends React.Component {
     state = {
         emails: '',
-
+        selectedStatus: 'inbox'
     }
 
     componentDidMount() {
-        this.loadEmails();
+        this.loadEmails()
     }
 
     loadEmails = () => {
         emailService
-            .query(/*this.state.filterBy*/)
+            .query(this.state.selectedStatus)
             .then((emails) => this.setState({ emails }));
+    }
+
+    getCurrStatus = (status) => {
+        // const {selectedStatus} this.state
+        console.log(status);
+        this.setState({selectedStatus: status}, ()=>{
+            this.loadEmails()
+        })
     }
 
     render() {
         const {emails} = this.state
         if (!emails) return <section>Loader...</section>
         return <section className="app-email">
-            <MailSideBar />
-            <MailDisplay emails={emails}/>
+            <MailSideBar status={this.getCurrStatus}/>
+            <EmailList emails={emails}/>
         </section>
     }
 

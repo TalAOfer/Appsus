@@ -1,2 +1,6 @@
 @import url(cmp/app-header.css);
 @import url(cmp/app-home.css);
+
+/* Mail */
+
+@import url(./mail/app-email.css);

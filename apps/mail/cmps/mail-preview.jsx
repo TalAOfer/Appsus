@@ -1,4 +1,6 @@
-const { Link } = ReactRouterDOM;
+import { eventBusService } from "../../../services/event-bus-service.js";
+
+const { Route, NavLink, Link } = ReactRouterDOM;
 
 export class EmailsPreview extends React.Component {
 
@@ -8,7 +10,9 @@ export class EmailsPreview extends React.Component {
 
     onClickMail = () => {
         const { selectedMail } = this.state
+        const { email } = this.props
         this.setState({ selectedMail: !selectedMail })
+        eventBusService.emit('email-id', email.id)
     }
 
     onClickIsRead = () => {
@@ -51,8 +55,9 @@ export class EmailsPreview extends React.Component {
                         <div className="fullmail-subject">
                             {email.subject}
                             <div className="fullmail-btn">
-                            <button className="delete-mail" onClick={this.onClickRemove}>🗑</button>
-                            <button className="expand-mail">⃞</button>
+                                <button className="delete-mail" onClick={this.onClickRemove}>🗑</button>
+                                <NavLink to={`/email/${email.id}`}><button className="expand-mail">⃞</button></NavLink>
+
                             </div>
                         </div>
                         <p className="fullmail-name">{displayName} <span>{`<${displayEmail}>`}</span></p>
@@ -65,3 +70,4 @@ export class EmailsPreview extends React.Component {
         );
     }
 }
+

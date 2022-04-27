@@ -1,3 +1,5 @@
+const { NavLink } = ReactRouterDOM
+
 export class MailSideBar extends React.Component {
     state = {}
 
@@ -10,12 +12,11 @@ export class MailSideBar extends React.Component {
                 <button className="sidbar-btn">+ Compose</button>
             </div>
             <ul className="sidbar-list">
-                <li onClick={() => { status('inbox') }}>Inbox</li>
-                <li onClick={() => { status('starred') }}>Starred</li>
-                <li onClick={() => { status('sent') }}>Sent Mail</li>
-                <li onClick={() => { status('Drafts') }}>Drafts</li>
-                <li onClick={() => { status('trash') }}>Trash</li>
-
+                <NavLink to="/email/inbox" ><li onClick={() => { status('inbox') }} className="filter-btn"> Inbox </li></NavLink>
+                <NavLink to="/email/starred" ><li onClick={() => { status('starred') }} className="filter-btn"> Starred </li></NavLink>
+                <NavLink to="/email/sent" ><li onClick={() => { status('sent') }} className="filter-btn"> Sent Mail </li></NavLink>
+                <NavLink to="/email/Drafts" ><li onClick={() => { status('Drafts') }} className="filter-btn"> Drafts </li></NavLink>
+                <NavLink to="/email/trash" ><li onClick={() => { status('trash') }} className="filter-btn"> Trash </li></NavLink>
             </ul>
             <div className="sidebar-precantage">33%</div>
         </section>

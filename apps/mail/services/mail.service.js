@@ -4,8 +4,8 @@ import { utilService } from '../../../services/util.service.js'
 export const emailService = {
     query,
     changeReadStatus,
-    removeEmailMethod
-
+    removeEmailMethod,
+    getEmailById
 }
 
 const MAIL_KEY = 'emailDB'
@@ -172,4 +172,10 @@ function removeEmailMethod(emailId) {
     
     _saveToStorage(emails)
     return Promise.resolve()
+}
+
+function getEmailById(emailId) {
+    let emails = _loadFromStorage()
+    let emailIdx = emails.findIndex(email => email.id === emailId)
+    return Promise.resolve(emails[emailIdx])
 }

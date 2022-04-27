@@ -5,13 +5,27 @@
 }
 
 .sidbar-list * {
-    padding-left: 20px;
-
+    /* padding-left: 20px; */
+    text-decoration: none;
+    color: #121212;
+    /* margin-left: 10px;
+    padding-left: 10px; */
 }
 
 .sidbar-list *:hover {
     background-color: lightgray;
+    border-end-end-radius: 50px;
+    margin-right: 10px;
     cursor: pointer;
+}
+
+.sidbar-list .active{
+    background-color: rgba(255, 249, 85, 0.792);
+    border-end-end-radius: 50px;
+    margin-right: 10px;
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    display: flex;
 }
 
 .sidebar-precantage {
@@ -34,6 +48,6 @@
     background-color: unset;
     border-radius: 10px;
     border: 1px solid #121212;
-    height: 40px;
+    height: 28px;
     width: 100px;
 }

@@ -1,0 +1,19 @@
+.email-details{
+    position: absolute;
+    height: 80vh;
+    width: 99%;
+    background-color: white;
+    box-shadow: 0 0 15px 10px lightgrey;
+    padding: 10px;
+    color: grey;
+    border-radius: 5px;
+}
+
+.details-btn-cls {
+    border: unset;
+    background-color: unset;
+    padding: 0px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    color: grey;
+}

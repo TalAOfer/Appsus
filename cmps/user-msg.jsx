@@ -3,7 +3,8 @@ import { eventBusService } from "../services/event-bus-service.js"
 export class UserMsg extends React.Component {
 
     state = {
-        msg: null
+        msg: null,
+        emailId: null
     }
 
     removeEvent;
@@ -14,6 +15,10 @@ export class UserMsg extends React.Component {
             this.setState({ msg })
             if (this.timeoutId) clearTimeout(this.timeoutId)
             this.timeoutId = setTimeout(this.onCloseMsg, 3000)
+        })
+
+        this.removeEvent = eventBusService.on('email-id', (emailId) => {
+            this.setState({ emailId })
         })
     }
 

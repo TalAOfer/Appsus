@@ -23,12 +23,11 @@ export class EmailList extends React.Component {
     }
 
     render() {
-        const { emails, isReadUpdate, removeEmail, isStarUpdate, searchTxt } = this.props
+        const { emails, isReadUpdate, removeEmail, isStarUpdate } = this.props
         const { emailId } = this.state
         return (
             <React.Fragment>
                 <section className="email-list">
-                    <EmailFilter searchTxt={searchTxt}/>
                     {emailId && <Route path={`/email/${emailId}`} component={EmailDetails} />}
                     {<Route path={`/email/new_email`} component={EmailCompose} />}
                     {emails.map((email) => (<EmailsPreview key={email.id} email={email} isReadUpdate={isReadUpdate} isStarUpdate={isStarUpdate} removeEmail={removeEmail} />))}

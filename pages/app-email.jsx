@@ -15,6 +15,13 @@ export class AppEmail extends React.Component {
     componentDidMount() {
         this.loadEmails()
         this.props.history.push('/email/inbox')
+        this.removeEvent = eventBusService.on('search-txt', (searchByTxt) => {
+            this.getSerachTxt(searchByTxt)
+        })
+    }
+
+    componentWillUnmount() {
+        this.removeEvent()
     }
 
     loadEmails = () => {
@@ -73,9 +80,7 @@ export class AppEmail extends React.Component {
             <EmailList emails={emails}
                 isReadUpdate={this.getUpdateMail}
                 isStarUpdate={this.getUpdateStar}
-                removeEmail={this.getRemoveMail}
-                searchTxt={this.getSerachTxt} />
-
+                removeEmail={this.getRemoveMail} />
         </section>
     }
 }

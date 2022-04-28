@@ -29,7 +29,7 @@ export class MailSideBar extends React.Component {
         const unreadEmailsCountFormat = Intl.NumberFormat("en-GB", { style: "percent" }).format(unreadEmailsCount);
         return <section className="mail-sidebar">
             <div className="sidebar-btn-container">
-                <NavLink to={`/email/new_email`}><button className="sidbar-btn">+ Compose</button></NavLink>
+                <NavLink to={`/email/new_email`}><button className="sidbar-btn"><img src="assets/img/mail/plus.png"></img> Compose</button></NavLink>
             </div>
             <ul className="sidbar-list">
                 <NavLink to="/email/inbox" ><li onClick={() => { status('inbox') }} className="filter-btn"><img src="assets/img/mail/inbox.png"></img> &nbsp;&nbsp;&nbsp;&nbsp; Inbox </li></NavLink>

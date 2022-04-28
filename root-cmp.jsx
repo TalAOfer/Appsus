@@ -9,16 +9,16 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
 export function App() {
-    return <Router> 
-        <AppHeader/>
+    return <Router>
+        <AppHeader />
         <section className="app">
-        <Switch>
-        <Route path="/book" component={AppBook} />
-        <Route path="/email" component={AppEmail} />
-        <Route path="/keep" component={KeepApp} />
-        <Route path="/" component={AppHome} />
-        </Switch>
-    </section>
-    {/* <AppFooter/> */}
+            <Switch>
+                <Route path="/book" component={AppBook} />
+                <Route path="/email" component={AppEmail} />
+                <Route path="/keep" component={KeepApp} />
+                <Route path="/" component={AppHome} />
+            </Switch>
+        </section>
+        {/* <AppFooter/> */}
     </Router>
 }

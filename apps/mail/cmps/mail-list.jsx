@@ -2,7 +2,8 @@ import { EmailsPreview } from "../cmps/mail-preview.jsx";
 import { EmailDetails } from "../pages/email-details.jsx";
 import { EmailCompose } from "../pages/email-compose.jsx";
 import { eventBusService } from "../../../services/event-bus-service.js";
-import { EmailFilter } from "../../mail/cmps/mail-filter.jsx";
+// import { EmailFilter } from "../../mail/cmps/mail-filter.jsx";
+import { EmailFilter } from "../cmps/mail-filter.jsx";
 
 const { Route, NavLink, Link } = ReactRouterDOM;
 

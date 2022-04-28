@@ -1,7 +1,8 @@
 import { emailService } from "../apps/mail/services/mail.service.js";
 import { MailSideBar } from "../apps/mail/cmps/mail-sidebar.jsx";
 import { eventBusService } from "../../../services/event-bus-service.js";
-import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
+// import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
+import { EmailList } from "./../apps/mail/cmps/mail-list.jsx";
 
 // import { eventBusService } from "../services/event-bus-service.js";
 

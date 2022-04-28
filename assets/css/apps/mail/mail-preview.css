@@ -17,7 +17,7 @@
 
 
 .mail-name {
-    font-size: 15px;
+    font-size: 0.875rem;
     width: 200px;
     margin-top: 0;
     margin-bottom: 0;
@@ -35,17 +35,17 @@
 }
 
 .mail-subject {
-    font-size: 15px;
+    font-size: 0.875rem;
 }
 
 .mail-body {
     color: rgb(190, 190, 190);
     font-family: Lato-Black;
-    font-size: 12px;
+    font-size: 0.70rem;
 }
 
 .mail-time {
-    font-size: 14px;
+    font-size: 0.70rem;
 }
 
 .email-display {

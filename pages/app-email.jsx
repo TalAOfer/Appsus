@@ -64,7 +64,7 @@ export class AppEmail extends React.Component {
         const {emails} = this.state
         if (!emails) return <section>Loader...</section>
         return <section className="app-email">
-            <EmailFilter/>
+            {/* <EmailFilter/> */}
             <MailSideBar status={this.getCurrStatus}/>
             <EmailList emails={emails} isReadUpdate={this.getUpdateMail} isStarUpdate={this.getUpdateStar} removeEmail={this.getRemoveMail}/>
         </section>

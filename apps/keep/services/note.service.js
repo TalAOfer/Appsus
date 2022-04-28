@@ -149,6 +149,7 @@ function changeNoteColor(noteId, color) {
 }
 
 function changeNoteText(noteId, text) {
+    console.log(text)
     const notes = storageService.loadFromStorage(NOTES_KEY)
     const noteIdx = _getNoteIdxById(noteId)
     notes[noteIdx].info.txt = text

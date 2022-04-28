@@ -11,8 +11,8 @@ export class NotePreview extends React.Component{
     }
 
     handleMail = () => {
-        // eventBusService.emit('unread-emails', email)
-        console.log('handled')
+        const { id } = this.props.note
+        this.props.history.push(`/email/new-email/?${id}`)
     }
 
     render() {
@@ -24,14 +24,14 @@ export class NotePreview extends React.Component{
         {note.type === 'image' && <img src={note.info.txt} alt="" />}
         {note.type === 'video' && <video src={note.info.txt} controls></video>}
         <div className="preview-btns">
-            <div onClick={()=>handleRemoveNote(note.id)}  className="preview-btn"> <img src="../assets/img/keep/trash.png" alt="" /></div>
+            <div onClick={()=>handleRemoveNote(note.id)}  className="preview-btn"> <img src="assets/img/keep/trash.png" alt="" /></div>
             <label >
-            <img className="preview-btn" src="../assets/img/keep/palette.png" alt=""/>
+            <img className="preview-btn" src="assets/img/keep/palette.png" alt=""/>
             <input name={note.id} type="color" hidden onChange={this.handleInputChange}/>
             </label>
-            <div onClick={()=>handleChosenNote(note)}  className="preview-btn"> <img src="../assets/img/keep/pencil.png" alt="" /></div>
-            <div onClick={()=>handlePinChange(note.id)} className="preview-btn"> <img src={`../assets/img/keep/${pinType}.png`} alt="" /></div>
-            <NavLink to="/email/new_email" ><div onClick={()=>this.handleMail(note.id)} className="preview-btn"> MAIL </div></NavLink>
+            <div onClick={()=>handleChosenNote(note)}  className="preview-btn"> <img src="assets/img/keep/pencil.png" alt="" /></div>
+            <div onClick={()=>handlePinChange(note.id)} className="preview-btn"> <img src={`assets/img/keep/${pinType}.png`} alt="" /></div>
+            {/* <div onClick={()=>this.handleMail(note.id)} className="preview-btn"> MAIL </div> */}
 
             
         </div>

@@ -26,10 +26,7 @@ export class UserMsg extends React.Component {
         this.removeEvent = eventBusService.on('unread-emails', (unReadEmails) => {
             this.setState({ unReadEmails })
         })
-
-        this.removeEvent = eventBusService.on('new-email', (newEmail) => {
-            this.setState({ newEmail })
-        })
+        
     }
 
     componentWillUnmount() {

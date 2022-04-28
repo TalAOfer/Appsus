@@ -11,9 +11,9 @@ export class EmailCompose extends React.Component {
     }
 
     componentDidMount() {
-        this.removeEvent = eventBusService.on('new-email', (newEmail) => {
-            this.setState({ email: newEmail })
-        })
+        // this.removeEvent = eventBusService.on('new-email', (newEmail) => {
+        //     this.setState({ email: newEmail })
+        // })
     }
 
     componentWillUnmount() {

@@ -23,12 +23,6 @@ export class UserMsg extends React.Component {
         //     this.setState({ emailId })
         // })
 
-<<<<<<< HEAD
-        this.removeEvent = eventBusService.on('unread-emails', (unReadEmails) => {
-            this.setState({ unReadEmails })
-        })
-        
-=======
         // this.removeEvent = eventBusService.on('unread-emails', (unReadEmails) => {
         //     this.setState({ unReadEmails })
         // })
@@ -36,7 +30,6 @@ export class UserMsg extends React.Component {
         // this.removeEvent = eventBusService.on('new-email', (newEmail) => {
         //     this.setState({ newEmail })
         // })
->>>>>>> 22a30931fc53ae44ba5314ee7381b82387fa3c75
     }
 
     componentWillUnmount() {

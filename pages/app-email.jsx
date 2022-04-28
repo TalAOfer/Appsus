@@ -14,10 +14,6 @@ export class AppEmail extends React.Component {
 
     componentDidMount() {
         this.loadEmails()
-<<<<<<< HEAD
-        // this.props.history.push('/email/inbox')
-
-=======
         this.props.history.push('/email/inbox')
         this.removeEvent = eventBusService.on('search-txt', (searchByTxt) => {
             this.getSerachTxt(searchByTxt)
@@ -26,7 +22,6 @@ export class AppEmail extends React.Component {
 
     componentWillUnmount() {
         this.removeEvent()
->>>>>>> 22a30931fc53ae44ba5314ee7381b82387fa3c75
     }
 
     loadEmails = () => {

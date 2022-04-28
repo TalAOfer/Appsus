@@ -1,4 +1,5 @@
 import { emailService } from "../services/mail.service.js";
+import { eventBusService } from "../../../services/event-bus-service.js";
 
 export class EmailCompose extends React.Component {
     state = {
@@ -11,15 +12,21 @@ export class EmailCompose extends React.Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         // this.removeEvent = eventBusService.on('new-email', (newEmail) => {
         //     this.setState({ email: newEmail })
         // })
+=======
+        this.removeEvent = eventBusService.on('new-email', (newEmail) => {
+            this.setState({ newEmail })
+        })
+>>>>>>> 22a30931fc53ae44ba5314ee7381b82387fa3c75
     }
 
     componentWillUnmount() {
         this.removeEvent()
     }
-
+    
     handleChange = ({ target }) => {
         const { name } = target
         this.setState((prevState) => ({ email: { ...prevState.email, [name]: target.value } }))

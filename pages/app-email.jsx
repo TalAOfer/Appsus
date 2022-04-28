@@ -1,9 +1,7 @@
 import { emailService } from "../apps/mail/services/mail.service.js";
 import { MailSideBar } from "../apps/mail/cmps/mail-sidebar.jsx";
-import { eventBusService } from "../../../services/event-bus-service.js";
+import { eventBusService } from "../services/event-bus-service.js";
 import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
-// import { EmailList } from "./../apps/mail/cmps/mail-list.jsx";
-// import { eventBusService } from "../services/event-bus-service.js";
 
 // const { Link } = ReactRouterDOM;
 
@@ -16,8 +14,19 @@ export class AppEmail extends React.Component {
 
     componentDidMount() {
         this.loadEmails()
+<<<<<<< HEAD
         // this.props.history.push('/email/inbox')
 
+=======
+        this.props.history.push('/email/inbox')
+        this.removeEvent = eventBusService.on('search-txt', (searchByTxt) => {
+            this.getSerachTxt(searchByTxt)
+        })
+    }
+
+    componentWillUnmount() {
+        this.removeEvent()
+>>>>>>> 22a30931fc53ae44ba5314ee7381b82387fa3c75
     }
 
     loadEmails = () => {
@@ -76,9 +85,7 @@ export class AppEmail extends React.Component {
             <EmailList emails={emails}
                 isReadUpdate={this.getUpdateMail}
                 isStarUpdate={this.getUpdateStar}
-                removeEmail={this.getRemoveMail}
-                searchTxt={this.getSerachTxt} />
-
+                removeEmail={this.getRemoveMail} />
         </section>
     }
 }

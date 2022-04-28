@@ -1,3 +1,4 @@
+import { eventBusService } from "../../../services/event-bus-service.js"
 
 export class EmailFilter extends React.Component {
     state = {
@@ -12,8 +13,8 @@ export class EmailFilter extends React.Component {
     onSave = (ev) => {
         ev.preventDefault()
         const { searchByTxt } = this.state
-        const { searchTxt } = this.props
-        searchTxt(searchByTxt)
+        eventBusService.emit('search-txt', searchByTxt)
+
     }
 
     render() {
@@ -26,7 +27,7 @@ export class EmailFilter extends React.Component {
                         name='searchByTxt'
                         value={searchByTxt}
                         onChange={this.handleChange}
-                        placeholder='Search'
+                        placeholder='Search mail'
                     />
                 </form>
             </section>

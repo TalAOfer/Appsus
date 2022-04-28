@@ -13,56 +13,84 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    font-weight: 700;
+    font-size: 0.875rem;
 }
 
 .sidbar-list *:hover {
-    background-color: lightgray;
-    border-end-end-radius: 50px;
-    margin-right: 10px;
+    background-color: rgba(239, 241, 242);
+    border-radius: 0px 20px 20px 0px;
+    /* margin-right: 10px; */
+    font-weight: 700;
+    font-size: 0.875rem;
     cursor: pointer;
 }
 
 .sidbar-list .active{
-    background-color: rgba(255, 249, 85, 0.792);
-    border-end-end-radius: 50px;
-    margin-right: 10px;
-    /* border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px; */
+    background-color: rgba(251, 229, 227);
+    color: rgb(211,47,41);
+    font-size: 0.875rem;
+    font-weight: 700;
     display: flex;
+    border-radius: 0px 20px 20px 0px;
 }
 
 .sidebar-precantage-container {
     background-color: white;
     text-align: center;
-    border: 1px solid #121212;
+    /* border: 1px solid #121212; */
     margin: 5px;
+    height: 25px;
     border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
 
 .sidebar-precantage {
     background-color: lightgreen;
+    height: 25px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar-btn-container{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     align-items: center;
-    margin: 10px
+}
+
+.sidebar-btn-container *{
+    text-decoration: none;
 }
 
 .sidbar-btn{
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
     background-color: unset;
-    border-radius: 10px;
-    border: 1px solid #121212;
-    height: 28px;
-    width: 100px;
+    border-radius: 24px;
+    border: none;
+    height: 48px;
     cursor: pointer;
+    font-weight: 500;
+    width: 126px;
+    padding: 0px 15px 0 15px;
+    font-size: .875rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidbar-btn img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    display: block;
 }
 
 .sidbar-btn:hover{
-    background-color: rgba(255, 249, 85, 0.792);
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+    background-color: #fafafb;
 }
 
 .filter-btn img{

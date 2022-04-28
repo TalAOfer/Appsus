@@ -1,6 +1,6 @@
-import { EmailsPreview } from "../cmps/mail-preview.jsx";
-// import { EmailDetails } from "../pages/email-details.jsx";
-// import { EmailCompose } from "../pages/email-compose.jsx";
+// import { EmailsPreview } from "../cmps/mail-preview.jsx";
+import { EmailDetails } from "../pages/email-details.jsx";
+import { EmailCompose } from "../pages/email-compose.jsx";
 
 import { eventBusService } from "../../../services/event-bus-service.js";
 
@@ -34,9 +34,9 @@ export class EmailList extends React.Component {
             <React.Fragment>
                 <section className="email-list">
                     <EmailFilter searchTxt={searchTxt}/>
-                    {/* {emailId && <Route path={`/email/${emailId}`} component={EmailDetails} />}
-                    {<Route path={`/email/new_email`} component={EmailCompose} />} */}
-                    {emails.map((email) => (<EmailsPreview key={email.id} email={email} isReadUpdate={isReadUpdate} isStarUpdate={isStarUpdate} removeEmail={removeEmail} />))}
+                    {emailId && <Route path={`/email/${emailId}`} component={EmailDetails} />}
+                    {<Route path={`/email/new_email`} component={EmailCompose} />}
+                    {/* {emails.map((email) => (<EmailsPreview key={email.id} email={email} isReadUpdate={isReadUpdate} isStarUpdate={isStarUpdate} removeEmail={removeEmail} />))} */}
                 </section>
             </React.Fragment>
         )

@@ -21,6 +21,7 @@
 @import url(apps/mail/mail-preview.css);
 @import url(apps/mail/email-details.css);
 @import url(apps/mail/email-compose.css);
+@import url(apps/mail/email-filter.css);
 
 /* SidBar */
 @import url(apps/mail/side-bar.css);

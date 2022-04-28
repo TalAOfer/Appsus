@@ -122,37 +122,32 @@ const criteria = {
 
 _createEmails()
 
-function query(status) {
+function query(status, searchByTxt) {
     let emails = _loadFromStorage()
     let emailFilterd = []
-    if (status === 'inbox') {
-        for (const email in emails) {
-            if (emails[email].receivedAt && !emails[email].removeAt) emailFilterd.push(emails[email])
+    let emailFilterdWithSearch = []
+    searchByTxt = searchByTxt.toLowerCase()
+
+    for (const email in emails) {
+        let currEmail = emails[email]
+        if (status === 'inbox') { if (currEmail.receivedAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
+        else if (status === 'starred') {
+            if (!currEmail.isStared) continue
+            emailFilterd.push(currEmail)
         }
+        else if (status === 'sent') { if (currEmail.sentAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
+        else if (status === 'trash') { if (currEmail.removeAt) emailFilterd.push(currEmail) }
+        else if (status === 'draft') { if (currEmail.receivedAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
     }
-    else if (status === 'starred') {
-        for (const email in emails) {
-            if (!emails[email].isStared) continue
-            emailFilterd.push(emails[email])
-        }
-    }
-    else if (status === 'sent') {
-        for (const email in emails) {
-            if (emails[email].sentAt && !emails[email].removeAt) emailFilterd.push(emails[email])
-        }
-    }
-    // else if (status === 'draft') {
-    //     for (const email in emails) {
-    //         if (emails[email].receivedAt && !emails[email].removeAt) emailFilterd.push(emails[email])
-    //     }
-    // }
-    else if (status === 'trash') {
-        for (const email in emails) {
-            if (emails[email].removeAt) emailFilterd.push(emails[email])
+    for (const email in emailFilterd) {
+        let currEmail = emailFilterd[email]
+        if (currEmail.body.toLowerCase().includes(searchByTxt) || currEmail.subject.toLowerCase().includes(searchByTxt) ||
+        currEmail.from.toLowerCase().includes(searchByTxt) || currEmail.to.toLowerCase().includes(searchByTxt)) {
+            emailFilterdWithSearch.push(currEmail)
         }
     }
 
-    return Promise.resolve(emailFilterd)
+    return Promise.resolve(emailFilterdWithSearch)
 }
 
 function _createEmails() {
@@ -233,5 +228,5 @@ function getUnreadMailsCount() {
     emails.map((email) => {
         if (email.isRead === false) count++
     })
-    return Promise.resolve(count/emails.length)
+    return Promise.resolve(count / emails.length)
 }

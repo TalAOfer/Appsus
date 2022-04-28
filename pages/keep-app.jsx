@@ -3,11 +3,13 @@ import { NoteList } from '../apps/keep/cmps/note-list.jsx'
 import { NoteFilter } from '../apps/keep/cmps/note-filter.jsx'
 import { AddNote } from '../apps/keep/cmps/add-note.jsx'
 import { eventBusService } from '../services/event-bus-service.js'
+import { NoteDetails } from '../apps/keep/pages/note-details.jsx'
 
 export class KeepApp extends React.Component {
     state = {
         notes: null,
-        filterBy: null
+        filterBy: null,
+        chosenNote: null
     }
 
     componentDidMount() {
@@ -43,14 +45,26 @@ export class KeepApp extends React.Component {
                     .then(this.loadNotes())
     } 
 
+    handleChosenNote = (note) => {
+        // console.log(note)
+        this.setState({chosenNote: note})
+    }
+
+    onGoBack() {
+        this.setState({chosenNote: null})
+    }
+
     render() {
-        const { notes } = this.state
+        const { notes, chosenNote } = this.state
 
         return <section className="app-keep">
             <NoteFilter handleFilterChange={this.handleFilterChange}/>
             <div className="main-container">
+            {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange}/>}
+            {!chosenNote && <React.Fragment>
                 <AddNote handleAddNote={this.handleAddNote}/>
-                <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange}/>
+                <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handleChosenNote={this.handleChosenNote}/>
+            </React.Fragment>}
             </div>
         </section>
     }

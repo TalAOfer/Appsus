@@ -1,10 +1,6 @@
 
 export class NotePreview extends React.Component{
 
-    state = {
-        text: ''
-    }
-
     handleInputChange = ({target}) => {
         const color = target.value
         const id = target.name
@@ -12,7 +8,7 @@ export class NotePreview extends React.Component{
     }
 
     render() {
-    const { note, handleRemoveNote, handleColorChange } = this.props 
+    const { note, handleRemoveNote, handleChosenNote} = this.props 
 
     return <section className="note-preview" style={{backgroundColor: note.info.color}}>
         {note.type === 'text' && <p >{`${note.info.txt}`}</p>}
@@ -24,7 +20,7 @@ export class NotePreview extends React.Component{
             <img className="preview-btn" src="../assets/img/keep/palette.png" alt=""/>
             <input name={note.id} type="color" hidden onChange={this.handleInputChange}/>
             </label>
-
+            <div onClick={()=>handleChosenNote(note)}  className="preview-btn"> <img src="../assets/img/keep/pencil.png" alt="" /></div>
 
             
         </div>

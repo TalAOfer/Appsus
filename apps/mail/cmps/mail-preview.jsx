@@ -35,6 +35,7 @@ export class EmailsPreview extends React.Component {
         const displayEmail = (email.receivedAt) ? `${email.from}` : `${email.to}`
 
         const shortBody = `${email.body.substring(0, 50)}...`
+        const meduimBody = `${email.body.substring(0, 200)}...`
         const displayTime = new Date(email.receivedAt).toLocaleTimeString('it-IT')
         const read_unread = email.isRead ? '' : 'unread-mail'
         const readTxt = email.isRead ? 'Make It UnRead' : 'Make It Read'
@@ -61,7 +62,7 @@ export class EmailsPreview extends React.Component {
                             </div>
                         </div>
                         <p className="fullmail-name">{displayName} <span>{`<${displayEmail}>`}</span></p>
-                        <p className="fullmail-body">{email.body}</p>
+                        <p className="fullmail-body">{meduimBody}</p>
                         <p className="toggle-unread" onClick={this.onClickIsRead}>{readTxt}</p>
 
                     </div>}

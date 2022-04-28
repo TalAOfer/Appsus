@@ -1,0 +1,62 @@
+.email-compose {
+    position: absolute;
+    height: 80vh;
+    width: 99%;
+    background-color: white;
+    box-shadow: 0 0 15px 10px lightgrey;
+    padding: 10px;
+    color: grey;
+    border-radius: 5px;
+}
+
+.compose-btn-cls {
+    border: unset;
+    background-color: unset;
+    padding: 0px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    color: grey;
+}
+
+.compose-span {
+    font-weight: 500;
+    color: #121212;
+}
+
+.compose-body {
+    font-weight: 500;
+    color: #121212;
+    padding: 10px;
+}
+
+.email-compose form{
+    display: flex;
+    flex-direction: column;
+    height: 88%;
+    justify-content: flex-start;
+}
+
+.email-compose form * {
+    font-family: Lato-Light;
+    font-size: 16px;
+}
+
+textarea { 
+    height: 100%; 
+    font-size: 16px;
+}
+
+.send-btn {
+    background-color: unset;
+    /* border-radius: 10px; */
+    border: 1px solid #121212;
+    height: 28px;
+    /* width: 100px; */
+    cursor: pointer;
+    font-family: Lato-Black;
+}
+
+.send-btn:hover{
+    background-color: gold;
+
+}

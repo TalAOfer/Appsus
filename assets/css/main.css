@@ -18,6 +18,7 @@
 @import url(apps/mail/app-email.css);
 @import url(apps/mail/mail-preview.css);
 @import url(apps/mail/email-details.css);
+@import url(apps/mail/email-compose.css);
 
 /* SidBar */
 @import url(apps/mail/side-bar.css);

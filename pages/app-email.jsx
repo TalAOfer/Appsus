@@ -1,6 +1,6 @@
 import { emailService } from "../apps/mail/services/mail.service.js";
 import { MailSideBar } from "../apps/mail/cmps/mail-sidebar.jsx";
-
+import { eventBusService } from "../../../services/event-bus-service.js";
 import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
 // import { GoogleBookApi } from "../cmps/book-api.jsx";
 // import { eventBusService } from "../services/event-bus-service.js";
@@ -15,12 +15,20 @@ export class AppEmail extends React.Component {
 
     componentDidMount() {
         this.loadEmails()
+        this.props.history.push('/email/inbox')
+
     }
 
     loadEmails = () => {
         emailService
             .query(this.state.selectedStatus)
-            .then((emails) => this.setState({ emails }));
+            .then((emails) => this.setState({ emails }))
+            .then(()=> {
+                emailService.getUnreadMailsCount()
+                    .then((count)=>{
+                        eventBusService.emit('unread-emails', count)
+                    })
+            })
     }
 
     getCurrStatus = (status) => {

@@ -25,10 +25,10 @@ export class EmailDetails extends React.Component {
         const { email } = this.state
         return <section className="email-details">
             <button className="details-btn-cls" onClick={this.onGoBack}>X</button>
-            <div>{`To: ${email.to}`}</div> <hr />
-            <div>{`From: ${email.from}`}:</div> <hr />
-            <div>{`Subject: ${email.subject}`}:</div> <hr />
-            <div>{`${email.body}`}</div>
+            <div><span className="details-span">To: </span>{`${email.to}`}</div> <hr /> 
+            <div><span className="details-span">From:  </span>{`${email.from}`}:</div> <hr />
+            <div><span className="details-span">Subject: </span>{` ${email.subject}`}:</div> <hr />
+            <div className="details-body">{`${email.body}`}</div>
         </section>
     }
 

@@ -1,4 +1,4 @@
-.email-details{
+.email-details {
     position: absolute;
     height: 80vh;
     width: 99%;
@@ -16,4 +16,15 @@
     padding-bottom: 5px;
     font-size: 15px;
     color: grey;
+}
+
+.details-span {
+    font-weight: 500;
+    color: #121212;
+}
+
+.details-body {
+    font-weight: 500;
+    color: #121212;
+    padding: 10px;
 }

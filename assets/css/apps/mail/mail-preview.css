@@ -44,7 +44,7 @@
 }
 
 .email-display {
-    background-color: rgb(239, 235, 235);
+    background-color: rgb(254, 252, 252);
     /* height: 150px; */
 }
 
@@ -93,4 +93,14 @@
 
 .unread-mail {
     background-color: rgb(230 226 226 / 41%);
+}
+
+.toggle-unread {
+    cursor: pointer;
+}
+
+.toggle-unread:hover {
+    cursor: pointer;
+    color: green
+
 }

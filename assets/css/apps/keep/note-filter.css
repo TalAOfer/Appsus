@@ -11,6 +11,10 @@
     margin-bottom: 5px;
 }
 
+.note-filter a {
+    color:black
+}
+
 .note-filter .filter-btn {
     display: flex;
     align-items: center;

@@ -1,10 +1,6 @@
 .note-list {
     display: flex;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-    /* column-rule: 1px solid lightblue;
-    column-width: 220px;
-    column-fill: balance; */
-    margin-inline-start: 40px;
     gap: 20px;
     flex-wrap: wrap;
+    width: 100%;
 }

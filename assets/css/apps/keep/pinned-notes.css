@@ -1,0 +1,8 @@
+.pinned-notes {
+    width: 100%;
+    border-bottom: 1px solid var(--color1);
+    padding-bottom: 2.5rem;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}

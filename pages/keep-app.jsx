@@ -15,9 +15,7 @@ export class KeepApp extends React.Component {
     componentDidMount() {
         const {filterBy} = this.state
         this.loadNotes()
-        eventBusService.emit('user-msg', {
-            type: 'success', txt: 'Deleted car successfully'
-        })
+        console.log(this.props)
     }
 
     loadNotes() {
@@ -46,11 +44,20 @@ export class KeepApp extends React.Component {
     } 
 
     handleChosenNote = (note) => {
-        // console.log(note)
         this.setState({chosenNote: note})
     }
 
-    onGoBack() {
+    handlePinChange = (id) => {
+        noteService.changePin(id)
+                .then(this.loadNotes())
+    }
+
+    handleTextChange = (id, text) => {
+        noteService.changeNoteText(id, text)
+                .then(this.loadNotes())
+    }
+
+    onGoBack = () => {
         this.setState({chosenNote: null})
     }
 
@@ -60,10 +67,10 @@ export class KeepApp extends React.Component {
         return <section className="app-keep">
             <NoteFilter handleFilterChange={this.handleFilterChange}/>
             <div className="main-container">
-            {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange}/>}
+            {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handlePinChange={this.handlePinChange} handleTextChange={this.handleTextChange}/>}
             {!chosenNote && <React.Fragment>
                 <AddNote handleAddNote={this.handleAddNote}/>
-                <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handleChosenNote={this.handleChosenNote}/>
+                <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handleChosenNote={this.handleChosenNote} handlePinChange={this.handlePinChange} history={this.props.history}/>
             </React.Fragment>}
             </div>
         </section>

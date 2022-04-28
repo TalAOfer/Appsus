@@ -30,15 +30,16 @@
     display: flex;
     gap: 10px;
     align-content: center;
-    opacity: 0.1;
-    transition: 0.3s;
+    
 }
 
 .note-preview .preview-btns .preview-btn {
+    opacity: 0.1;
+    transition: 0.3s;
     cursor: pointer;
 }
 
-.note-preview .preview-btns:hover {
+.note-preview .preview-btns .preview-btn:hover {
     opacity: 1;
 }
 

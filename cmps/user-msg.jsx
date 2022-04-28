@@ -19,17 +19,17 @@ export class UserMsg extends React.Component {
             this.timeoutId = setTimeout(this.onCloseMsg, 3000)
         })
 
-        this.removeEvent = eventBusService.on('email-id', (emailId) => {
-            this.setState({ emailId })
-        })
+        // this.removeEvent = eventBusService.on('email-id', (emailId) => {
+        //     this.setState({ emailId })
+        // })
 
-        this.removeEvent = eventBusService.on('unread-emails', (unReadEmails) => {
-            this.setState({ unReadEmails })
-        })
+        // this.removeEvent = eventBusService.on('unread-emails', (unReadEmails) => {
+        //     this.setState({ unReadEmails })
+        // })
 
-        this.removeEvent = eventBusService.on('new-email', (newEmail) => {
-            this.setState({ newEmail })
-        })
+        // this.removeEvent = eventBusService.on('new-email', (newEmail) => {
+        //     this.setState({ newEmail })
+        // })
     }
 
     componentWillUnmount() {

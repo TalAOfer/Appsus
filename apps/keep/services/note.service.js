@@ -3,26 +3,30 @@ import { utilService } from "../../../services/util.service.js"
 
 export const noteService = {
     query,
-    addNote
+    addNote,
+    removeNote,
+    changeNoteColor
 }
 
 const NOTES_KEY = 'noteDB'
 
 const gNotes = [
     {
-     id: "n101",
-     type: "text",
-     isPinned: true,
-     info: {
-     txt: "Fullstack Me Baby!"
-     }
+        id: "n101",
+        type: "text",
+        isPinned: true,
+        info: {
+            txt: "Fullstack Me Baby!",
+            color: 'white'
+        }
     },
     {
         id: "n102",
         type: "video",
         isPinned: false,
         info: {
-        txt: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
+            txt: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`,
+            color: '#F9FFA4'
         }
     },
     {
@@ -30,34 +34,37 @@ const gNotes = [
         type: "text",
         isPinned: false,
         info: {
-        txt: `And if I only could
+            txt: `And if I only could
         I'd make a deal with God
         And I'd get him to swap our places
         Be running up that road
         Be running up that hill
-        Be running up that building`
-    }
+        Be running up that building`,
+            color: 'white'
+        }
     },
     {
         id: "n104",
         type: "image",
         isPinned: false,
         info: {
-        txt: `https://thumbs.dreamstime.com/b/crazy-cat-tongue-hanging-out-40087599.jpg`
-    }
+            txt: `https://thumbs.dreamstime.com/b/crazy-cat-tongue-hanging-out-40087599.jpg`,
+            color: '#B4FF9F'
+        }
     },
     {
         id: "n105",
         type: "text",
         isPinned: false,
         info: {
-        txt: `Say, if I only could
+            txt: `Say, if I only could
         I'd make a deal with God
         And I'd get him to swap our places
         I'd be running up that road
         Be running up that hill
-        With no problems`
-    }
+        With no problems`,
+        color: 'white'
+        }
     }
 ]
 
@@ -67,40 +74,74 @@ const gTrash = [
         type: "text",
         isPinned: true,
         info: {
-        txt: "Trashcanning!"
+            txt: "Trashcanning!"
         }
     }
 ]
 
 function query(filterBy) {
     let notes = storageService.loadFromStorage(NOTES_KEY)
-    if (!notes) {
-    notes = gNotes
-    storageService.saveToStorage(NOTES_KEY, notes)
-    
-  }
+    if (!notes || notes.length === 0) {
+        notes = gNotes
+        storageService.saveToStorage(NOTES_KEY, notes)
 
-  if (filterBy) {
-    notes = notes.filter(note => note.type === filterBy)
-}
+    }
 
-  return Promise.resolve(notes)
+    if (filterBy) {
+        notes = notes.filter(note => note.type === filterBy)
+    }
+
+    return Promise.resolve(notes)
 }
 
 function addNote(txt, type) {
     let notes = storageService.loadFromStorage(NOTES_KEY)
 
-        const newNote = {
+    const newNote = {
         id: utilService.makeId(),
         type,
         isPinned: false,
         info: {
-        txt
+            txt,
+            color:white
         }
-       }
+    }
 
     notes.unshift(newNote)
     storageService.saveToStorage(NOTES_KEY, notes)
 
+    return Promise.resolve()
+}
+
+function _getNoteIdxById(noteId) {
+    console.log(noteId)
+    const notes = storageService.loadFromStorage(NOTES_KEY)
+    const noteIdx = notes.findIndex(note => noteId === note.id)
+
+    return noteIdx
+}
+
+function _getNoteById(noteId) {
+    const notes = storageService.loadFromStorage(NOTES_KEY)
+    const note = notes.find(note => noteId === note.id)
+
+    return note
+}
+
+function removeNote(noteId) {
+    const notes = storageService.loadFromStorage(NOTES_KEY)
+    console.log(notes)
+    const noteIdx = _getNoteIdxById(noteId)
+    notes.splice(noteIdx, 1)
+    storageService.saveToStorage(NOTES_KEY, notes)
+    return Promise.resolve()
+
+}
+
+function changeNoteColor(noteId, color) {
+    const notes = storageService.loadFromStorage(NOTES_KEY)
+    const noteIdx = _getNoteIdxById(noteId)
+    notes[noteIdx].info.color = color
+    storageService.saveToStorage(NOTES_KEY, notes)
     return Promise.resolve()
 }

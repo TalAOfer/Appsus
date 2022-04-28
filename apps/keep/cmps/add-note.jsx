@@ -40,7 +40,7 @@ export class AddNote extends React.Component {
                 <div>
                     <img src="../assets/img/keep/video.png" onClick={() => this.onChangeInput('video')}/></div>
                 <div>
-                    <img src="../assets/img/keep/todo.png" alt="" />
+                    {/* <img src="../assets/img/keep/todo.png" alt="" /> */}
                 </div>
             </div>
         </section>

@@ -1,10 +1,13 @@
 import { NotePreview } from "./note-preview.jsx"
+import { PinnedNotes } from "./pinned-notes.jsx"
 
-export function NoteList({notes, handleRemoveNote, handleColorChange, handleChosenNote}) {
+export function NoteList({notes, handleRemoveNote, handleColorChange, handleChosenNote, handlePinChange}) {
+    const props = {notes, handleRemoveNote, handleColorChange, handleChosenNote, handlePinChange}
 
         return <React.Fragment>
+            {notes && <PinnedNotes {...props}/>}
             {notes && <section className="note-list">
-                {notes.map(note=><NotePreview key={note.id} note={note} handleRemoveNote={handleRemoveNote} handleColorChange={handleColorChange} handleChosenNote={handleChosenNote}/>)}
+                {notes.map(note=><NotePreview key={note.id} note={note} handleRemoveNote={handleRemoveNote} handleColorChange={handleColorChange} handleChosenNote={handleChosenNote} handlePinChange={handlePinChange}/>)}
                 </section>}
             </React.Fragment>
 

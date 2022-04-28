@@ -5,8 +5,20 @@ export class NoteDetails extends React.Component {
         color: this.props.note.info.color
     }
 
-    handleChange = ({ target }) => {
-        console.log(target)
+    handleTextChange = ({ target }) => {
+        this.setState({text: target.value})
+    }
+
+    handleInputChange = ({target}) => {
+        const color = target.value
+        const id = target.name
+        this.setState({color: target.value})
+        this.props.handleColorChange(id, color)
+    }
+
+    onDelete = (id) => {
+        this.props.handleRemoveNote(id)
+        this.props.onGoBack()
     }
 
     render() {
@@ -18,17 +30,23 @@ export class NoteDetails extends React.Component {
 
         return <section className="note-details">
 
-            <div className="edit-container">
+            <div className="edit-container" style={{backgroundColor: this.state.color}}>
                 <div className="text-container">
-                    <textarea deafultValue={text} onChange={this.handleChange}>  </textarea>
+                    <textarea value={this.state.text} onChange={this.handleTextChange}>  </textarea>
                 </div>
 
-                <div className="edit-btns">
-                    <div onClick={() => handleRemoveNote(note.id)} className="edit-btn"> <img src="../assets/img/keep/trash.png" alt="" /></div>
+                <div className="edit-btns-container">
+                    <div className="edit-btns">
+                    <div onClick={() => {this.onDelete(note.id)}} className="edit-btn"> <img src="../assets/img/keep/trash.png" alt="" /></div>
                     <label >
                         <img className="edit-btn" src="../assets/img/keep/palette.png" alt="" />
                         <input name={note.id} type="color" hidden onChange={this.handleInputChange} />
                     </label>
+                    </div>
+                    <div className="back-btn-container">
+                    <button className="back-btn" onClick={this.props.onGoBack}> Save </button>
+                    <button className="back-btn" onClick={this.props.onGoBack}> Back </button>
+                    </div>
                 </div>
             </div>
 

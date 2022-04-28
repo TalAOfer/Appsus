@@ -46,11 +46,15 @@ export class KeepApp extends React.Component {
     } 
 
     handleChosenNote = (note) => {
-        // console.log(note)
         this.setState({chosenNote: note})
     }
 
-    onGoBack() {
+    handlePinChange = (id) => {
+        noteService.changePin(id)
+                .then(this.loadNotes())
+    }
+
+    onGoBack = () => {
         this.setState({chosenNote: null})
     }
 
@@ -60,10 +64,10 @@ export class KeepApp extends React.Component {
         return <section className="app-keep">
             <NoteFilter handleFilterChange={this.handleFilterChange}/>
             <div className="main-container">
-            {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange}/>}
+            {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handlePinChange={this.handlePinChange}/>}
             {!chosenNote && <React.Fragment>
                 <AddNote handleAddNote={this.handleAddNote}/>
-                <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handleChosenNote={this.handleChosenNote}/>
+                <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handleChosenNote={this.handleChosenNote} handlePinChange={this.handlePinChange}/>
             </React.Fragment>}
             </div>
         </section>

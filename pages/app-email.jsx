@@ -16,7 +16,7 @@ export class AppEmail extends React.Component {
 
     componentDidMount() {
         this.loadEmails()
-        this.props.history.push('/email/inbox')
+        // this.props.history.push('/email/inbox')
 
     }
 

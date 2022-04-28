@@ -17,12 +17,12 @@ export class AppEmail extends React.Component {
     componentDidMount() {
         this.loadEmails()
         this.props.history.push('/email/inbox')
-
     }
 
     loadEmails = () => {
+        const { selectedStatus, searchByTxt } = this.state
         emailService
-            .query(this.state.selectedStatus)
+            .query(selectedStatus, searchByTxt)
             .then((emails) => this.setState({ emails }))
             .then(() => {
                 emailService.getUnreadMailsCount()
@@ -73,9 +73,9 @@ export class AppEmail extends React.Component {
         return <section className="app-email">
             <MailSideBar status={this.getCurrStatus} />
             <EmailList emails={emails}
-                isReadUpdate={this.getUpdateMail} 
-                isStarUpdate={this.getUpdateStar} 
-                removeEmail={this.getRemoveMail} 
+                isReadUpdate={this.getUpdateMail}
+                isStarUpdate={this.getUpdateStar}
+                removeEmail={this.getRemoveMail}
                 searchTxt={this.getSerachTxt} />
 
         </section>

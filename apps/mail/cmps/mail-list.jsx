@@ -4,7 +4,7 @@ import { EmailCompose } from "../pages/email-compose.jsx";
 import { eventBusService } from "../../../services/event-bus-service.js";
 // import { EmailFilter } from "../../mail/cmps/mail-filter.jsx";
 // import { EmailFilter } from "../cmps/mail-filter.jsx";
-import { EmailFilter } from "./../cmps/mail-filter.jsx";
+// import { EmailFilter } from "./../cmps/mail-filter.jsx";
 
 const { Route, NavLink, Link } = ReactRouterDOM;
 
@@ -30,7 +30,7 @@ export class EmailList extends React.Component {
         return (
             <React.Fragment>
                 <section className="email-list">
-                    <EmailFilter searchTxt={searchTxt}/>
+                    {/* <EmailFilter searchTxt={searchTxt}/> */}
                     {emailId && <Route path={`/email/${emailId}`} component={EmailDetails} />}
                     {<Route path={`/email/new_email`} component={EmailCompose} />}
                     {emails.map((email) => (<EmailsPreview key={email.id} email={email} isReadUpdate={isReadUpdate} isStarUpdate={isStarUpdate} removeEmail={removeEmail} />))}

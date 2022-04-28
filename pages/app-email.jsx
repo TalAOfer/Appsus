@@ -2,7 +2,6 @@ import { emailService } from "../apps/mail/services/mail.service.js";
 import { MailSideBar } from "../apps/mail/cmps/mail-sidebar.jsx";
 import { eventBusService } from "../../../services/event-bus-service.js";
 import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
-import { EmailFilter } from "../apps/mail/cmps/mail-filter.jsx";
 
 // import { eventBusService } from "../services/event-bus-service.js";
 
@@ -11,7 +10,8 @@ import { EmailFilter } from "../apps/mail/cmps/mail-filter.jsx";
 export class AppEmail extends React.Component {
     state = {
         emails: '',
-        selectedStatus: 'inbox'
+        selectedStatus: 'inbox',
+        searchByTxt: ''
     }
 
     componentDidMount() {
@@ -24,9 +24,9 @@ export class AppEmail extends React.Component {
         emailService
             .query(this.state.selectedStatus)
             .then((emails) => this.setState({ emails }))
-            .then(()=> {
+            .then(() => {
                 emailService.getUnreadMailsCount()
-                    .then((count)=>{
+                    .then((count) => {
                         eventBusService.emit('unread-emails', count)
                     })
             })
@@ -34,39 +34,50 @@ export class AppEmail extends React.Component {
 
     getCurrStatus = (status) => {
         console.log(status);
-        this.setState({selectedStatus: status}, ()=>{
+        this.setState({ selectedStatus: status }, () => {
             this.loadEmails()
         })
     }
 
     getUpdateMail = (isRead, emailId) => {
         emailService.changeReadStatus(isRead, emailId)
-            .then(()=> {
+            .then(() => {
                 this.loadEmails()
             })
     }
-    
+
     getUpdateStar = (isStared, emailId) => {
         emailService.changeStarStatus(isStared, emailId)
-            .then(()=> {
+            .then(() => {
                 this.loadEmails()
             })
     }
 
     getRemoveMail = (emailId) => {
         emailService.removeEmailMethod(emailId)
-            .then(()=> {
+            .then(() => {
                 this.loadEmails()
             })
     }
 
+    getSerachTxt = (txt) => {
+        console.log(txt);
+        this.setState({ searchByTxt: txt }, () => {
+            this.loadEmails()
+        })
+    }
+
     render() {
-        const {emails} = this.state
+        const { emails } = this.state
         if (!emails) return <section>Loader...</section>
         return <section className="app-email">
-            {/* <EmailFilter/> */}
-            <MailSideBar status={this.getCurrStatus}/>
-            <EmailList emails={emails} isReadUpdate={this.getUpdateMail} isStarUpdate={this.getUpdateStar} removeEmail={this.getRemoveMail}/>
+            <MailSideBar status={this.getCurrStatus} />
+            <EmailList emails={emails}
+                isReadUpdate={this.getUpdateMail} 
+                isStarUpdate={this.getUpdateStar} 
+                removeEmail={this.getRemoveMail} 
+                searchTxt={this.getSerachTxt} />
+
         </section>
     }
 }

@@ -122,7 +122,7 @@ const criteria = {
 
 _createEmails()
 
-function query(status) {
+function query(status, searchByTxt) {
     let emails = _loadFromStorage()
     let emailFilterd = []
     if (status === 'inbox') {
@@ -151,6 +151,27 @@ function query(status) {
             if (emails[email].removeAt) emailFilterd.push(emails[email])
         }
     }
+
+    // for (const email in emails) {
+    //     if (status === 'inbox') if (emails[email].receivedAt && !emails[email].removeAt) emailFilterd.push(emails[email])
+    //     else if (status === 'starred') {
+    //         if (!emails[email].isStared) continue
+    //         emailFilterd.push(emails[email])
+    //     }
+    //     else if (status === 'sent') if (emails[email].sentAt && !emails[email].removeAt) emailFilterd.push(emails[email])
+    //     else if (status === 'trash') if (emails[email].removeAt) emailFilterd.push(emails[email])
+        // else if (status === 'draft') {
+        //         if (emails[email].receivedAt && !emails[email].removeAt) emailFilterd.push(emails[email])
+        // }
+    // }
+
+    // // Search...
+    // searchByTxt
+    // if ()
+    // subject
+    // body
+    // from
+    // to
 
     return Promise.resolve(emailFilterd)
 }
@@ -233,5 +254,5 @@ function getUnreadMailsCount() {
     emails.map((email) => {
         if (email.isRead === false) count++
     })
-    return Promise.resolve(count/emails.length)
+    return Promise.resolve(count / emails.length)
 }

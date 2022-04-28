@@ -72,11 +72,11 @@ export class AppEmail extends React.Component {
         if (!emails) return <section>Loader...</section>
         return <section className="app-email">
             <MailSideBar status={this.getCurrStatus} />
-            {/* <EmailList emails={emails}
+            <EmailList emails={emails}
                 isReadUpdate={this.getUpdateMail}
                 isStarUpdate={this.getUpdateStar}
                 removeEmail={this.getRemoveMail}
-                searchTxt={this.getSerachTxt} /> */}
+                searchTxt={this.getSerachTxt} />
 
         </section>
     }

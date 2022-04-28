@@ -50,7 +50,7 @@ export class EmailsPreview extends React.Component {
             <React.Fragment>
 
                 <article className={`email-preview ${read_unread}`}>
-                    <img onClick={this.onClickIsStared} className="star-preview" src={`../assets/img/mail/${star}.png`}></img>
+                    <img onClick={this.onClickIsStared} className="star-preview" src={`assets/img/mail/${star}.png`}></img>
                     <p onClick={this.onClickMail} className="mail-name">&nbsp;&nbsp;&nbsp;{displayName}</p>
                     <div onClick={this.onClickMail} className="txt-container">
                         <p className="mail-subject">{email.subject}</p>
@@ -64,8 +64,8 @@ export class EmailsPreview extends React.Component {
                         <div className="fullmail-subject">
                             {email.subject}
                             <div className="fullmail-btn">
-                                <button className="delete-mail" onClick={this.onClickRemove}><img src="../assets/img/mail/trash.png"></img></button>
-                                <NavLink to={`/email/${email.id}`}><button className="expand-mail"><img src="../assets/img/mail/expand.png"></img></button></NavLink>
+                                <button className="delete-mail" onClick={this.onClickRemove}><img src="assets/img/mail/trash.png"></img></button>
+                                <NavLink to={`/email/${email.id}`}><button className="expand-mail"><img src="assets/img/mail/expand.png"></img></button></NavLink>
 
                             </div>
                         </div>

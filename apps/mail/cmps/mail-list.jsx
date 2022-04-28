@@ -22,7 +22,7 @@ export class EmailList extends React.Component {
     }
 
     render() {
-        const { emails, isReadUpdate, removeEmail } = this.props
+        const { emails, isReadUpdate, removeEmail, isStarUpdate } = this.props
         const { emailId } = this.state
        
         return (
@@ -31,13 +31,13 @@ export class EmailList extends React.Component {
                     { emailId && <Route path={`/email/${emailId}`} component={EmailDetails} />}
                     { <Route path={`/email/new_email`} component={EmailCompose} />}
 
-                    {emails.map((email) => (<EmailsPreview key={email.id} email={email} isReadUpdate={isReadUpdate} removeEmail={removeEmail} />))}
+                    {emails.map((email) => (<EmailsPreview key={email.id} email={email} isReadUpdate={isReadUpdate} isStarUpdate={isStarUpdate} removeEmail={removeEmail} />))}
                 </section>
             </React.Fragment>
         )
     }
-
 }
+
 
 
 

@@ -20,6 +20,11 @@ export class EmailsPreview extends React.Component {
         isReadUpdate(!email.isRead, email.id)
     }
 
+    onClickIsStared = () => {
+        const { email, isStarUpdate } = this.props
+        isStarUpdate(!email.isStared, email.id)
+    }
+
     onClickRemove = () => {
         const { email, removeEmail } = this.props
         removeEmail(email.id)
@@ -39,12 +44,15 @@ export class EmailsPreview extends React.Component {
         const displayTime = new Date(email.receivedAt).toLocaleTimeString('it-IT')
         const read_unread = email.isRead ? '' : 'unread-mail'
         const readTxt = email.isRead ? 'Make It UnRead' : 'Make It Read'
+        const star = email.isStared ? 'starFill' : 'starUnFill'
 
         return (
             <React.Fragment>
-                <article onClick={this.onClickMail} className={`email-preview ${read_unread}`}>
-                    <p className="mail-name">{displayName}</p>
-                    <div className="txt-container">
+
+                <article className={`email-preview ${read_unread}`}>
+                    <img onClick={this.onClickIsStared} className="star-preview" src={`../assets/img/mail/${star}.png`}></img>
+                    <p onClick={this.onClickMail} className="mail-name">&nbsp;&nbsp;&nbsp;{displayName}</p>
+                    <div onClick={this.onClickMail} className="txt-container">
                         <p className="mail-subject">{email.subject}</p>
                         <p className="mail-body">{shortBody}</p>
                     </div>

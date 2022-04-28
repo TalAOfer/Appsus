@@ -7,7 +7,8 @@ export const emailService = {
     removeEmailMethod,
     getEmailById,
     saveEmail,
-    getUnreadMailsCount
+    getUnreadMailsCount,
+    changeStarStatus
 }
 
 const MAIL_KEY = 'emailDB'
@@ -168,6 +169,8 @@ function _createEmail(email) {
         subject: email.subject,
         body: email.body,
         isRead: email.isRead,
+        isStared: false,
+        receivedAt: '',
         sentAt: Date.now(),
         to: email.to,
 
@@ -188,6 +191,14 @@ function changeReadStatus(isRead, emailId) {
     let emails = _loadFromStorage()
     let emailIdx = emails.findIndex(email => email.id === emailId)
     emails[emailIdx].isRead = isRead
+    _saveToStorage(emails)
+    return Promise.resolve()
+}
+
+function changeStarStatus(isStared, emailId) {
+    let emails = _loadFromStorage()
+    let emailIdx = emails.findIndex(email => email.id === emailId)
+    emails[emailIdx].isStared = isStared
     _saveToStorage(emails)
     return Promise.resolve()
 }

@@ -10,6 +10,9 @@
     color: #121212;
     /* margin-left: 10px;
     padding-left: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .sidbar-list *:hover {
@@ -28,11 +31,16 @@
     display: flex;
 }
 
-.sidebar-precantage {
+.sidebar-precantage-container {
     background-color: white;
     text-align: center;
     border: 1px solid #121212;
     margin: 5px;
+    border-radius: 10px;
+}
+
+.sidebar-precantage {
+    background-color: lightgreen;
     border-radius: 10px;
 }
 
@@ -55,4 +63,10 @@
 
 .sidbar-btn:hover{
     background-color: rgba(255, 249, 85, 0.792);
+}
+
+.filter-btn img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
 }

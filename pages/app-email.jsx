@@ -44,6 +44,13 @@ export class AppEmail extends React.Component {
                 this.loadEmails()
             })
     }
+    
+    getUpdateStar = (isStared, emailId) => {
+        emailService.changeStarStatus(isStared, emailId)
+            .then(()=> {
+                this.loadEmails()
+            })
+    }
 
     getRemoveMail = (emailId) => {
         emailService.removeEmailMethod(emailId)
@@ -57,8 +64,7 @@ export class AppEmail extends React.Component {
         if (!emails) return <section>Loader...</section>
         return <section className="app-email">
             <MailSideBar status={this.getCurrStatus}/>
-            <EmailList emails={emails} isReadUpdate={this.getUpdateMail} removeEmail={this.getRemoveMail}/>
+            <EmailList emails={emails} isReadUpdate={this.getUpdateMail} isStarUpdate={this.getUpdateStar} removeEmail={this.getRemoveMail}/>
         </section>
     }
-
 }

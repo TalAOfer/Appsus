@@ -6,6 +6,7 @@ export class UserMsg extends React.Component {
         msg: null,
         emailId: null,
         unReadEmails: null,
+        newEmail: null
     }
 
     removeEvent;
@@ -24,6 +25,10 @@ export class UserMsg extends React.Component {
 
         this.removeEvent = eventBusService.on('unread-emails', (unReadEmails) => {
             this.setState({ unReadEmails })
+        })
+
+        this.removeEvent = eventBusService.on('new-email', (newEmail) => {
+            this.setState({ newEmail })
         })
     }
 

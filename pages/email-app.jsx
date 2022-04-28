@@ -3,8 +3,6 @@ import { MailSideBar } from "../apps/mail/cmps/mail-sidebar.jsx";
 import { eventBusService } from "../services/event-bus-service.js";
 import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
 
-// const { Link } = ReactRouterDOM;
-
 export class AppEmail extends React.Component {
     state = {
         emails: '',

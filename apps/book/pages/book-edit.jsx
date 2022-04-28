@@ -1,4 +1,4 @@
-import { bookService } from '../services/book.service.js'
+import { bookService } from "../apps/book/services/cmps/book.service.js";
 
 const { Link } = ReactRouterDOM
 

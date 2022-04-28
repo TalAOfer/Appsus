@@ -18,11 +18,13 @@ export function BookPreview({ book }) {
   return (
     <Link to={`/book/${book.id}`} style={{textDecoration: 'none'}}>
       <article className='book-preview'>
+        <div className="book-header">
         <h2>{book.title}</h2>
+        <h2>{priceWithCurrency}</h2>
+        </div>
         <div className='image'>
           <img src={book.thumbnail} alt='' />
         </div>
-        <h3>{priceWithCurrency}</h3>
       </article>
     </Link>
   );

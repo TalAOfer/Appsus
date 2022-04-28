@@ -1,20 +1,29 @@
 .app-home {
-    width: 50%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     margin: auto;
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    align-items: stretch
 }
 
-.app-home * {
+.app-home a {
     cursor: pointer;
-    border: 1px solid rgb(214, 214, 220);
-    height: 100px;
-    width: 100px;
+    height: 300px;
+    /* width: 100px; */
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    color: #121212;
+    background-color: white;
+    flex-grow: 1;
+    font-size: 60px;
+    margin: 10px;
+    margin-top: 0;
+}
+
+.app-home a:hover {
+    box-shadow: grey 0 0 6px 0px;
 }

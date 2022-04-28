@@ -1,9 +1,9 @@
-import { bookService } from "../services/book.service.js";
-import { googleApiService } from "../services/google-api.service.js";
-import { BookList } from "../cmps/book-list.jsx";
-import { BookFilter } from "../cmps/book-filter.jsx";
-import { GoogleBookApi } from "../cmps/book-api.jsx";
-import { eventBusService } from "../services/event-bus-service.js";
+import { bookService } from "../apps/book/services/book.service.js"
+import { googleApiService } from "../apps/book/services/google-api.service.js"
+import { BookList} from "../apps/book/cmps/book-list.jsx";
+import { BookFilter } from "../apps/book/cmps/book-filter.jsx";
+import { GoogleBookApi } from "../apps/book/cmps/book-api.jsx"; 
+import { eventBusService } from "../services/event-bus-service.js"; 
 
 const { Link } = ReactRouterDOM;
 
@@ -36,7 +36,6 @@ export class BookApp extends React.Component {
         this.setState({ googleResults: [] })
       })
       .then(() => {
-        // this.onGoBack()
         eventBusService.emit('user-msg', {
             type: 'success', txt: `Book "${book.title}" was successfully added`, bookId: book.id
         })
@@ -61,7 +60,6 @@ export class BookApp extends React.Component {
     });
   };
 
-  // wait until finish update filter and then LoadBook
   onSetFilter = (filter) => {
     this.setState({ filterBy: filter }, () => {
       this.loadBooks();
@@ -80,9 +78,8 @@ export class BookApp extends React.Component {
         <BookFilter filterBy={filterBy} onSetFilter={this.onSetFilter} />
         <div className="btn-add-container">
           <GoogleBookApi searchApi={this.onSearchBookApi} googleResults={googleResults} selectGoogleBook={this.onAddBookFromGoogle}/>
-          <Link to={`/book/edit/`}><button className="add-btn">Add Book Manually</button></Link>
+          {/* <Link to={`/book/edit/`}><button className="add-btn">Add Book Manually</button></Link> */}
         </div>
-
         <BookList selectBook={this.onSelectBook} books={books} />
       </section>
     );

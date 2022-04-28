@@ -1,9 +1,10 @@
-/*  */
+/*GENERAL*/
 
 @import url(setup/fonts.css);
 @import url(setup/variables.css);
 @import url(basics/base.css);
 @import url(cmp/app-header.css);
+@import url(cmp/app-footer.css);
 @import url(cmp/app-home.css);
 
 /* KEEP */
@@ -15,13 +16,19 @@
 @import url(apps/keep/note-details.css);
 @import url(apps/keep/pinned-notes.css);
 
-/* Mail */
-
+/* MAIL */
 @import url(apps/mail/app-email.css);
 @import url(apps/mail/mail-preview.css);
 @import url(apps/mail/email-details.css);
 @import url(apps/mail/email-compose.css);
 @import url(apps/mail/email-filter.css);
-
-/* SidBar */
 @import url(apps/mail/side-bar.css);
+
+/* BOOK */
+@import url(apps/book/book-list.css);
+@import url(apps/book/book-preview.css);
+@import url(apps/book/book-filter.css);
+@import url(apps/book/book-details.css);
+@import url(apps/book/book-edit.css);
+@import url(apps/book/review-add.css);
+@import url(apps/book/book-api.css);

@@ -5,7 +5,6 @@ const { Link, NavLink, withRouter } = ReactRouterDOM
 export class _AppHeader extends React.Component {
 
     render() {
-        console.log(this.props);
         const { pathname } = this.props.location
         const showSearch = pathname.includes('email') ? true : false
         return <header className="app-header">

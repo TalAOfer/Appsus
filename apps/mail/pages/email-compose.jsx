@@ -72,11 +72,3 @@ export class EmailCompose extends React.Component {
         )
     }
 }
-
-
-// /            <section className="email-compose">
-// <div><span className="compose-span">To: </span>{`${}`}</div> <hr />
-// <div><span className="compose-span">From:  </span>{`${}`}:</div> <hr />
-// <div><span className="compose-span">Subject: </span>{` ${}`}:</div> <hr />
-// <div className="compose-body">{`${email.body}`}</div>
-// </section>

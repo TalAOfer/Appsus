@@ -43,7 +43,7 @@ export class EmailsPreview extends React.Component {
         const meduimBody = `${email.body.substring(0, 200)}...`
         const displayTime = new Date(email.receivedAt).toLocaleTimeString('it-IT')
         const read_unread = email.isRead ? '' : 'unread-mail'
-        const readTxt = email.isRead ? 'Make It UnRead' : 'Make It Read'
+        const readTxt = email.isRead ? 'Mark as unread' : 'Mark as read'
         const star = email.isStared ? 'starFill' : 'starUnFill'
 
         return (
@@ -64,8 +64,8 @@ export class EmailsPreview extends React.Component {
                         <div className="fullmail-subject">
                             {email.subject}
                             <div className="fullmail-btn">
-                                <button className="delete-mail" onClick={this.onClickRemove}>🗑</button>
-                                <NavLink to={`/email/${email.id}`}><button className="expand-mail">⃞</button></NavLink>
+                                <button className="delete-mail" onClick={this.onClickRemove}><img src="../assets/img/mail/trash.png"></img></button>
+                                <NavLink to={`/email/${email.id}`}><button className="expand-mail"><img src="../assets/img/mail/expand.png"></img></button></NavLink>
 
                             </div>
                         </div>

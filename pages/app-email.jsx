@@ -2,7 +2,8 @@ import { emailService } from "../apps/mail/services/mail.service.js";
 import { MailSideBar } from "../apps/mail/cmps/mail-sidebar.jsx";
 import { eventBusService } from "../../../services/event-bus-service.js";
 import { EmailList } from "../apps/mail/cmps/mail-list.jsx";
-// import { GoogleBookApi } from "../cmps/book-api.jsx";
+import { EmailFilter } from "../apps/mail/cmps/mail-filter.jsx";
+
 // import { eventBusService } from "../services/event-bus-service.js";
 
 // const { Link } = ReactRouterDOM;
@@ -63,6 +64,7 @@ export class AppEmail extends React.Component {
         const {emails} = this.state
         if (!emails) return <section>Loader...</section>
         return <section className="app-email">
+            <EmailFilter/>
             <MailSideBar status={this.getCurrStatus}/>
             <EmailList emails={emails} isReadUpdate={this.getUpdateMail} isStarUpdate={this.getUpdateStar} removeEmail={this.getRemoveMail}/>
         </section>

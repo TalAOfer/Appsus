@@ -19,6 +19,11 @@
 .mail-name {
     font-size: 15px;
     width: 200px;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
 }
 
 .txt-container {
@@ -65,11 +70,25 @@
 
 .fullmail-subject button {
     border: unset;
-    /* background-color:  lightgray;
-    padding: 10px; */
-    border-radius: 50%;
+    border-radius: 6px;
     cursor: pointer;
+    box-shadow: 0 0 4px 2px grey;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
 
+.delete-mail:hover {
+   background-color: tomato;
+}
+
+.fullmail-subject button:last-child:hover {
+   background-color: goldenrod;
+}
+
+.fullmail-btn  {
+    display: flex;
+    gap: 10%;
 }
 
 .fullmail-name {

@@ -12,15 +12,16 @@
     position: fixed;
     top: 0;
     width: 100%;
+
 }
 
 .app-header * {
     margin: 0 10px 0 10px;
 }
 
-.app-header h3 {
-    font-size: 25px;
-    color: gold;
+.app-header h1 {
+    /* font-size: 25px; */
+    margin-bottom: 10px ;
 }
 
 .app-header nav * {
@@ -35,4 +36,40 @@
 
 .app-header nav>*:not(:last-child) {
     margin-inline-end: 10px;
+}
+
+.modal-btn{
+    border: unset;
+    background-color: unset;
+}
+
+.modal-btn img{
+    height: 24px;
+}
+
+.modal-btn:hover{
+    background-color: unset;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    background-color: white;
+    top: 50px;
+    right: 15px;
+    height: 250px;
+    width: 250px;
+    border: 1px solid rgb(197 197 197);
+    border-radius: 5px;
+    box-shadow: 0 0 4px 1px rgb(197 197 197);
+}
+
+.modal nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    height: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
 }

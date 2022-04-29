@@ -3,6 +3,7 @@ import { AppHeader } from './cmps/app-header.jsx'
 import { AppFooter } from './cmps/app-footer.jsx'
 import { KeepApp } from './pages/keep-app.jsx'
 import { AppEmail } from './pages/email-app.jsx'
+import { UserMsg } from './cmps/user-msg.jsx'
 
 import { BookApp } from './pages/book-app.jsx'
 import { BookDetails } from './apps/book/pages/book-details.jsx'
@@ -26,5 +27,6 @@ export function App() {
             </Switch>
         </section>
         <AppFooter/>
+        <UserMsg/>
     </Router>
 }

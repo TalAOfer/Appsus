@@ -3,33 +3,21 @@ import { eventBusService } from "../services/event-bus-service.js"
 export class UserMsg extends React.Component {
 
     state = {
-        msg: null,
-        emailId: null,
-        unReadEmails: null,
-        newEmail: null
+        msg: null
     }
 
     removeEvent;
     timeoutId;
 
     componentDidMount() {
+        console.log('user msg Mountedddd');
         this.removeEvent = eventBusService.on('user-msg', (msg) => {
+            console.log('msg from event listener', msg);
             this.setState({ msg })
             if (this.timeoutId) clearTimeout(this.timeoutId)
             this.timeoutId = setTimeout(this.onCloseMsg, 3000)
+            
         })
-
-        // this.removeEvent = eventBusService.on('email-id', (emailId) => {
-        //     this.setState({ emailId })
-        // })
-
-        // this.removeEvent = eventBusService.on('unread-emails', (unReadEmails) => {
-        //     this.setState({ unReadEmails })
-        // })
-
-        // this.removeEvent = eventBusService.on('new-email', (newEmail) => {
-        //     this.setState({ newEmail })
-        // })
     }
 
     componentWillUnmount() {

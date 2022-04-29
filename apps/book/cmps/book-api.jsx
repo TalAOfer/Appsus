@@ -1,5 +1,4 @@
 
-
 export class GoogleBookApi extends React.Component {
 
     state = {
@@ -34,12 +33,12 @@ export class GoogleBookApi extends React.Component {
         return (
             <section className="serach-container">
                 <form onSubmit={this.onSearchGoogleBook}>
-                    <label htmlFor="result">Search Book:</label>
-                    <input /*ref={this.someInputRef}*/ className="input-search" id="result" type="text" value={searchText} onChange={this.handlerChange} />
-                    <input type="submit" value="Search" />
+                    {/* <label htmlFor="result">Search book:</label> */}
+                    <input /*ref={this.someInputRef}*/ className="input-search" id="result" type="text" placeholder="Search book on Google" value={searchText} onChange={this.handlerChange} />
+                    {/* <input type="submit" value="Search" /> */}
                 </form>
                 <ul className="list-result">
-                    {googleResults.map(item => (<li key={item.id} >{item.title} <button onClick={() => {this.onSelectGoogleBook(item)}}>+</button></li>))}
+                    {googleResults.map(item => (<li key={item.id} ><button onClick={() => { this.onSelectGoogleBook(item) }}>+</button> {item.title} </li>))}
                 </ul>
             </section>
         )

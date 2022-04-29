@@ -7,4 +7,6 @@
     font-size: 13px;
     /* background-color: #383838; */
     padding: 10px;
+    overflow-y: auto;
+    height: 100vh;
 }

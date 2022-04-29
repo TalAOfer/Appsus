@@ -1,5 +1,9 @@
 .app-email{
     display: flex;
+    margin-top: 84px;
+    /* height: 1500px; */
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .mail-sidebar{

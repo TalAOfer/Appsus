@@ -14,7 +14,6 @@ export class EmailFilter extends React.Component {
         ev.preventDefault()
         const { searchByTxt } = this.state
         eventBusService.emit('search-txt', searchByTxt)
-
     }
 
     render() {

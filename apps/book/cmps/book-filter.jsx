@@ -1,3 +1,4 @@
+import { eventBusService } from "../../../services/event-bus-service.js"
 
 export class BookFilter extends React.Component {
   state = {
@@ -14,19 +15,15 @@ export class BookFilter extends React.Component {
     this.setState((prevState) => (
       { filter: { ...prevState.filter, [name]: value } }),
         () => {
-          this.props.onSetFilter(this.state.filter);
+          // this.props.onSetFilter(this.state.filter);
       }
     );
   };
 
   onFilter = (ev) => {
     ev.preventDefault();
-    this.props.onSetFilter(this.state.filter);
-    // this.setState({filter: {
-    //   name: "",
-    //   priceFrom: '',
-    //   priceTo: '',
-    // }})
+    // this.props.onSetFilter(this.state.filter);
+    eventBusService.emit('search-book', this.state.filter.name)
   };
 
   render() {
@@ -35,17 +32,17 @@ export class BookFilter extends React.Component {
     return (
       <section className='book-filter'>
         <form onSubmit={this.onFilter}>
-          <label htmlFor='name'>Name:</label>
+          {/* <label htmlFor='name'>Name:</label> */}
           <input
             type='text'
             id='name'
             name='name'
             value={name}
             onChange={this.handleChange}
-            placeholder='By Book Name'
+            placeholder='Search book'
           />
 
-          <label htmlFor='priceFrom'>Price From:</label>
+          {/* <label htmlFor='priceFrom'>Price From:</label>
           <input
             type='number'
             id='priceFrom'
@@ -65,10 +62,10 @@ export class BookFilter extends React.Component {
             value={priceTo}
             onChange={this.handleChange}
             placeholder='To Price'
-          />
+          /> */}
 
           {/* <input type='reset' value='Reset' onClick={this.onClear}/> */}
-          <input className="input-btn" type='submit' value='Submit' />
+          {/* <input className="input-btn" type='submit' value='Submit' /> */}
         </form>
       </section>
     );

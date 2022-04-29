@@ -5,7 +5,8 @@
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    align-items: stretch
+    align-items: stretch;   
+    margin-top: 84px;
 }
 
 .app-home a {

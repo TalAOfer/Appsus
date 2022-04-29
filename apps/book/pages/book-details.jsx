@@ -15,9 +15,9 @@ export class BookDetails extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.bookId !== this.props.match.params.bookId) {
-        this.loadBook()
+      this.loadBook()
     }
-}
+  }
 
   loadBook() {
     const { bookId } = this.props.match.params;
@@ -72,44 +72,48 @@ export class BookDetails extends React.Component {
     const nextBookId = bookService.getNextBookId(book.id)
 
     return (
-      <section className='book-details'>
-        <div className='main-header'>
-          <div className='title'>{book.title}</div>
-          <div className='authors'>By: {book.authors}</div>
-        </div>
+      <section className='book-details-container'>
+        <section className='book-details'>
+          <div>
 
-        <div className='main-body'>
-          <div className='main-details'>
-            <div className={`amount ${red} ${green}`}><span>Price:</span>{" "}{`${book.listPrice.amount} ${book.listPrice.currencyCode}`}</div>
-            <div className='publishedDate'><span>Published Date:</span> {book.publishedDate}{" - "}{this.publishedDateLogic()}</div>
-            <div className='language'><span>Language:</span> {book.language}</div>
+            <div className='main-header'>
+              <div className='title'>{book.title}</div>
+              <div className='authors'>By: {book.authors}</div>
+            </div>
+            <div className='main-body'>
+              <div className='main-details'>
+                <div className={`amount ${red} ${green}`}><span>Price:</span>{" "}{`${book.listPrice.amount} ${book.listPrice.currencyCode}`}</div>
+                <div className='publishedDate'><span>Published Date:</span> {book.publishedDate}{" - "}{this.publishedDateLogic()}</div>
+                <div className='language'><span>Language:</span> {book.language}</div>
 
-            <LongTxt text={book.description} />
+                <LongTxt text={book.description} />
 
-            <div className='subtitle'><span>subtitle:</span> {book.subtitle}</div>
-            <div className='pageCount'><span>Page Count:</span> {book.pageCount} {" - "}{this.pageCountLogic()}</div>
-            <div className='categories'><span>First Category:</span> {book.categories[0]}</div>
+                <div className='subtitle'><span>subtitle:</span> {book.subtitle}</div>
+                <div className='pageCount'><span>Page Count:</span> {book.pageCount} {" - "}{this.pageCountLogic()}</div>
+                <div className='categories'><span>First Category:</span> {book.categories[0]}</div>
+              </div>
+
+              <img className="img-preview" src={book.thumbnail} alt='' />
+            </div>
+
           </div>
 
-          <img className="img-preview" src={book.thumbnail} alt='' />
-        </div>
+          <ReviewAdd
+            addReview={this.onAddReview}
+            removeReview={this.onRemoveReview}
+            bookId={book.id}
+            bookReview={book.review}
+          />
 
-        <ReviewAdd
-          addReview={this.onAddReview}
-          removeReview={this.onRemoveReview}
-          bookId={book.id}
-          bookReview={book.review}
-        />
+        </section>
 
         <div className='btn-container'>
-
           <Link to='/book'><button className='btn-back'>Back</button></Link>
           <Link to={`/book/edit/${book.id}`}><button className='btn-edit'>Edit Book</button></Link>
           <button className='btn-delete' onClick={this.onRemoveBook}>Delete Book</button>
           <Link to={`/book/${nextBookId}`}><button className='btn-back'>Next</button></Link>
-
         </div>
-      </section>
+        </section>
     );
   }
 }

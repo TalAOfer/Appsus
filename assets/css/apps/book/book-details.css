@@ -1,15 +1,20 @@
-.book-details {
+.book-details-container {
   display: flex;
-  flex-direction: column;
   height: 100vh;
   overflow-y: auto;
+  margin-top: 84px;
+  flex-direction: column;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: row;
 }
 
 .main-header {
   /* background-color: #383838; */
   width: 100%;
   padding-bottom: 10px;
-  margin-top: 84px;
 
 }
 
@@ -18,7 +23,8 @@
   flex-direction: row;
   text-align: left;
   padding: 5px;
-  justify-content: space-evenly;}
+  text-align: left
+}
 
 .main-details {
   line-height: 40px;
@@ -67,7 +73,7 @@
   margin: 0;
 }
 
-.book-details .btn-back {
+.btn-back {
   width: 150px;
   height: 40px;
   background-color: #066163;
@@ -78,7 +84,7 @@
   cursor: pointer;
 }
 
-.book-details .btn-delete {
+.btn-delete {
   width: 150px;
   height: 40px;
   background-color: tomato;
@@ -89,7 +95,7 @@
   cursor: pointer;
 }
 
-.book-details .btn-edit {
+.btn-edit {
   width: 150px;
   height: 40px;
   background-color: gold;

@@ -12,7 +12,7 @@
     padding: 5px;
     /* box-shadow: 0 0 10px rgb(0 0 0 / 56%); */
     width: 394px;
-    margin-right: 25px;
+    /* margin-right: 25px; */
     align-self: center;
     background-color: rgb(239, 241, 242);
     margin-top: 84px;
@@ -20,7 +20,7 @@
     height: 30px;
     font-size: 1rem;
     margin-bottom: 10px;
-    position: relative;
+    /* position: relative; */
 }
 
 .input-search:focus-visible {
@@ -54,16 +54,12 @@
 
 .list-result li:hover{
     box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
-<<<<<<< HEAD
     z-index: 2;    
     cursor: pointer;
-=======
-    z-index: 2;    cursor: pointer;
 }
 
 @media (max-width: 480px) {
     .input-search {
         width: 15rem;
     }
->>>>>>> b1ba3016545f4163a549c3ae01d5de74c0bc7129
 }

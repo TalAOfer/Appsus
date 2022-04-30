@@ -22,10 +22,10 @@
     outline-width: 0;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 650px) {
     .email-filter {
-        width: 50%;
-        margin-right: 50px;
+        width: 100%;
+        flex:5;
     }
 
     .email-filter input {

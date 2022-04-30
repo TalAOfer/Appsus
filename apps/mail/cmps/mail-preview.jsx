@@ -42,8 +42,18 @@ export class EmailsPreview extends React.Component {
         const shortBody = `${email.body.substring(0, 50)}...`
         const meduimBody = `${email.body.substring(0, 200)}...`
 
-        const displayReceivedAt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }).format(email.receivedAt)
-        const displaySentAt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }).format(email.sentAt)
+        const options = {
+            day: "2-digit",
+            month: "2-digit",
+            year: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+            timeZone: "UTC",
+          };
+
+        const displayReceivedAt = new Intl.DateTimeFormat('en-GB', options).format(email.receivedAt )  
+        const displaySentAt = new Intl.DateTimeFormat('en-GB', options).format(email.sentAt )
         // const displayRemoveAt = new Date(email.removeAt).toLocaleTimeString('it-IT')
         const displayTimePerStatus = email.receivedAt ? displayReceivedAt : displaySentAt
  

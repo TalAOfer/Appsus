@@ -5,7 +5,7 @@
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    align-items: stretch;   
+    align-items: stretch;
     margin-top: 84px;
 }
 
@@ -23,9 +23,16 @@
     font-size: 60px;
     margin: 10px;
     margin-top: 0;
-    font-family:  Lato-Light
+    font-family: Lato-Light
 }
 
 .app-home a:hover {
     box-shadow: grey 0 0 6px 0px;
+}
+
+@media (max-width: 650px) {
+    .app-home {
+        flex-direction: column;
+        height: 50vh
+    }
 }

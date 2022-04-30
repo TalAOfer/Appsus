@@ -26,9 +26,9 @@
     cursor: pointer;
 }
 
-.sidbar-list .active{
+.sidbar-list .active {
     background-color: rgba(251, 229, 227);
-    color: rgb(211,47,41);
+    color: rgb(211, 47, 41);
     font-size: 0.875rem;
     font-weight: 700;
     display: flex;
@@ -54,18 +54,18 @@
     justify-content: center;
 }
 
-.sidebar-btn-container{
+.sidebar-btn-container {
     display: flex;
     justify-content: flex-start;
     align-content: center;
 
 }
 
-.sidebar-btn-container *{
+.sidebar-btn-container * {
     text-decoration: none;
 }
 
-.sidbar-btn{
+.sidbar-btn {
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
     background-color: unset;
     border-radius: 24px;
@@ -81,6 +81,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .sidbar-btn img {
     background-position: center;
     background-repeat: no-repeat;
@@ -88,30 +89,42 @@
     display: block;
 }
 
-.sidbar-btn:hover{
+.sidbar-btn:hover {
     box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
     background-color: #fafafb;
 }
 
-.filter-btn img{
+.filter-btn img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20px;
 }
 
-.star-preview{
+.star-preview {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20px;
 }
 
 .title-sidebar {
-    width: 215px; 
+    width: 215px;
 }
 
 @media (max-width: 800px) {
-    .sidebar-btn-container{
-        justify-content: center;
-        margin-top: 5px;
+    .sidebar-btn-container {
+        /* justify-content: center; */
+        /* margin-top: 5px; */
     }
+
+    .title-sidebar {
+        width: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+        .sidbar-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
 }

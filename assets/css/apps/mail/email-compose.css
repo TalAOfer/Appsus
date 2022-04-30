@@ -6,8 +6,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    min-width: 600px;
-    min-height: 600px;
+    width: 600px;
+    height: 600px;
     padding: 0;
     border-radius: 10px 10px 0px 0;
 
@@ -103,4 +103,19 @@ textarea {
 .new-msg {
     color: white;
     font-family: Lato-Black;
+}
+
+@media (max-width: 670px) {
+    .email-compose {
+        width: 450px;
+        height: 450px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .email-compose {
+        width: 330px;
+        height: 450px;
+    }
 }

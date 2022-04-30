@@ -58,7 +58,7 @@
     display: flex;
     justify-content: flex-start;
     align-content: center;
-    align-items: center;
+
 }
 
 .sidebar-btn-container *{
@@ -107,4 +107,11 @@
 
 .title-sidebar {
     width: 215px; 
+}
+
+@media (max-width: 800px) {
+    .sidebar-btn-container{
+        justify-content: center;
+        margin-top: 5px;
+    }
 }

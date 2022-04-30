@@ -25,7 +25,7 @@ export class NotePreview extends React.Component{
     const pinType = (note.isPinned) ? 'unpin' : 'pin'
 
     return <section className="note-preview" style={{backgroundColor: note.info.color}}>
-        {note.type === 'text' && <p >{`${note.info.txt}`}</p>}
+        {note.type === 'text' && <p onClick={()=>handleChosenNote(note)}>{`${note.info.txt}`}</p>}
         {note.type === 'image' && <img src={note.info.txt} alt="" />}
         {note.type === 'video' && <video src={note.info.txt} controls></video>}
         <div className="preview-btns">
@@ -34,9 +34,9 @@ export class NotePreview extends React.Component{
             <img className="preview-btn" src="assets/img/keep/palette.png" alt=""/>
             <input name={note.id} type="color" hidden onChange={this.handleInputChange}/>
             </label>
+            <div onClick={()=>this.handleMail(note.id)} className="preview-btn"> <img src={`assets/img/keep/mail.png`} alt="" /> </div>
             <div onClick={()=>handleChosenNote(note)}  className="preview-btn"> <img src="assets/img/keep/pencil.png" alt="" /></div>
             <div onClick={()=>handlePinChange(note.id)} className="preview-btn"> <img src={`assets/img/keep/${pinType}.png`} alt="" /></div>
-            <div onClick={()=>this.handleMail(note.id)} className="preview-btn"> MAIL </div>
 
             
         </div>

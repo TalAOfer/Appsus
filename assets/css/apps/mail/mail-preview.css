@@ -137,3 +137,10 @@
     cursor: pointer;
     color: green
 }
+
+@media (max-width: 450px) {
+    .mail-name {
+        flex-basis: 140px;
+    }
+
+}

@@ -6,8 +6,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    min-width: 600px;
-    min-height: 600px;
+    width: 600px;
+    height: 600px;
     padding: 0;
     border-radius: 10px 10px 0px 0;
 }
@@ -43,4 +43,19 @@
     font-weight: 500;
     color: #121212;
     padding: 10px;
+}
+
+@media (max-width: 670px) {
+    .email-details {
+        width: 450px;
+        height: 450px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .email-details {
+        width: 330px;
+        height: 450px;
+    }
 }

@@ -20,6 +20,7 @@
     .app-keep {
         flex-direction: column;
         flex:0;
+        height: calc(100vh - 158px);
     }
 
     .app-keep .note-filter {

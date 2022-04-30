@@ -111,10 +111,6 @@
 }
 
 @media (max-width: 800px) {
-    .sidebar-btn-container {
-        /* justify-content: center; */
-        /* margin-top: 5px; */
-    }
 
     .title-sidebar {
         width: 140px;
@@ -122,9 +118,15 @@
 }
 
 @media (max-width: 600px) {
-        .sidbar-list {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    .sidbar-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .mail-sidebar {
+        flex-basis: 135px;
+        /* position: fixed;
+        top: 80px; */
+    }
 
 }

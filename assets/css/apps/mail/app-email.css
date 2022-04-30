@@ -51,10 +51,14 @@
 
     .app-email {
         flex-direction: column;
-        /* font-size: 0.7rem; */
+        /* justify-content: flex-start; */
     }
 
     .mail-sidebar {
         flex-basis: 135px;
+    }
+
+    .email-list {
+        height: calc(100vh - 370px);
     }
 }

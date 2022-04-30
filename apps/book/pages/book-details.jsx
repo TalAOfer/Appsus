@@ -109,7 +109,7 @@ export class BookDetails extends React.Component {
 
         <div className='btn-container'>
           <Link to='/book'><button className='btn-back'>Back</button></Link>
-          <Link to={`/book/edit/${book.id}`}><button className='btn-edit'>Edit Book</button></Link>
+          {/* <Link to={`/book/edit/${book.id}`}><button className='btn-edit'>Edit Book</button></Link> */}
           <button className='btn-delete' onClick={this.onRemoveBook}>Delete Book</button>
           <Link to={`/book/${nextBookId}`}><button className='btn-back'>Next</button></Link>
         </div>

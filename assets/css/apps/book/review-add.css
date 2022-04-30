@@ -37,3 +37,7 @@ table {
     padding: 8px;
     font-size: 14px;
   }
+
+  .review-container textarea {
+      height: unset;
+  }

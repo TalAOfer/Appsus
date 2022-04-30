@@ -108,6 +108,58 @@ const emails = [{
     removeAt: '',
     from: 'noreply@email.apple.com',
     to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e108',
+    subject: 'TalAOfer invited you to TalAOfer/Appsus',
+    body: 'You can accept or decline this invitation. You can also head over to https://github.com/TalAOfer/Appsus to check out the repository or visit @TalAOfer to learn a bit more about them. This invitation will expire in 7 days.',
+    isRead: false,
+    isStared: false,
+    receivedAt: 1651055555019,
+    sentAt: '',
+    removeAt: '',
+    from: 'noreply@github.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e109',
+    subject: 'Good news regarding order 8149069784480979',
+    body: 'Hi Eran Avichzer, Order 8149069784480979 has been shipped! You can click below to track your package, check delivery status or see more details. (Note: It may take up to 24 hours to see tracking information.)',
+    isRead: false,
+    isStared: false,
+    receivedAt: 1651055554444,
+    sentAt: '',
+    removeAt: '',
+    from: 'transaction@notice.aliexpress.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e110',
+    subject: '1 new jobs for full stack',
+    body: 'Full-Stack Software Engineer Minimum qualifications: Bachelors degree in Computer Science or related technical field, or equivalent practical experience. Experience in software development. Preferred qualifications: Experience with one or more general purpose programming languages including but not limited to: Java, C/C++, C#, Objective C, Python, JavaScript, or Go. Experience with server-side web frameworks such as Ruby-on-Rails, or Django. Significant development experience in Angular, ember.js, backbone.js or similar. Strong knowledge of Web standards and protocols, including JavaScript, HTML, CSS and HTTP. Knowledge in the area of graphics.',
+    isRead: false,
+    isStared: false,
+    receivedAt: 1651888522000,
+    sentAt: '',
+    removeAt: '',
+    from: 'jobalerts-noreply@linkedin.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e111',
+    subject: 'Confirm your email address',
+    body: 'Verify your e-mail to finish signing up for Avocode',
+    isRead: false,
+    isStared: false,
+    receivedAt: 1651055555019,
+    sentAt: '',
+    removeAt: '',
+    from: 'hello@avocode.com',
+    to: loggedinUser.email
 }
 
 ]
@@ -142,7 +194,7 @@ function query(status, searchByTxt) {
     for (const email in emailFilterd) {
         let currEmail = emailFilterd[email]
         if (currEmail.body.toLowerCase().includes(searchByTxt) || currEmail.subject.toLowerCase().includes(searchByTxt) ||
-        currEmail.from.toLowerCase().includes(searchByTxt) || currEmail.to.toLowerCase().includes(searchByTxt)) {
+            currEmail.from.toLowerCase().includes(searchByTxt) || currEmail.to.toLowerCase().includes(searchByTxt)) {
             emailFilterdWithSearch.push(currEmail)
         }
     }
@@ -160,7 +212,7 @@ function _createEmails() {
 
 function _createEmail(email) {
     return {
-        id: utilService.makeId(),
+        id: !email.id && utilService.makeId(),
         subject: email.subject,
         body: email.body,
         isRead: email.isRead,
@@ -217,9 +269,12 @@ function getEmailById(emailId) {
 
 function saveEmail(email) {
     let emails = _loadFromStorage()
-    emails.push(_createEmail(email))
+    let creaetEmail;
+    creaetEmail = _createEmail(email)
+    emails.push(creaetEmail)
+
     _saveToStorage(emails)
-    return Promise.resolve()
+    return Promise.resolve(creaetEmail.id)
 }
 
 function getUnreadMailsCount() {

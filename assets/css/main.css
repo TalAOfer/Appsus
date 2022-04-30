@@ -6,6 +6,7 @@
 @import url(cmp/app-header.css);
 @import url(cmp/app-footer.css);
 @import url(cmp/app-home.css);
+@import url(setup/keyframes.css);
 
 /* KEEP */
 @import url(apps/keep/app-keep.css);

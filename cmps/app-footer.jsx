@@ -1,5 +1,5 @@
 export function AppFooter () {
     return <section className="app-footer">
-        Fotter
+        <img src="assets/img/mail/app2.png"></img>
     </section>
 }

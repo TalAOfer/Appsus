@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: Lato-Black;
-    src: url('../fonts/Lato-Black.ttf');
+    src: url('../fonts/Lato-Bold.ttf');
 }
 
 @font-face {
@@ -21,4 +21,9 @@
 @font-face {
     font-family: Roboto-Bold;
     src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: Lato-Regular;
+    src: url('../fonts/Lato-Regular.ttf');
 }

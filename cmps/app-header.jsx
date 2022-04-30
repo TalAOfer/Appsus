@@ -22,17 +22,18 @@ export class _AppHeader extends React.Component {
 
         return <header className="app-header">
             <h1> Appsus </h1>
+
             {showSearchEmail && <EmailFilter />}
             {/* {showSearchBook &&<GoogleBookApi />} */}
             {showSearchBook && <BookFilter />}
 
-            <button onClick={() => { this.onOpenModal()}} className="modal-btn" ><img src="assets/img/mail/dots-menu.png"></img></button>
+            <button onClick={() => { this.onOpenModal() }} className="modal-btn" ><img src="assets/img/mail/dots-menu.png"></img></button>
             {isOpen && <div className="modal">
                 <nav>
-                    <NavLink onClick={() => { this.onOpenModal()}} to="/" exact><img src="assets/img/mail/home2.png"></img></NavLink>
-                    <NavLink onClick={() => { this.onOpenModal()}} to="/email/inbox"><img src="assets/img/mail/email.png"></img></NavLink>
-                    <NavLink onClick={() => { this.onOpenModal()}} to="/keep"><img src="assets/img/mail/keep2.png"></img></NavLink>
-                    <NavLink onClick={() => { this.onOpenModal()}} to="/book" ><img src="assets/img/mail/book.png"></img></NavLink>
+                    <NavLink onClick={() => { this.onOpenModal() }} to="/" exact><img src="assets/img/mail/home2.png"></img></NavLink>
+                    <NavLink onClick={() => { this.onOpenModal() }} to="/email/inbox"><img src="assets/img/mail/email.png"></img></NavLink>
+                    <NavLink onClick={() => { this.onOpenModal() }} to="/keep"><img src="assets/img/mail/keep2.png"></img></NavLink>
+                    <NavLink onClick={() => { this.onOpenModal() }} to="/book" ><img src="assets/img/mail/book.png"></img></NavLink>
                 </nav>
             </div>}
         </header>

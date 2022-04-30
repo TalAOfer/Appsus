@@ -26,10 +26,13 @@ export class EmailDetails extends React.Component {
         return (
             <div className="overlay">
                 <section className="email-details">
-                    <button className="compose-btn-cls" onClick={this.onGoBack}>X</button>
-                    <div><span className="details-span">To: </span>{`${email.to}`}</div> <hr />
-                    <div><span className="details-span">From:  </span>{`${email.from}`}:</div> <hr />
-                    <div><span className="details-span">Subject: </span>{` ${email.subject}`}:</div> <hr />
+                    <div className="compose-header">
+                        <div className="new-msg">Message Details</div>
+                        <button className="compose-btn-cls" onClick={this.onGoBack}>X</button>
+                    </div>
+                    <div className="details-main" ><span className="details-span">To: </span>{`${email.to}`}</div> 
+                    <div className="details-main"><span className="details-span">From:  </span>{`${email.from}`}:</div> 
+                    <div className="details-main"><span className="details-span">Subject: </span>{` ${email.subject}`}:</div>
                     <div className="details-body">{`${email.body}`}</div>
                 </section>
             </div>

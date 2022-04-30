@@ -16,7 +16,6 @@ export class UserMsg extends React.Component {
             this.setState({ msg })
             if (this.timeoutId) clearTimeout(this.timeoutId)
             this.timeoutId = setTimeout(this.onCloseMsg, 3000)
-            
         })
     }
 

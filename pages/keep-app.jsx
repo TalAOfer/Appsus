@@ -24,15 +24,15 @@ export class KeepApp extends React.Component {
                 this.loadNotes()
             })
         })
-        setTimeout(() => {
-            this.removeEvent = eventBusService.on('email-toKeep', (emailToKeep) => {
-                const msg = `From: ${emailToKeep.from} 
+        // debugger
+        this.removeEvent = eventBusService.on('email-toKeep', (emailToKeep) => {
+            const msg = `From: ${emailToKeep.from} 
                 To: ${emailToKeep.to}  
                 Subject: ${emailToKeep.subject} 
                 Body: ${emailToKeep.body} `
-                this.handleAddNote(msg, 'text')
-            })
-        }, 3000);
+            this.handleAddNote(msg, 'text')
+        })
+
     }
 
     componentWillUnmount() {

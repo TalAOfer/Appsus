@@ -1,8 +1,8 @@
 import { eventBusService } from "../../../services/event-bus-service.js";
 
-const { Route, NavLink, Link } = ReactRouterDOM;
+const { Route, NavLink, Link, withRouter } = ReactRouterDOM;
 
-export class EmailsPreview extends React.Component {
+export class _EmailsPreview extends React.Component {
 
     state = {
         selectedMail: false
@@ -32,10 +32,18 @@ export class EmailsPreview extends React.Component {
 
     onClickAddKeep = () => {
         const { email } = this.props
-        eventBusService.emit('email-toKeep', email)
-        eventBusService.emit('user-msg', {
-            type: 'success', txt: 'Email save as note successfully'
-        })
+        this.props.history.push(`/keep`)
+
+        setTimeout(() => {
+            eventBusService.emit('email-toKeep', email)
+            eventBusService.emit('user-msg', {
+                type: 'success', txt: 'Email save as note successfully'
+            })
+            
+        }, 500);
+        
+        // debugger
+        // this.props.history.push(`/email`)
     }
 
     render() {
@@ -103,4 +111,6 @@ export class EmailsPreview extends React.Component {
         );
     }
 }
+
+export const EmailsPreview = withRouter(_EmailsPreview)
 

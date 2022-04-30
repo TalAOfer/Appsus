@@ -10,7 +10,6 @@ export class EmailCompose extends React.Component {
             isRead: true
         },
     }
-
     removeEvents;
     
     componentDidMount() {
@@ -20,7 +19,6 @@ export class EmailCompose extends React.Component {
 
         this.removeEvents = eventBusService.on('keep-compose', (keepToEmail) => {
             this.setState({email :{ ...this.state.email, body: keepToEmail }})
-            
         })
         
         this.onDraft() //1

@@ -32,12 +32,12 @@ export class AddNote extends React.Component {
             </form>
 
             <div className="option-container">
-                <div>
+                <div className="img-container">
                     <img src="assets/img/keep/text.png" onClick={() => this.onChangeInput('text')} /></div>
-                <div>
+                <div className="img-container">
                     <img src="assets/img/keep/image.png" onClick={() => this.onChangeInput('image')}/>
                 </div>
-                <div>
+                <div className="img-container">
                     <img src="assets/img/keep/video.png" onClick={() => this.onChangeInput('video')}/></div>
                 <div>
                     {/* <img src="../assets/img/keep/todo.png" alt="" /> */}

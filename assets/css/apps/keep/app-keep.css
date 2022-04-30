@@ -1,6 +1,8 @@
 .app-keep {
     display: flex;
     margin-top: 84px;
+    overflow-y: auto;
+
 }
 
 .app-keep .main-container {
@@ -10,6 +12,12 @@
     align-items: center;
     gap: 20px;
     margin-right: 40px;
-    overflow-y: auto;
-    height: 100vh;
+    /* overflow-y:scroll;
+    height: 100%; */
+}
+
+@media (max-width: 450px) {
+    .app-keep .main-container {
+        margin-right: 18px;
+    }
 }

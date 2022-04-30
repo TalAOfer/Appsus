@@ -2,5 +2,12 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    width: 100%;
+    justify-content: center;
+    width: 80%;
+}
+
+@media (max-width: 450px) {
+    .note-list {
+        width: 80%; 
+    }
 }

@@ -11,15 +11,23 @@ export class EmailCompose extends React.Component {
         },
     }
 
+    removeEvents;
+    
     componentDidMount() {
-        this.removeEvent = eventBusService.on('new-email', (newEmail) => {
-            this.setState({ newEmail })
+        // this.removeEvent = eventBusService.on('new-email', (newEmail) => {
+        //     this.setState({ newEmail })
+        // })
+
+        this.removeEvents = eventBusService.on('keep-compose', (keepToEmail) => {
+            this.setState({email :{ ...this.state.email, body: keepToEmail }})
+            
         })
+        
         this.onDraft() //1
     }
 
     componentWillUnmount() {
-        this.removeEvent()
+        this.removeEvents()
         // this.clearInterval() //3
         // this.loadMail() //4?
     }

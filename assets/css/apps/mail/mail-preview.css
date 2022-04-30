@@ -96,6 +96,9 @@
 .delete-mail:hover {
     background-color: tomato;
 }
+.keep-mail:hover {
+    background-color: gold !important;
+}
 
 .fullmail-subject button:last-child:hover {
     background-color: goldenrod;
@@ -103,7 +106,8 @@
 
 .fullmail-btn {
     display: flex;
-    gap: 10%;
+    gap: 4%;
+    height: 25px;
 }
 
 .fullmail-name {

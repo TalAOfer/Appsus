@@ -35,7 +35,7 @@ export class MailSideBar extends React.Component {
                 <NavLink to="/email/inbox" ><li onClick={() => { status('inbox') }} className="filter-btn"><img src="assets/img/mail/inbox.png"></img> <div className="title-sidebar" >&nbsp;&nbsp;&nbsp;&nbsp; Inbox </div> </li></NavLink>
                 <NavLink to="/email/starred" ><li onClick={() => { status('starred') }} className="filter-btn"> <img src="assets/img/mail/star.png"></img> <div className="title-sidebar" >&nbsp;&nbsp;&nbsp;&nbsp; Starred </div></li></NavLink>
                 <NavLink to="/email/sent" ><li onClick={() => { status('sent') }} className="filter-btn"> <img src="assets/img/mail/sent.png"></img> <div className="title-sidebar" >&nbsp;&nbsp;&nbsp;&nbsp; Sent Mail </div> </li></NavLink>
-                <NavLink to="/email/Drafts" ><li onClick={() => { status('Drafts') }} className="filter-btn"> <img src="assets/img/mail/draft.png"></img> <div className="title-sidebar" >&nbsp;&nbsp;&nbsp;&nbsp; Drafts </div> </li></NavLink>
+                {/* <NavLink to="/email/Drafts" ><li onClick={() => { status('Drafts') }} className="filter-btn"> <img src="assets/img/mail/draft.png"></img> <div className="title-sidebar" >&nbsp;&nbsp;&nbsp;&nbsp; Drafts </div> </li></NavLink> */}
                 <NavLink to="/email/trash" ><li onClick={() => { status('trash') }} className="filter-btn">  <img src="assets/img/mail/trash.png"></img> <div className="title-sidebar" >&nbsp;&nbsp;&nbsp;&nbsp; Trash </div> </li></NavLink>
             </ul>
             <div className="sidebar-precantage-container">

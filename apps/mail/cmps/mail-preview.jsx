@@ -30,6 +30,14 @@ export class EmailsPreview extends React.Component {
         removeEmail(email.id)
     }
 
+    onClickAddKeep = () => {
+        const { email } = this.props
+        eventBusService.emit('email-toKeep', email)
+        eventBusService.emit('user-msg', {
+            type: 'success', txt: 'Email save as note successfully'
+        })
+    }
+
     render() {
         const { email } = this.props
         const { selectedMail } = this.state
@@ -50,13 +58,13 @@ export class EmailsPreview extends React.Component {
             minute: "2-digit",
             hour12: false,
             timeZone: "UTC",
-          };
+        };
 
-        const displayReceivedAt = new Intl.DateTimeFormat('en-GB', options).format(email.receivedAt )  
-        const displaySentAt = new Intl.DateTimeFormat('en-GB', options).format(email.sentAt )
+        const displayReceivedAt = new Intl.DateTimeFormat('en-GB', options).format(email.receivedAt)
+        const displaySentAt = new Intl.DateTimeFormat('en-GB', options).format(email.sentAt)
         // const displayRemoveAt = new Date(email.removeAt).toLocaleTimeString('it-IT')
         const displayTimePerStatus = email.receivedAt ? displayReceivedAt : displaySentAt
- 
+
         const read_unread = email.isRead ? '' : 'unread-mail'
         const readTxt = email.isRead ? 'Mark as unread' : 'Mark as read'
         const star = email.isStared ? 'starFill' : 'starUnFill'
@@ -81,6 +89,7 @@ export class EmailsPreview extends React.Component {
                             <div className="fullmail-btn">
                                 <button className="delete-mail" onClick={this.onClickRemove}><img src="assets/img/mail/trash.png"></img></button>
                                 <NavLink to={`/email/${email.id}`}><button className="expand-mail"><img src="assets/img/mail/expand.png"></img></button></NavLink>
+                                <button className="keep-mail" onClick={this.onClickAddKeep}><img src="assets/img/mail/keepApp5.png"></img></button>
 
                             </div>
                         </div>

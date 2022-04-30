@@ -8,5 +8,5 @@ body {
     font-size: 0.875rem;
     
     /* Stop Scroling */
-    overflow: hidden 
+    overflow: auto 
 }

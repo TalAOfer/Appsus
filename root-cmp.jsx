@@ -25,6 +25,6 @@ export function App() {
                 <Route path="/" component={AppHome} />
             </Switch>
         </section>
-        <AppFooter/>
+        {/* <AppFooter/> */}
     </Router>
 }

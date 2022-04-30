@@ -69,7 +69,9 @@ export class KeepApp extends React.Component {
             <div className="main-container">
             {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handlePinChange={this.handlePinChange} handleTextChange={this.handleTextChange}/>}
             {!chosenNote && <React.Fragment>
+                <section className="add-note-container">
                 <AddNote handleAddNote={this.handleAddNote}/>
+                </section>
                 <NoteList notes={notes} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handleChosenNote={this.handleChosenNote} handlePinChange={this.handlePinChange} history={this.props.history}/>
             </React.Fragment>}
             </div>

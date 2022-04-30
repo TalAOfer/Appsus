@@ -1,9 +1,9 @@
+
 .note-filter {
     display: flex;
     flex-direction: column;
     margin-inline-end: 25px;
-    /* border-right: 1px solid rgb(214, 214, 220); */
-    min-width: 150px;
+    width: 150px;
 }
 
 .note-filter>* {
@@ -12,7 +12,7 @@
 }
 
 .note-filter a {
-    color:black
+    color: black
 }
 
 .note-filter .filter-btn {
@@ -31,8 +31,21 @@
 
 
 
-.note-filter .active{
+.note-filter .active {
     background-color: rgba(255, 249, 85, 0.792);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 450px) {
+    .note-filter {
+        width: 80px;
+        margin-inline-end: 0px;
+    }
+    .note-filter .filter-btn {
+        padding-left: 12px;
+        padding: 10px;
+    }
+
+
 }

@@ -1,25 +1,57 @@
+.add-note-container {
+
+}
+
 .add-note {
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.558);
-    width: 20rem;
+    /* width: 20rem; */
     margin-top: 8px;
 }
 
 .add-note input {
     border: none;
     height: 30px;
+    justify-content: center;
+    outline: none;
 }
 
 .add-note .option-container {
     display: flex;
     align-content: center;
+    justify-self: flex-end;
+}
+
+.add-note .option-container .img-container {
+    display: flex;
+    align-items: center;
 }
 
 .add-note img {
-    height: 25px;
+    height: 20px;
     margin-inline-end: 10px;
 }
 
+@media (max-width: 450px) {
+    .add-note {
+        align-content: center;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.558);
+        margin-top: 2px;
+        align-self: flex-start;
+        
+    }
+    
+    .add-note input {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .add-note {
+        flex-direction: column;
+    }
+}

@@ -12,8 +12,8 @@
     align-items: center;
     gap: 20px;
     margin-right: 40px;
-    /* overflow-y:scroll;
-    height: 100%; */
+    height: calc(100vh - 150px);
+    overflow-y:scroll;
 }
 
 @media (max-width: 450px) {

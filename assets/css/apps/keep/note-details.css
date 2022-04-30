@@ -9,6 +9,8 @@
     padding: 10px;
     color: grey;
     border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .note-details textarea {
@@ -62,4 +64,13 @@
 
 .note-details .back-btn:hover {
     opacity: 1
+}
+
+@media (max-width: 550px) {
+    .edit-container {
+        width: 100%;
+    }
+    .note-details textarea {
+        width: 260px;
+    }
 }

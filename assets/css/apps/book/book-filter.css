@@ -4,6 +4,7 @@
     justify-content: space-between;
     border-radius: 5px;
     padding: 5px;
+    margin-right: 51px;
     /* box-shadow: 0 0 10px rgb(0 0 0 / 56%); */
     width: 26rem;
     align-self: center;
@@ -21,4 +22,15 @@
 
 .book-filter input:focus-visible {
     outline-width: 0;
+}
+
+@media (max-width: 650px) {
+    .book-filter {
+        width: 80%;
+        margin-left: 20px;
+    }
+
+    .book-filter input {
+        width: 80%;
+    }
 }

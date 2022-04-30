@@ -6,7 +6,43 @@ body {
     font-family: Lato-Light;
     margin: 0;
     font-size: 0.875rem;
-    
+
     /* Stop Scroling */
-    overflow: auto 
+    overflow: hidden
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-msg {
+    position: fixed;
+    top: 66px;
+    right: 3px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+}
+.user-msg button {
+    border: unset;
+    background-color: unset;
+}
+
+.user-msg.success {
+    background: lightgreen;
+}
+
+.user-msg.danger {
+    background: rgb(242, 121, 121);
 }

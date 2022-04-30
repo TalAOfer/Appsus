@@ -57,13 +57,12 @@
 
 @media (max-width: 840px) {
     .note-preview {
-        width: 170px;
+        width: 88%;
     }
 }
 
 @media (max-width: 450px) {
     .note-preview {
-        width: 88%;
         margin-left: 0px;
         padding: 10px;
     }

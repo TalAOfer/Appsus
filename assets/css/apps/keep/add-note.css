@@ -35,12 +35,13 @@
     margin-inline-end: 10px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 520px) {
     .add-note {
         align-content: center;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.558);
         margin-top: 2px;
         align-self: flex-start;
+        width: 100%;
         
     }
     

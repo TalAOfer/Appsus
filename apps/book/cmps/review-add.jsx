@@ -31,7 +31,7 @@ export class ReviewAdd extends React.Component {
     const { bookReview } = this.props;
     return (
       <section className='review-add'>
-        <h2>Review Section</h2>
+        <h2>Reviews</h2>
         <div className='review-container'>
           <form onSubmit={this.onSave}>
             <label htmlFor='fullName'>Full Name: </label>
@@ -83,7 +83,7 @@ export class ReviewAdd extends React.Component {
           {/* MAKE TABLE WITH NEW COMP "REVIEW-PREVIEW" */}
           <table>
             <tbody>
-              <tr>
+              <tr class-name="review-table">
                 <th>#</th>
                 <th>Full Name</th>
                 <th>Rate</th>

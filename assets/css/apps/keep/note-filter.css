@@ -37,14 +37,33 @@
     border-bottom-right-radius: 10px;
 }
 
+@media (max-width: 670px) {
+    .note-filter {
+        flex-direction: row;
+        gap: 5px;
+        margin-left: 20px;
+    }
+
+    .note-filter .filter-btn {
+        border-radius: 10px;
+        text-decoration: none;
+        padding-right: 20px;
+        /* margin-right: 10px; */
+    }
+
+    .note-filter .active {
+        border-radius: 10px;
+    }
+}
+
 @media (max-width: 450px) {
     .note-filter {
         width: 80px;
         margin-inline-end: 0px;
     }
     .note-filter .filter-btn {
-        padding-left: 12px;
-        padding: 10px;
+        /* padding-left: 20px;
+        padding: 10px; */
     }
 
 

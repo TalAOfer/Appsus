@@ -1,5 +1,6 @@
 .review-add {
     background-color: white;
+    flex:1;
     color: #121212;
     padding: 10px;
     border-radius: 10px;
@@ -7,6 +8,8 @@
 
 .review-add h2{
     margin: 0;
+    text-align: center;
+    flex: 1;
 }
 
 .review-add form{
@@ -22,6 +25,11 @@
     gap: 40px;
     padding: 10px;
     flex-direction: column;
+}
+
+.review-table {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 table {
@@ -40,4 +48,5 @@ table {
 
   .review-container textarea {
       height: unset;
+      width: 80%;
   }

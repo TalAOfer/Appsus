@@ -7,17 +7,23 @@
 
 .app-keep .main-container {
     display: flex;
-    flex:1;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin-right: 40px;
+    flex:1;
+    /* margin-right: 40px; */
     height: calc(100vh - 150px);
     overflow-y:scroll;
 }
 
-@media (max-width: 450px) {
-    .app-keep .main-container {
-        margin-right: 18px;
+@media (max-width: 670px) {
+    .app-keep {
+        flex-direction: column;
+        flex:0;
     }
+
+    .app-keep .note-filter {
+        margin-bottom: 20px;
+    }
+
 }

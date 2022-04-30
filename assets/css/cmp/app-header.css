@@ -24,9 +24,7 @@
     /* font-size: 25px; */
     /* margin-bottom: 10px ; */
     font-family: Lato-Light;
-    flex-basis: 246px;
-    flex-grow: 0;
-    flex-shrink: 0;
+    flex: 1
 }
 
 .app-header nav * {
@@ -89,3 +87,6 @@
     z-index: 2 
 }
 
+@media (max-width: 480px) {
+    
+}

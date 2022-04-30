@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
     font-size: 0.825rem;
+    padding: 10px;
 }
 
 .note-preview p {
@@ -64,7 +65,6 @@
 @media (max-width: 450px) {
     .note-preview {
         margin-left: 0px;
-        padding: 10px;
     }
 
 }

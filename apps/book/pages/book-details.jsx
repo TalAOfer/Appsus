@@ -75,35 +75,42 @@ export class BookDetails extends React.Component {
       <section className='book-details-container'>
         <section className='book-details'>
           <div>
+          <div className='main-header'>
+                <div className='title'>{book.title}</div>
+                <div className='authors'>By: {book.authors}</div>
+                <h2> Details </h2>
+            <div className="some-container">
+              
+              
+              <div className='main-body'>
 
-            <div className='main-header'>
-              <div className='title'>{book.title}</div>
-              <div className='authors'>By: {book.authors}</div>
-            </div>
-            <div className='main-body'>
-              <div className='main-details'>
-                <div className={`amount ${red} ${green}`}><span>Price:</span>{" "}{`${book.listPrice.amount} ${book.listPrice.currencyCode}`}</div>
-                <div className='publishedDate'><span>Published Date:</span> {book.publishedDate}{" - "}{this.publishedDateLogic()}</div>
-                <div className='language'><span>Language:</span> {book.language}</div>
+                <div className='main-details'>
 
-                <LongTxt text={book.description} />
+                  <div className={`amount ${red} ${green}`}><span>Price:</span>{" "}{`${book.listPrice.amount} ${book.listPrice.currencyCode}`}</div>
+                  <div className='publishedDate'><span>Published Date:</span> {book.publishedDate}{" - "}{this.publishedDateLogic()}</div>
+                  <div className='language'><span>Language:</span> {book.language}</div>
 
-                <div className='subtitle'><span>subtitle:</span> {book.subtitle}</div>
-                <div className='pageCount'><span>Page Count:</span> {book.pageCount} {" - "}{this.pageCountLogic()}</div>
-                <div className='categories'><span>First Category:</span> {book.categories[0]}</div>
+                  <LongTxt text={book.description} />
+
+                  <div className='subtitle'><span>subtitle:</span> {book.subtitle}</div>
+                  <div className='pageCount'><span>Page Count:</span> {book.pageCount} {" - "}{this.pageCountLogic()}</div>
+                  <div className='categories'><span>First Category:</span> {book.categories[0]}</div>
+                  <div className="img-container">
+                  </div>
+                </div>
               </div>
-
+              
               <img className="img-preview" src={book.thumbnail} alt='' />
+              </div>
             </div>
-
+            <ReviewAdd
+                addReview={this.onAddReview}
+                removeReview={this.onRemoveReview}
+                bookId={book.id}
+                bookReview={book.review}
+              />
           </div>
 
-          <ReviewAdd
-            addReview={this.onAddReview}
-            removeReview={this.onRemoveReview}
-            bookId={book.id}
-            bookReview={book.review}
-          />
 
         </section>
 
@@ -113,7 +120,8 @@ export class BookDetails extends React.Component {
           <button className='btn-delete' onClick={this.onRemoveBook}>Delete Book</button>
           <Link to={`/book/${nextBookId}`}><button className='btn-back'>Next</button></Link>
         </div>
-        </section>
+
+      </section>
     );
   }
 }

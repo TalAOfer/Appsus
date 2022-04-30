@@ -11,8 +11,13 @@ export class NotePreview extends React.Component{
     }
 
     handleMail = () => {
-        const { id } = this.props.note
-        this.props.history.push(`/email/new-email/?${id}`)
+        const { info } = this.props.note
+        // this.props.history.push(`/email/new-email/?${id}`)
+        this.props.history.push(`/email/new_email`)
+        setTimeout(() => {
+            eventBusService.emit('search-keep', info.txt)
+        }, 500);
+        
     }
 
     render() {
@@ -31,7 +36,7 @@ export class NotePreview extends React.Component{
             </label>
             <div onClick={()=>handleChosenNote(note)}  className="preview-btn"> <img src="assets/img/keep/pencil.png" alt="" /></div>
             <div onClick={()=>handlePinChange(note.id)} className="preview-btn"> <img src={`assets/img/keep/${pinType}.png`} alt="" /></div>
-            {/* <div onClick={()=>this.handleMail(note.id)} className="preview-btn"> MAIL </div> */}
+            <div onClick={()=>this.handleMail(note.id)} className="preview-btn"> MAIL </div>
 
             
         </div>

@@ -81,16 +81,19 @@ const gTrash = [
     }
 ]
 
-function query(filterBy) {
+function query(filterBy, search) {
     let notes = storageService.loadFromStorage(NOTES_KEY)
     if (!notes || notes.length === 0) {
         notes = gNotes
         storageService.saveToStorage(NOTES_KEY, notes)
-
     }
 
     if (filterBy) {
         notes = notes.filter(note => note.type === filterBy)
+    }
+
+    if (search) {
+        notes = notes.filter(note => note.info.txt.toLowerCase().includes(search.toLowerCase()))
     }
 
     return Promise.resolve(notes)

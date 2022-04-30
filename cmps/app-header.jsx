@@ -1,5 +1,5 @@
 import { EmailFilter } from "../apps/mail/cmps/mail-filter.jsx";
-// import { GoogleBookApi } from "../apps/book/cmps/book-api.jsx";
+import { NoteSearch } from "../apps/keep/cmps/note-serach.jsx";
 import { BookFilter } from "../apps/book/cmps/book-filter.jsx";
 
 const { Link, NavLink, withRouter } = ReactRouterDOM
@@ -17,15 +17,17 @@ export class _AppHeader extends React.Component {
     render() {
         const { pathname } = this.props.location
         const { isOpen } = this.state
+
         const showSearchEmail = pathname.includes('email') ? true : false
         const showSearchBook = pathname.includes('book') ? true : false
+        const showSearchKeep = pathname.includes('keep') ? true : false
 
         return <header className="app-header">
             <h1> Appsus </h1>
 
             {showSearchEmail && <EmailFilter />}
-            {/* {showSearchBook &&<GoogleBookApi />} */}
             {showSearchBook && <BookFilter />}
+            {showSearchKeep && <NoteSearch />}
 
             <button onClick={() => { this.onOpenModal() }} className="modal-btn" ><img src="assets/img/mail/dots-menu.png"></img></button>
             {isOpen && <div className="modal">

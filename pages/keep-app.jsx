@@ -9,18 +9,24 @@ export class KeepApp extends React.Component {
     state = {
         notes: null,
         filterBy: null,
-        chosenNote: null
+        chosenNote: null,
+        searchByKeep: null
     }
 
     componentDidMount() {
         const {filterBy} = this.state
         this.loadNotes()
         console.log(this.props)
+        this.removeEvent = eventBusService.on('search-keep', (searchByKeep) => {
+            this.setState({searchByKeep}, ()=> {
+                this.loadNotes()
+            })
+        })
     }
 
     loadNotes() {
-        const {filterBy} = this.state
-        noteService.query(filterBy)
+        const {filterBy, searchByKeep} = this.state
+        noteService.query(filterBy, searchByKeep)
             .then(notes => this.setState({ notes }))
     }
 

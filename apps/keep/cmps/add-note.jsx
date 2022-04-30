@@ -1,7 +1,8 @@
 export class AddNote extends React.Component {
     state = {
         type: 'text',
-        text: ''
+        text: '',
+        isSelected: false
     }
 
     onChangeInput = (type) => {
@@ -20,15 +21,29 @@ export class AddNote extends React.Component {
         this.setState({ text })
     }
 
+    openTextArea = () => {
+        this.setState({isSelected: true})
+    }
+
+    closeTextArea = () => {
+        this.setState({isSelected: false})
+        this.setState({ text: '' })
+    }
+
     render() {
         const { type } = this.state
 
-        return <section className="add-note">
+        return <section className="add-note" >
 
-            <form onSubmit={this.onSubmit}>
-                {type === 'text' && <input value={this.state.text} type="text" placeholder="What's on your mind?" onChange={this.handleChange} />}
+            <form className="add-form" onSubmit={this.onSubmit}>
+                {type === 'text' && this.state.isSelected && <textarea value={this.state.text} type="text" placeholder="What's on your mind?"  onChange={this.handleChange} />}
+                {type === 'text' && !this.state.isSelected && <input value={this.state.text} type="text" placeholder="What's on your mind?" onClick={this.openTextArea} onChange={this.handleChange} />}
                 {type === 'image' && <input value={this.state.text} type="text" placeholder="Enter img URL" onChange={this.handleChange} />}
                 {type === 'video' && <input value={this.state.text} type="text" placeholder="Enter video URL" onChange={this.handleChange} />}
+                {type === 'text' && this.state.isSelected && <section className="save-btns">
+                <button type="button" className="save-btn" onClick={this.closeTextArea}> Close </button>
+                <button className="save-btn" onClick={this.closeTextArea}> Save </button>
+                </section>}
             </form>
 
             <div className="option-container">
@@ -38,9 +53,7 @@ export class AddNote extends React.Component {
                     <img src="assets/img/keep/image.png" onClick={() => this.onChangeInput('image')}/>
                 </div>
                 <div className="img-container">
-                    <img src="assets/img/keep/video.png" onClick={() => this.onChangeInput('video')}/></div>
-                <div>
-                    {/* <img src="../assets/img/keep/todo.png" alt="" /> */}
+                    <img src="assets/img/keep/video.png" onClick={() => this.onChangeInput('video')}/>
                 </div>
             </div>
         </section>

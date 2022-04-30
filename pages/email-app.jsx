@@ -71,7 +71,6 @@ export class AppEmail extends React.Component {
     }
 
     getSearchTxt = (txt) => {
-        console.log(txt);
         this.setState({ searchByTxt: txt }, () => {
             this.loadEmails()
         })

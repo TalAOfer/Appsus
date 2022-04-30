@@ -25,7 +25,7 @@ export class NotePreview extends React.Component{
     const pinType = (note.isPinned) ? 'unpin' : 'pin'
 
     return <section className="note-preview" style={{backgroundColor: note.info.color}}>
-        {note.type === 'text' && <p onClick={()=>handleChosenNote(note)}>{`${note.info.txt}`}</p>}
+        {note.type === 'text' && <pre onClick={()=>handleChosenNote(note)}>{`${note.info.txt}`}</pre>}
         {note.type === 'image' && <img src={note.info.txt} alt="" />}
         {note.type === 'video' && <video src={note.info.txt} controls></video>}
         <div className="preview-btns">

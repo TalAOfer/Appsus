@@ -42,8 +42,8 @@ export class EmailsPreview extends React.Component {
         const shortBody = `${email.body.substring(0, 50)}...`
         const meduimBody = `${email.body.substring(0, 200)}...`
 
-        const displayReceivedAt = new Date(email.receivedAt).toLocaleTimeString('it-IT')
-        const displaySentAt = new Date(email.sentAt).toLocaleTimeString('it-IT')
+        const displayReceivedAt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }).format(email.receivedAt)
+        const displaySentAt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }).format(email.sentAt)
         // const displayRemoveAt = new Date(email.removeAt).toLocaleTimeString('it-IT')
         const displayTimePerStatus = email.receivedAt ? displayReceivedAt : displaySentAt
  
@@ -61,7 +61,7 @@ export class EmailsPreview extends React.Component {
                         <p className="mail-subject">{email.subject}</p>
                         <p className="mail-body">{shortBody}</p>
                     </div>
-                    <p className="mail-time">{displayTimePerStatus}</p>
+                    <p onClick={this.onClickMail} className="mail-time">{displayTimePerStatus}</p>
 
                 </article>
                 {selectedMail &&

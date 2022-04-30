@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: Lato-Light;
+    font-family: Lato-Regular;
     margin: 0;
     font-size: 0.875rem;
 
@@ -45,4 +45,9 @@ body {
 
 .user-msg.danger {
     background: rgb(242, 121, 121);
+}
+
+.fade-in-fwd {
+	-webkit-animation: fade-in-fwd 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-fwd 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }

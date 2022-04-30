@@ -30,7 +30,7 @@ export class EmailCompose extends React.Component {
     }
 
     onDraft() { //2
-        // emailService.saveMailToDraft()
+        // emailService.saveEmail(email, 'draft', id)
     }
 
     onSent = (ev) => {
@@ -60,19 +60,20 @@ export class EmailCompose extends React.Component {
         return (
             <div className="overlay">
                 <section className='email-compose'>
-                    <button className="compose-btn-cls" onClick={this.onGoBack}>X</button>
+                    <div className="compose-header">
+                        <div className="new-msg">New Message</div>
+                        <button className="compose-btn-cls" onClick={this.onGoBack}>X</button>
+                    </div>
                     <form onSubmit={this.onSent}>
-                        <label htmlFor='to'>To: </label>
                         <input
                             type='email'
                             id='to'
                             name='to'
                             value={email.to}
                             onChange={this.handleChange}
-                            placeholder='Email'
+                            placeholder='Recipients'
                         />
 
-                        <label htmlFor='subject'>Subject: </label>
                         <input
                             type='text'
                             id='subject'
@@ -82,7 +83,6 @@ export class EmailCompose extends React.Component {
                             placeholder='Subject'
                         />
 
-                        <label htmlFor='body'>Body:</label>
                         <textarea
                             id='body'
                             name='body'

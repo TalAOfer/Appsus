@@ -14,7 +14,7 @@ export class AppEmail extends React.Component {
         this.loadEmails()
         this.props.history.push('/email/inbox')
         this.removeEvent = eventBusService.on('search-txt', (searchByTxt) => {
-            this.getSerachTxt(searchByTxt)
+            this.getSearchTxt(searchByTxt)
         })
     }
 
@@ -63,7 +63,7 @@ export class AppEmail extends React.Component {
             })
     }
 
-    getSerachTxt = (txt) => {
+    getSearchTxt = (txt) => {
         console.log(txt);
         this.setState({ searchByTxt: txt }, () => {
             this.loadEmails()

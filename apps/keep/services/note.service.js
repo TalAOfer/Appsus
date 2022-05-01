@@ -127,7 +127,7 @@ const gNotes = [
     {
         id: "n111",
         type: "text",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: `It's not as if our lives are divided simply into light and dark.
             There's shadowy middle ground.
@@ -252,8 +252,9 @@ function csvToTodo(csv) {
     const list = csv.split(",")
     const header = list.shift()
     const todos = list.map(todo => ({
+        id: utilService.makeId(),
         text: todo,
-        isDone: false
+        isDone: 'none'
     }))
     return({todos, header})
 }

@@ -6,11 +6,11 @@ export function AppHome() {
     <Link className="home-page-email-svg" to="/email"> <div className="home-page-txt"> </div> </Link>
     <Link className="home-page-book-svg" to="/book"> <div className="home-page-txt"> </div> </Link>
 
-  <pre className="creators">{`   Creators: 
+  {/* <pre className="creators">{`   Creators: 
   
   Tal Ofer
   & 
-  Eran Avichzer`}</pre>
+  Eran Avichzer`}</pre> */}
   </section>
 }
 

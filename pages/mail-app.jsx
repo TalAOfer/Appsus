@@ -11,21 +11,27 @@ export class AppEmail extends React.Component {
         searchByCtg: '',
     }
 
-    removeEvent;
-    removeEvents;
+    removeEventSearch;
+    removeEventKeep;
+    removeEventReload
 
     componentDidMount() {
         this.loadEmails()
-        this.removeEvent = eventBusService.on('search-txt', (searchByTxt) => {
+        this.removeEventSearch = eventBusService.on('search-txt', (searchByTxt) => {
             this.getSearchTxt(searchByTxt)
         })
-        this.removeEvents = eventBusService.on('search-keep', (keepToEmail) => {
+        this.removeEventKeep = eventBusService.on('search-keep', (keepToEmail) => {
             eventBusService.emit('keep-compose', keepToEmail)
+        })
+        this.removeEventReload = eventBusService.on('reload', (msg) => {
+            this.loadEmails()
         })
     }
 
     componentWillUnmount() {
-        this.removeEvent()
+        this.removeEventSearch()
+        this.removeEventKeep()
+        this.removeEventReload()
     }
 
     loadEmails = () => {

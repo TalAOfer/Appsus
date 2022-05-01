@@ -1,7 +1,3 @@
-// import { EmailsPreview } from "./mail-preview.jsx";
-// import { EmailDetails } from "../pages/mail-details.jsx";
-// import { EmailCompose } from "../pages/mail-compose.jsx";
-// import { eventBusService } from "../../../services/event-bus-service.js";
 
 const { Route, NavLink, Link } = ReactRouterDOM;
 
@@ -34,7 +30,7 @@ export class EmailFilterCategory extends React.Component {
                         <option value="all">All</option>
                         <option value="read">Read</option>
                         <option value="unread">Unread</option>
-                        <option value="starred">starred</option>
+                        <option value="starred">Starred</option>
                         <option value="unstarred">Unstarred</option>
                     </select>
                 </form>

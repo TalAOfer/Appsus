@@ -95,3 +95,9 @@
         flex-basis: 170px;
     }
 }
+
+@media (max-width: 600px) {
+    .app-header h1 {
+        flex-basis: 126px;
+    }
+}

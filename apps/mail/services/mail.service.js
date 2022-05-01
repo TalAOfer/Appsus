@@ -34,6 +34,32 @@ const emails = [{
     to: 'momo@momo.com',
 },
 {
+    //Sent
+    id: 'e001',
+    subject: 'Miss you again!',
+    body: 'Would love to catch up sometimes',
+    isRead: '',
+    isStared: '',
+    receivedAt: '',
+    sentAt: 1551133930594,
+    removeAt: '',
+    from: loggedinUser.email,
+    to: 'momo@momo.com',
+},
+{
+    //Sent
+    id: 'e002',
+    subject: 'Miss you more!',
+    body: 'Would love to catch up sometimes',
+    isRead: '',
+    isStared: '',
+    receivedAt: '',
+    sentAt: 1551133930594,
+    removeAt: '',
+    from: loggedinUser.email,
+    to: 'momo@momo.com',
+},
+{
     // Inbox
     id: 'e102',
     subject: 'Bank Leumi',
@@ -147,7 +173,7 @@ const emails = [{
     receivedAt: 1651888522000,
     sentAt: '',
     removeAt: '',
-    from: 'jobalerts-noreply@linkedin.com',
+    from: 'linkedin@linkedin.com',
     to: loggedinUser.email
 },
 {
@@ -162,6 +188,65 @@ const emails = [{
     removeAt: '',
     from: 'hello@avocode.com',
     to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e200',
+    subject: 'Stripe to support crypto payouts on Twitter 💲',
+    body: `Global crypto market capitalization dipped 2.2% over the past week to $1.84 trillion, according to data from CoinMarketCap.
+    Bitcoin ended the week 1.7% lower at $39,740. 
+    The Ethereum Foundation said it holds more than $1.6 billion Ether, and $300 million in crypto investments.
+    Blockchain data firm Chainalysis said Ether investors realized more gains than Bitcoin investors in 2021.
+    Tesla’s Bitcoin holdings remained unchanged at 43,200 BTC for the first quarter of 2022.
+    Crypto funds saw a second straight week of outflows in the week to April 15, CoinShares data showed.`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651411320000,
+    sentAt: '',
+    removeAt: '',
+    from: 'Binance@mailersp1.binance.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e201',
+    subject: 'Pokémon',
+    body: `Were excited to announce that Sandshrew and Alolan Sandshrew, the Mouse Pokémon, will be featured during Marchs Community Day! If youre lucky, you might encounter a Shiny one!
+Evolve Sandshrew during the event or up to two hours afterward to get a Sandslash that knows the Charged AttackNight Slash. Similarly, evolve Alolan Sandshrew during the event or up to two hours afterward to get an Alolan Sandslash that knows the Fast Attack Shadow Claw!`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651415220000,
+    sentAt: '',
+    removeAt: '',
+    from: 'pokemongo@news.nianticlabs.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e202',
+    subject: 'Pokémon',
+    body: `Were excited to announce that Sandshrew and Alolan Sandshrew, the Mouse Pokémon, will be featured during Marchs Community Day! If youre lucky, you might encounter a Shiny one!
+Evolve Sandshrew during the event or up to two hours afterward to get a Sandslash that knows the Charged AttackNight Slash. Similarly, evolve Alolan Sandshrew during the event or up to two hours afterward to get an Alolan Sandslash that knows the Fast Attack Shadow Claw!`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651415220000,
+    sentAt: '',
+    removeAt: '',
+    from: 'pokemongo@news.nianticlabs.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e203',
+    subject: 'Re: about the car',
+    body: `What is your best offer`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651333220000,
+    sentAt: '',
+    removeAt: '',
+    from: 'brad123@gmail.com',
+    to: loggedinUser.email
 }
 
 ]
@@ -175,6 +260,8 @@ function query(status, searchByTxt, searchByCtg) {
     let emailFilterdWithSearchAndCtg = []
     searchByTxt = searchByTxt.toLowerCase().trim()
 
+    emails.sort((a, b) => b.receivedAt - a.receivedAt)
+
     for (const email in emails) {
         let currEmail = emails[email]
         if (status === 'inbox') { if (currEmail.receivedAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
@@ -182,10 +269,12 @@ function query(status, searchByTxt, searchByCtg) {
             if (!currEmail.isStared) continue
             emailFilterd.push(currEmail)
         }
-        
-        else if (status === 'sent') { if (currEmail.sentAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
+        else if (status === 'sent') {
+            if (currEmail.sentAt && !currEmail.removeAt) emailFilterd.push(currEmail)
+            emailFilterd.sort((a, b) => b.sentAt - a.sentAt)
+        }
         else if (status === 'trash') { if (currEmail.removeAt) emailFilterd.push(currEmail) }
-        else if (status === 'draft') { if (!currEmail.receivedAt && !currEmail.sentAt) {emailFilterd.push(currEmail) }}
+        else if (status === 'draft') { if (!currEmail.receivedAt && !currEmail.sentAt) { emailFilterd.push(currEmail) } }
     }
 
     for (const email in emailFilterd) {
@@ -287,7 +376,7 @@ function getEmailById(emailId) {
 function saveEmail(emailId) {
     let emails = _loadFromStorage()
     let emailIdx = emails.findIndex(email => email.id === emailId)
-    
+
     emails[emailIdx].sentAt = Date.now()
     _saveToStorage(emails)
     return Promise.resolve()
@@ -333,3 +422,7 @@ function saveDraft(DraftEmail) {
     _saveToStorage(emails)
     return Promise.resolve()
 }
+
+
+
+

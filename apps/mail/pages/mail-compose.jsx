@@ -63,7 +63,8 @@ export class EmailCompose extends React.Component {
 
         const { email } = this.state
         emailService.saveEmail(email.id).then(() => {
-            this.props.history.push('/email/sent')
+            eventBusService.emit('reload', 'reload')
+            this.props.history.push('/email')
         }).then(() => {
             eventBusService.emit('user-msg', {
                 type: 'success', txt: 'Email sent successfully'

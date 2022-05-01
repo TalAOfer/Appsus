@@ -24,7 +24,6 @@ export class KeepApp extends React.Component {
                 this.loadNotes()
             })
         })
-        // debugger
         this.removeEvent = eventBusService.on('email-toKeep', (emailToKeep) => {
             const msg = `From: ${emailToKeep.from} 
                 To: ${emailToKeep.to}  
@@ -89,7 +88,7 @@ export class KeepApp extends React.Component {
         return <section className="app-keep">
             <NoteFilter handleFilterChange={this.handleFilterChange} />
             <div className="main-container">
-                {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handlePinChange={this.handlePinChange} handleTextChange={this.handleTextChange} />}
+                {chosenNote && <NoteDetails note={chosenNote} onGoBack={this.onGoBack} handleRemoveNote={this.handleRemoveNote} handleColorChange={this.handleColorChange} handlePinChange={this.handlePinChange} handleTextChange={this.handleTextChange} handleChosenNote={this.handleChosenNote}/>}
                 {!chosenNote && <React.Fragment>
                     <section className="add-note-container">
                         <AddNote handleAddNote={this.handleAddNote} />

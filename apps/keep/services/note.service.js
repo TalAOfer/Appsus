@@ -7,7 +7,8 @@ export const noteService = {
     removeNote,
     changeNoteColor,
     changeNoteText,
-    changePin
+    changePin,
+    csvToTodo
 }
 
 const NOTES_KEY = 'noteDB'
@@ -32,6 +33,18 @@ const gNotes = [
         }
     },
     {
+        id: "n110",
+        type: "text",
+        isPinned: false,
+        info: {
+            txt: `
+            Nobody likes you when you're twenty-three
+            And you still act like you're in freshman year`,
+            color: 'white'
+        }
+    },
+    
+    {
         id: "n103",
         type: "text",
         isPinned: false,
@@ -45,6 +58,7 @@ const gNotes = [
             color: 'white'
         }
     },
+    
     {
         id: "n104",
         type: "image",
@@ -54,10 +68,43 @@ const gNotes = [
             color: '#B4FF9F'
         }
     },
+    
+    {
+        id: "n109",
+        type: "text",
+        isPinned: false,
+        info: {
+            txt: `And that's about the time she walked away from me
+            Nobody likes you when you're twenty-three
+            And you still act like you're in freshman year
+            What the hell is wrong with me?
+            My friends say I should act my age
+            What's my age again?`,
+            color: '#E87373'
+        }
+    },
+    {
+        id: "n108",
+        type: "image",
+        isPinned: false,
+        info: {
+            txt: `https://cdn.britannica.com/79/191679-050-C7114D2B/Adult-capybara.jpg`,
+            color: 'white'
+        }
+    },
+    {
+        id: "n106",
+        type: "image",
+        isPinned: false,
+        info: {
+            txt: `https://storage.googleapis.com/pod_public/1300/100862.jpg`,
+            color: '#FEB8FF'
+        }
+    },
     {
         id: "n105",
         type: "text",
-        isPinned: false,
+        isPinned: true,
         info: {
             txt: `Say, if I only could
         I'd make a deal with God
@@ -67,19 +114,52 @@ const gNotes = [
         With no problems`,
         color: 'white'
         }
-    }
-]
-
-const gTrash = [
+    },
     {
-        id: "n110",
+        id: "n113",
+        type: "todo",
+        isPinned: true,
+        info: {
+            txt: `Shopping, banana, almond-milk, peanut-butter`,
+        color: 'white'
+        }
+    },
+    {
+        id: "n111",
         type: "text",
         isPinned: true,
         info: {
-            txt: "Trashcanning!"
+            txt: `It's not as if our lives are divided simply into light and dark.
+            There's shadowy middle ground.
+            Recognizing and understanding the shadows 
+            is what a healthy intelligence does.
+            And to acquire a healthy intelligence 
+            takes a certain amount of time and effort.`,
+        color: 'white'
+        }
+    },
+    {
+        id: "n112",
+        type: "text",
+        isPinned: false,
+        info: {
+            txt: `This is a first, I think. Or is it?`,
+        color: 'lightblue'
+        }
+    },
+    {
+        id: "n107",
+        type: "video",
+        isPinned: true,
+        info: {
+            txt: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4`,
+            color: '#F9EEA4'
         }
     }
 ]
+
+
+
 
 function query(filterBy, search) {
     let notes = storageService.loadFromStorage(NOTES_KEY)
@@ -166,4 +246,14 @@ function changePin(noteId) {
     notes[noteIdx].isPinned = !notes[noteIdx].isPinned
     storageService.saveToStorage(NOTES_KEY, notes)
     return Promise.resolve()
+}
+
+function csvToTodo(csv) {
+    const list = csv.split(",")
+    const header = list.shift()
+    const todos = list.map(todo => ({
+        text: todo,
+        isDone: false
+    }))
+    return({todos, header})
 }

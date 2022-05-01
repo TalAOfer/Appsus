@@ -1,4 +1,5 @@
 import { eventBusService } from "../../../services/event-bus-service.js";
+import { TodoNote } from "./todo-note.jsx";
 
 const {NavLink} = ReactRouterDOM
 
@@ -25,9 +26,10 @@ export class NotePreview extends React.Component{
     const pinType = (note.isPinned) ? 'unpin' : 'pin'
 
     return <section className="note-preview" style={{backgroundColor: note.info.color}}>
-        {note.type === 'text' && <pre onClick={()=>handleChosenNote(note, 'text')}> {`${note.info.txt}`} </pre>}
-        {note.type === 'image' && <img onClick={()=>handleChosenNote(note, 'img')}src={note.info.txt} alt="" />}
+        {note.type === 'text' && <pre onClick={()=>handleChosenNote(note)}> {`${note.info.txt}`} </pre>}
+        {note.type === 'image' && <img onClick={()=>handleChosenNote(note)} src={note.info.txt}/>}
         {note.type === 'video' && <video src={note.info.txt} controls></video>}
+        {note.type === 'todo' && <TodoNote csv={note.info.txt}/>}
         <div className="preview-btns">
             <div onClick={()=>handleRemoveNote(note.id)}  className="preview-btn"> <img src="assets/img/keep/trash.png" alt="" /></div>
             <label >

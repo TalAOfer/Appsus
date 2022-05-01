@@ -6,20 +6,24 @@
 
 .add-note {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-between;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.558);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.558);
     margin-top: 8px;
     margin-right: 40px;
     margin-left: 40px;
-    width: 350px;
+    /* width: 350px; */
 }
 .add-note .add-form {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
+}
+
+.add-note .text-area-add {
+    flex-direction: column;
 }
 
 .add-note textarea {
@@ -44,6 +48,7 @@
 .add-note .save-btns {
 display: flex;
 gap: 20px;
+justify-content: center;
 }
 
 .add-note .save-btn {
@@ -51,7 +56,6 @@ gap: 20px;
     padding: 5px;
     border-radius: 10px;
     width: 80px;
-    margin-bottom: 10px;
     font-family: inherit;
 }
 
@@ -61,7 +65,7 @@ gap: 20px;
     justify-self: flex-end;
     justify-content: center;
     gap: 20px;
-
+    padding-right: 5px;
 }
 
 .add-note .option-container .img-container {
@@ -83,6 +87,11 @@ gap: 20px;
         align-self: flex-start;
         /* width: 100%; */
         
+    }
+
+    .add-note .option-container {
+        gap: 10px;
+      
     }
 
     .add-note textarea {

@@ -1,13 +1,23 @@
 .note-list {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
+    max-width: 95%;
+    columns: 240px auto;
+    /* column-width: 240px; */
+    /* overflow-y:auto; */
 }
 
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
     .note-list {
         width: 80%; 
     }
+} */
+
+@media (max-width: 510px) {
+    .note-list{
+        width: 100wh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
 }

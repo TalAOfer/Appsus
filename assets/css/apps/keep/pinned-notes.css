@@ -1,9 +1,22 @@
 .pinned-notes {
-    width: 88%;
+    min-width: 95%;
+    columns: 240px;
     border-bottom: 1px solid var(--color1);
-    padding-bottom: 2.5rem;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+}
+
+.pinned-notes .note-preview{
+    width: 240px;
+}
+
+@media (max-width: 510px) {
+    .pinned-notes {
+        width: 100wh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pinned-notes .note-preview {
+        width: 90%;
+    }
 }

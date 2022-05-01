@@ -1,6 +1,6 @@
 .app-home {
     height: calc(100vh - 138px) ;
-    background-image: url(/assets/svg/people.svg);
+    background-image: url("../../svg/people.svg");
     background-repeat: no-repeat;
     background-position:bottom;
     background-size: 500px;

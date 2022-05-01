@@ -3,7 +3,7 @@
     background-image: url("../../svg/people.svg");
     background-repeat: no-repeat;
     background-position: bottom;
-    background-size: 750px;
+    background-size: 400px;
     display: flex;
     flex: 1;
     margin: auto;
@@ -91,34 +91,31 @@
 }
 
 .creators {
-    position: fixed;
-    bottom: 17%;
-    left: 51%;
+    /* position: fixed;
+    bottom: 12%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-family: lato-Light;
-    font-size: 23px;
+    font-size: 18px;
     width: 350px;
     border-radius: 20px;
     text-align: center;
-    color: white;
+    color: white; */
     /* background-color: rgba(100, 148, 237, 0.90); */
 }
 
 @media (max-width: 760px) {
-    .app-home {
-        background-size: 500px;
-    }
 
     .home-page-book-svg {
-        background-size: 83px;
+        background-size: 75px;
     }
 
     .home-page-keep-svg {
-        background-size: 83px;
+        background-size: 75px;
     }
 
     .home-page-mail-svg {
-        background-size: 83px;
+        background-size: 75px;
     }
 
     .app-home a {
@@ -127,10 +124,6 @@
         margin-left: 49px;
     }
 
-    .creators {
-        font-size: 17px;
-        bottom: 13%;
-    }
 }
 
 @media (max-width: 470px) {

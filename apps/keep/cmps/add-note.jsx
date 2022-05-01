@@ -54,6 +54,9 @@ export class AddNote extends React.Component {
                         <div className="img-container">
                             <img src="assets/img/keep/video.png" onClick={() => this.onChangeInput('video')} />
                         </div>
+                        <div className="img-container">
+                            <img src="assets/img/keep/todo.png" onClick={() => this.onChangeInput('todo')} />
+                        </div>
                         <section className="save-btns">
                             <button type="button" className="save-btn" onClick={this.closeTextArea}> Close </button>
                             <button className="save-btn" onClick={this.onSave}> Save </button>
@@ -63,6 +66,7 @@ export class AddNote extends React.Component {
                 {type === 'text' && !this.state.isSelected && <input value={this.state.text} type="text" placeholder="What's on your mind?" onClick={this.openTextArea} onChange={this.handleChange} />}
                 {type === 'image' && <input value={this.state.text} type="text" placeholder="Enter img URL" onChange={this.handleChange} />}
                 {type === 'video' && <input value={this.state.text} type="text" placeholder="Enter video URL" onChange={this.handleChange} />}
+                {type === 'todo' && <input value={this.state.text} type="text" placeholder="Enter CSV" onChange={this.handleChange} />}
                 {!this.state.isSelected && <div className="option-container">
                     <div className="img-container">
                         <img src="assets/img/keep/text.png" onClick={() => this.onChangeInput('text')} /></div>
@@ -72,6 +76,9 @@ export class AddNote extends React.Component {
                     <div className="img-container">
                         <img src="assets/img/keep/video.png" onClick={() => this.onChangeInput('video')} />
                     </div>
+                    <div className="img-container">
+                            <img src="assets/img/keep/todo.png" onClick={() => this.onChangeInput('todo')} />
+                        </div>
                 </div>}
 
             </form>

@@ -1,15 +1,16 @@
 .note-list {
     max-width: 95%;
     columns: 240px auto;
-    /* column-width: 240px; */
-    /* overflow-y:auto; */
+    -webkit-columns: 240px auto
+
 }
 
-/* @media (max-width: 450px) {
-    .note-list {
-        width: 80%; 
-    }
-} */
+.todo-note {
+    padding-left: 20px;
+    font-size: 1rem;
+}
+
+
 
 @media (max-width: 510px) {
     .note-list{

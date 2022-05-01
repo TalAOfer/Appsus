@@ -36,12 +36,12 @@ const emails = [{
 {
     //Sent
     id: 'e001',
-    subject: 'Miss you my love!',
-    body: 'Would love to catch up sometimes',
+    subject: 'Dont miss you!',
+    body: 'Dont want to catch up sometimes',
     isRead: true,
     isStared: '',
     receivedAt: '',
-    sentAt: 1551133930594,
+    sentAt: 1556633930594,
     removeAt: '',
     from: loggedinUser.email,
     to: 'jennifer@crazy.com',
@@ -49,12 +49,12 @@ const emails = [{
 {
     //Sent
     id: 'e002',
-    subject: 'Answerrrrrr ME!',
-    body: 'Would love to catch up sometimes',
+    subject: 'I miss you tenderly',
+    body: 'I am not an Indian',
     isRead: true,
     isStared: '',
     receivedAt: '',
-    sentAt: 1551133930594,
+    sentAt: 15431133930594,
     removeAt: '',
     from: loggedinUser.email,
     to: 'jennifer@crazy.com',
@@ -62,15 +62,15 @@ const emails = [{
 {
     //Sent
     id: 'e003',
-    subject: 'I do you simon leviev!',
-    body: 'Would love to catch up sometimes',
+    subject: 'Honest man',
+    body: 'Dear Simon, were is my money!!!!',
     isRead: true,
     isStared: '',
     receivedAt: '',
-    sentAt: 1551133930594,
+    sentAt: 1551134930594,
     removeAt: '',
     from: loggedinUser.email,
-    to: 'jennifer@crazy.com',
+    to: 'Simon@leviev.com',
 },
 {
     // Inbox
@@ -108,7 +108,7 @@ const emails = [{
     receivedAt: 1651064829019,
     sentAt: '',
     removeAt: 1651064829019,
-    from: 'money@gamil.com',
+    from: 'messi@gamil.com',
     to: loggedinUser.email
 },
 {
@@ -342,7 +342,87 @@ Evolve Sandshrew during the event or up to two hours afterward to get a Sandslas
     removeAt: '',
     from: 'Sony@email.sonyentertainmentnetwork.com',
     to: loggedinUser.email
+},
+{
+    // Draft
+    id: 'e209',
+    subject: 'Try Draft!',
+    body: `Here you can write your mail and send it any time you want!`,
+    isRead: true,
+    isStared: false,
+    receivedAt: '',
+    sentAt: '',
+    removeAt: '',
+    from: loggedinUser.email,
+    to: 'draft@draft.com'
+},
+{
+    // Trash
+    id: 'e1004',
+    subject: 'Fishing',
+    body: 'Give your money!',
+    isRead: true,
+    isStared: false,
+    receivedAt: 1651064829019,
+    sentAt: '',
+    removeAt: 1651064829019,
+    from: 'sprint@gamil.com',
+    to: loggedinUser.email
+},
+{
+    // Trash
+    id: 'e1005',
+    subject: 'Fishing',
+    body: 'Give your money!',
+    isRead: true,
+    isStared: false,
+    receivedAt: 1651064829019,
+    sentAt: '',
+    removeAt: 1651064829019,
+    from: 'number@gamil.com',
+    to: loggedinUser.email
+},
+{
+    // Trash
+    id: 'e1006',
+    subject: 'Fishing',
+    body: 'Give your money!',
+    isRead: true,
+    isStared: false,
+    receivedAt: 1651064829019,
+    sentAt: '',
+    removeAt: 1651064829019,
+    from: 'three@gamil.com',
+    to: loggedinUser.email
+},
+{
+    // Trash
+    id: 'e1007',
+    subject: 'Fishing',
+    body: 'Give your money!',
+    isRead: true,
+    isStared: false,
+    receivedAt: 1651064829019,
+    sentAt: '',
+    removeAt: 1651064829019,
+    from: 'is_the@gamil.com',
+    to: loggedinUser.email
+},
+{
+    // Trash
+    id: 'e1008',
+    subject: 'Fishing',
+    body: 'Give your money!',
+    isRead: true,
+    isStared: false,
+    receivedAt: 1651064829019,
+    sentAt: '',
+    removeAt: 1651064829019,
+    from: 'best@gamil.com',
+    to: loggedinUser.email
 }
+
+
 
 
 ]

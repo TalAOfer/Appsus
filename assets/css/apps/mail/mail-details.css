@@ -34,6 +34,16 @@
     color: rgb(106,106,106);
 }
 
+.details-main-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-main-time {
+    font-size: 0.80rem;
+    margin-right: 10px;
+}
+
 .details-span {
     font-weight: 500;
     color: #121212;

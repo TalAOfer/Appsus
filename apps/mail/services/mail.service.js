@@ -48,7 +48,7 @@ const emails = [{
     // Inbox
     id: 'e103',
     subject: 'Hey Eran',
-    body: 'Leave me in your mother',
+    body: 'Just want to say hello.',
     isRead: true,
     isStared: false,
     receivedAt: 1651064829019,
@@ -164,14 +164,6 @@ const emails = [{
 
 ]
 
-const criteria = {
-    status: 'inbox/sent/trash/draft',
-    txt: 'puki', // no need to support complex text search
-    isRead: true, // (optional property, if missing: show all)
-    isStared: true, // (optional property, if missing: show all)
-    lables: ['important', 'romantic'] // has any of the labels
-}
-
 _createEmails()
 
 function query(status, searchByTxt) {
@@ -198,7 +190,6 @@ function query(status, searchByTxt) {
             emailFilterdWithSearch.push(currEmail)
         }
     }
-
     return Promise.resolve(emailFilterdWithSearch)
 }
 

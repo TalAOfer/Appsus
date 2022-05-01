@@ -18,11 +18,11 @@
 @import url(apps/keep/pinned-notes.css);
 
 /* MAIL */
-@import url(apps/mail/app-email.css);
+@import url(apps/mail/app-mail.css);
 @import url(apps/mail/mail-preview.css);
-@import url(apps/mail/email-details.css);
-@import url(apps/mail/email-compose.css);
-@import url(apps/mail/email-filter.css);
+@import url(apps/mail/mail-details.css);
+@import url(apps/mail/mail-compose.css);
+@import url(apps/mail/mail-filter.css);
 @import url(apps/mail/side-bar.css);
 
 /* BOOK */

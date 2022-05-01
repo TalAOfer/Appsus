@@ -2,20 +2,13 @@
     display: flex;
     padding: 0px 10px 0px 10px;
     border-bottom: 1px solid rgb(214, 214, 220);
-
 }
-
-/* .email-preview:hover {
-    background-color: lightgray;
-    cursor: pointer;
-} */
 
 .email-preview:hover {
     box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
     /* z-index: 2; */
     cursor: pointer;
 }
-
 
 .mail-name {
     font-size: 0.875rem;
@@ -90,12 +83,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20px;
-    /* margin-right: 5px; */
+    height: 35px;
+    width: 35px;
+    background-color: unset;
 }
 
 .delete-mail:hover {
     background-color: tomato;
 }
+
 .keep-mail:hover {
     background-color: gold !important;
 }

@@ -15,12 +15,10 @@ export class AppEmail extends React.Component {
 
     componentDidMount() {
         this.loadEmails()
-        // this.props.history.push('/email/inbox')
         this.removeEvent = eventBusService.on('search-txt', (searchByTxt) => {
             this.getSearchTxt(searchByTxt)
         })
         this.removeEvents = eventBusService.on('search-keep', (keepToEmail) => {
-            // this.setState({ keepToEmail :'keepToEmail' })
             eventBusService.emit('keep-compose', keepToEmail)
         })
     }

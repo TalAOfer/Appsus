@@ -30,8 +30,8 @@ export class EmailDetails extends React.Component {
                         <div className="new-msg">Message Details</div>
                         <button className="compose-btn-cls" onClick={this.onGoBack}>X</button>
                     </div>
-                    <div className="details-main" ><span className="details-span">To: </span>{`${email.to}`}</div> 
-                    <div className="details-main"><span className="details-span">From:  </span>{`${email.from}`}:</div> 
+                    <div className="details-main" ><span className="details-span">To: </span>{`${email.to}`}</div>
+                    <div className="details-main"><span className="details-span">From:  </span>{`${email.from}`}:</div>
                     <div className="details-main"><span className="details-span">Subject: </span>{` ${email.subject}`}:</div>
                     <div className="details-body">{`${email.body}`}</div>
                 </section>

@@ -11,32 +11,21 @@ export class EmailCompose extends React.Component {
         },
     }
     removeEvents;
-    
-    componentDidMount() {
-        // this.removeEvent = eventBusService.on('new-email', (newEmail) => {
-        //     this.setState({ newEmail })
-        // })
 
+    componentDidMount() {
         this.removeEvents = eventBusService.on('keep-compose', (keepToEmail) => {
-            this.setState({email :{ ...this.state.email, body: keepToEmail }})
+            this.setState({ email: { ...this.state.email, body: keepToEmail } })
         })
-        
-        this.onDraft() //1
     }
 
     componentWillUnmount() {
         this.removeEvents()
-        // this.clearInterval() //3
-        // this.loadMail() //4?
+
     }
 
     handleChange = ({ target }) => {
         const { name } = target
         this.setState((prevState) => ({ email: { ...prevState.email, [name]: target.value } }))
-    }
-
-    onDraft() { //2
-        // emailService.saveEmail(email, 'draft', id)
     }
 
     onSent = (ev) => {
@@ -53,13 +42,11 @@ export class EmailCompose extends React.Component {
                 type: 'danger', txt: 'Could not sent message :('
             })
         })
-        //5 remove Draft // !!!Remove send on Enter!!! and add required to all mail inputs
     }
 
     onGoBack = () => {
         this.props.history.push("/email");
     };
-
 
     render() {
         const { email } = this.state

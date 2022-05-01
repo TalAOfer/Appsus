@@ -11,6 +11,10 @@ body {
     overflow: hidden
 }
 
+Í{
+    font-family: Lato-Regular;
+}
+
 .overlay {
     position: fixed;
     top: 0;

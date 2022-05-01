@@ -25,39 +25,52 @@ const emails = [{
     id: 'e101',
     subject: 'Miss you!',
     body: 'Would love to catch up sometimes',
-    isRead: '',
+    isRead: true,
     isStared: '',
     receivedAt: '',
     sentAt: 1551133930594,
     removeAt: '',
     from: loggedinUser.email,
-    to: 'momo@momo.com',
+    to: 'jennifer@crazy.com',
 },
 {
     //Sent
     id: 'e001',
-    subject: 'Miss you again!',
+    subject: 'Miss you my love!',
     body: 'Would love to catch up sometimes',
-    isRead: '',
+    isRead: true,
     isStared: '',
     receivedAt: '',
     sentAt: 1551133930594,
     removeAt: '',
     from: loggedinUser.email,
-    to: 'momo@momo.com',
+    to: 'jennifer@crazy.com',
 },
 {
     //Sent
     id: 'e002',
-    subject: 'Miss you more!',
+    subject: 'Answerrrrrr ME!',
     body: 'Would love to catch up sometimes',
-    isRead: '',
+    isRead: true,
     isStared: '',
     receivedAt: '',
     sentAt: 1551133930594,
     removeAt: '',
     from: loggedinUser.email,
-    to: 'momo@momo.com',
+    to: 'jennifer@crazy.com',
+},
+{
+    //Sent
+    id: 'e003',
+    subject: 'I do you simon leviev!',
+    body: 'Would love to catch up sometimes',
+    isRead: true,
+    isStared: '',
+    receivedAt: '',
+    sentAt: 1551133930594,
+    removeAt: '',
+    from: loggedinUser.email,
+    to: 'jennifer@crazy.com',
 },
 {
     // Inbox
@@ -224,15 +237,15 @@ Evolve Sandshrew during the event or up to two hours afterward to get a Sandslas
 {
     // Inbox
     id: 'e202',
-    subject: 'Pokémon',
-    body: `Were excited to announce that Sandshrew and Alolan Sandshrew, the Mouse Pokémon, will be featured during Marchs Community Day! If youre lucky, you might encounter a Shiny one!
-Evolve Sandshrew during the event or up to two hours afterward to get a Sandslash that knows the Charged AttackNight Slash. Similarly, evolve Alolan Sandshrew during the event or up to two hours afterward to get an Alolan Sandslash that knows the Fast Attack Shadow Claw!`,
-    isRead: false,
+    subject: 'Join the conversation on May 19th',
+    body: `There’s a better way to bring businesses and customers together - and we’re excited to share our vision with you. Join us for the very first business messaging event, Conversations 2022, happening on May 19.
+    This is an incredible opportunity to learn how you can grow your business via Meta’s messaging platforms, connect with other businesses in your industry, get a first look at exciting product announcements, and take part in the future of business messaging. You won’t want to miss it.`,
+    isRead: true,
     isStared: true,
-    receivedAt: 1651415220000,
+    receivedAt: 1651418880000,
     sentAt: '',
     removeAt: '',
-    from: 'pokemongo@news.nianticlabs.com',
+    from: 'metafordevelopers@facebookmail.com',
     to: loggedinUser.email
 },
 {
@@ -247,7 +260,90 @@ Evolve Sandshrew during the event or up to two hours afterward to get a Sandslas
     removeAt: '',
     from: 'brad123@gmail.com',
     to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e204',
+    subject: 'nadav and 10 others made changes in your shared folders',
+    body: `Here's what happened in your shared folders last week`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651333555000,
+    sentAt: '',
+    removeAt: '',
+    from: 'dropbox@dropbox.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e205',
+    subject: 'Subscription Confirmation',
+    body: `Your subscription continues for ₪17.90/month starting 12 July 2022 until cancelled. You can cancel at any time. If you cancel during the 3‑month free trial period, you will immediately lose access to Apple Arcade and the remainder of your trial. You cannot reactivate this trial.	
+    For immediate cancellation of your subscription and a prorated refund, contact Apple Support: call 1-800-800-APPL or write to Apple Distribution International, Internet Software & Services, Hollyhill Industrial Estate, Hollyhill, Cork, Republic of Ireland.`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651333777000,
+    sentAt: '',
+    removeAt: '',
+    from: 'apple@email.apple.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e206',
+    subject: 'Guess Whats Inside❓',
+    body: `Competitive Programming is a mental sport which enables you to code a given problem under provided constraints. The purpose of this article is to guide every individual possessing a desire to excel in this sport. This article provides a detailed syllabus for Competitive Programming designed by industry experts to boost the preparation of the readers.`,
+    isRead: true,
+    isStared: true,
+    receivedAt: 1651334444000,
+    sentAt: '',
+    removeAt: '',
+    from: 'geeksforgeeks@geeksforgeeks.org',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e207',
+    subject: 'FlightAware.com Flight Alert for UAL91',
+    body: `Hello from FlightAware.
+
+    A FlightAware flight alert was set up for you. You will be notified by email of the status of this flight:
+    
+    Flight:	United 91
+    Date:	03/16/2022
+    From:	Tel Aviv (TLV / LLBG)
+    To:	Newark, NJ (KEWR)
+    `,
+    isRead: true,
+    isStared: true,
+    receivedAt: 1651345644000,
+    sentAt: '',
+    removeAt: '',
+    from: 'support@flightaware.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e208',
+    subject: 'Thank You For Your Purchase',
+    body: `	
+    Dear Eran,
+    
+    Thank you for enrolling in a PlayStation® subscription service.
+    
+    Your receipt and important subscription terms, including applicable cancellation policy, are stated below. Please read these terms and retain this email for your records.
+    
+    Your subscription will automatically renew unless and until you cancel.
+    `,
+    isRead: true,
+    isStared: true,
+    receivedAt: 1651245644000,
+    sentAt: '',
+    removeAt: '',
+    from: 'Sony@email.sonyentertainmentnetwork.com',
+    to: loggedinUser.email
 }
+
 
 ]
 

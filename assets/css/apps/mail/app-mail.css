@@ -17,7 +17,7 @@
 }
 
 .email-list {
-    height: 100vh;
+    height: calc( 100vh - 101px );
     width: 100%;
     background-color: white;
     /* position: relative; */

@@ -24,6 +24,7 @@
 @import url(apps/mail/mail-compose.css);
 @import url(apps/mail/mail-filter.css);
 @import url(apps/mail/side-bar.css);
+@import url(apps/mail/mail-filter-ctg.css);
 
 /* BOOK */
 @import url(apps/book/book-list.css);

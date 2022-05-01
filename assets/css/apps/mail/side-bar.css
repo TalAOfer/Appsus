@@ -113,7 +113,7 @@
 @media (max-width: 800px) {
 
     .title-sidebar {
-        width: 140px;
+        width: 95px;
     }
 }
 
@@ -121,6 +121,7 @@
     .sidbar-list {
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     .mail-sidebar {

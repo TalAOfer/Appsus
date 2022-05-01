@@ -7,7 +7,10 @@ export class EmailFilter extends React.Component {
 
     handleChange = ({ target }) => {
         const { name } = target
-        this.setState(() => ({ [name]: target.value }))
+        const { searchByTxt } = this.state
+        this.setState(() => ({ [name]: target.value }), () => {
+            eventBusService.emit('search-txt', searchByTxt)
+        })
     }
 
     onSave = (ev) => {
@@ -27,6 +30,7 @@ export class EmailFilter extends React.Component {
                         value={searchByTxt}
                         onChange={this.handleChange}
                         placeholder='Search mail'
+                        autoComplete="off"
                     />
                 </form>
             </section>

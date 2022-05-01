@@ -8,7 +8,9 @@ export const emailService = {
     getEmailById,
     saveEmail,
     getUnreadMailsCount,
-    changeStarStatus
+    changeStarStatus,
+    getDraftId,
+    saveDraft
 }
 
 const MAIL_KEY = 'emailDB'
@@ -22,6 +24,32 @@ const emails = [{
     //Sent
     id: 'e101',
     subject: 'Miss you!',
+    body: 'Would love to catch up sometimes',
+    isRead: '',
+    isStared: '',
+    receivedAt: '',
+    sentAt: 1551133930594,
+    removeAt: '',
+    from: loggedinUser.email,
+    to: 'momo@momo.com',
+},
+{
+    //Sent
+    id: 'e001',
+    subject: 'Miss you again!',
+    body: 'Would love to catch up sometimes',
+    isRead: '',
+    isStared: '',
+    receivedAt: '',
+    sentAt: 1551133930594,
+    removeAt: '',
+    from: loggedinUser.email,
+    to: 'momo@momo.com',
+},
+{
+    //Sent
+    id: 'e002',
+    subject: 'Miss you more!',
     body: 'Would love to catch up sometimes',
     isRead: '',
     isStared: '',
@@ -145,7 +173,7 @@ const emails = [{
     receivedAt: 1651888522000,
     sentAt: '',
     removeAt: '',
-    from: 'jobalerts-noreply@linkedin.com',
+    from: 'linkedin@linkedin.com',
     to: loggedinUser.email
 },
 {
@@ -160,17 +188,79 @@ const emails = [{
     removeAt: '',
     from: 'hello@avocode.com',
     to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e200',
+    subject: 'Stripe to support crypto payouts on Twitter 💲',
+    body: `Global crypto market capitalization dipped 2.2% over the past week to $1.84 trillion, according to data from CoinMarketCap.
+    Bitcoin ended the week 1.7% lower at $39,740. 
+    The Ethereum Foundation said it holds more than $1.6 billion Ether, and $300 million in crypto investments.
+    Blockchain data firm Chainalysis said Ether investors realized more gains than Bitcoin investors in 2021.
+    Tesla’s Bitcoin holdings remained unchanged at 43,200 BTC for the first quarter of 2022.
+    Crypto funds saw a second straight week of outflows in the week to April 15, CoinShares data showed.`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651411320000,
+    sentAt: '',
+    removeAt: '',
+    from: 'Binance@mailersp1.binance.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e201',
+    subject: 'Pokémon',
+    body: `Were excited to announce that Sandshrew and Alolan Sandshrew, the Mouse Pokémon, will be featured during Marchs Community Day! If youre lucky, you might encounter a Shiny one!
+Evolve Sandshrew during the event or up to two hours afterward to get a Sandslash that knows the Charged AttackNight Slash. Similarly, evolve Alolan Sandshrew during the event or up to two hours afterward to get an Alolan Sandslash that knows the Fast Attack Shadow Claw!`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651415220000,
+    sentAt: '',
+    removeAt: '',
+    from: 'pokemongo@news.nianticlabs.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e202',
+    subject: 'Pokémon',
+    body: `Were excited to announce that Sandshrew and Alolan Sandshrew, the Mouse Pokémon, will be featured during Marchs Community Day! If youre lucky, you might encounter a Shiny one!
+Evolve Sandshrew during the event or up to two hours afterward to get a Sandslash that knows the Charged AttackNight Slash. Similarly, evolve Alolan Sandshrew during the event or up to two hours afterward to get an Alolan Sandslash that knows the Fast Attack Shadow Claw!`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651415220000,
+    sentAt: '',
+    removeAt: '',
+    from: 'pokemongo@news.nianticlabs.com',
+    to: loggedinUser.email
+},
+{
+    // Inbox
+    id: 'e203',
+    subject: 'Re: about the car',
+    body: `What is your best offer`,
+    isRead: false,
+    isStared: true,
+    receivedAt: 1651333220000,
+    sentAt: '',
+    removeAt: '',
+    from: 'brad123@gmail.com',
+    to: loggedinUser.email
 }
 
 ]
 
 _createEmails()
 
-function query(status, searchByTxt) {
+function query(status, searchByTxt, searchByCtg) {
     let emails = _loadFromStorage()
     let emailFilterd = []
     let emailFilterdWithSearch = []
-    searchByTxt = searchByTxt.toLowerCase()
+    let emailFilterdWithSearchAndCtg = []
+    searchByTxt = searchByTxt.toLowerCase().trim()
+
+    emails.sort((a, b) => b.receivedAt - a.receivedAt)
 
     for (const email in emails) {
         let currEmail = emails[email]
@@ -179,10 +269,14 @@ function query(status, searchByTxt) {
             if (!currEmail.isStared) continue
             emailFilterd.push(currEmail)
         }
-        else if (status === 'sent') { if (currEmail.sentAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
+        else if (status === 'sent') {
+            if (currEmail.sentAt && !currEmail.removeAt) emailFilterd.push(currEmail)
+            emailFilterd.sort((a, b) => b.sentAt - a.sentAt)
+        }
         else if (status === 'trash') { if (currEmail.removeAt) emailFilterd.push(currEmail) }
-        else if (status === 'draft') { if (currEmail.receivedAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
+        else if (status === 'draft') { if (!currEmail.receivedAt && !currEmail.sentAt) { emailFilterd.push(currEmail) } }
     }
+
     for (const email in emailFilterd) {
         let currEmail = emailFilterd[email]
         if (currEmail.body.toLowerCase().includes(searchByTxt) || currEmail.subject.toLowerCase().includes(searchByTxt) ||
@@ -190,7 +284,28 @@ function query(status, searchByTxt) {
             emailFilterdWithSearch.push(currEmail)
         }
     }
-    return Promise.resolve(emailFilterdWithSearch)
+
+    if (searchByCtg && searchByCtg !== 'all') {
+        for (const email in emailFilterdWithSearch) {
+            let currEmail = emailFilterdWithSearch[email]
+            if (searchByCtg === 'read' && currEmail.isRead) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+            else if (searchByCtg === 'unread' && !currEmail.isRead) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+            else if (searchByCtg === 'starred' && currEmail.isStared) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+            else if (searchByCtg === 'unstarred' && !currEmail.isStared) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+        }
+    } else {
+        emailFilterdWithSearchAndCtg = emailFilterdWithSearch
+    }
+
+    return Promise.resolve(emailFilterdWithSearchAndCtg)
 }
 
 function _createEmails() {
@@ -258,14 +373,13 @@ function getEmailById(emailId) {
     return Promise.resolve(emails[emailIdx])
 }
 
-function saveEmail(email) {
+function saveEmail(emailId) {
     let emails = _loadFromStorage()
-    let creaetEmail;
-    creaetEmail = _createEmail(email)
-    emails.push(creaetEmail)
+    let emailIdx = emails.findIndex(email => email.id === emailId)
 
+    emails[emailIdx].sentAt = Date.now()
     _saveToStorage(emails)
-    return Promise.resolve(creaetEmail.id)
+    return Promise.resolve()
 }
 
 function getUnreadMailsCount() {
@@ -276,3 +390,39 @@ function getUnreadMailsCount() {
     })
     return Promise.resolve(count / emails.length)
 }
+
+function getDraftId() {
+    let emails = _loadFromStorage()
+    let createEmail;
+    createEmail = _createEmail({
+        subject: '',
+        body: '',
+        isRead: true,
+        isStared: false,
+        receivedAt: '',
+        sentAt: '',
+        to: ''
+    })
+    emails.push(createEmail)
+    _saveToStorage(emails)
+
+    return Promise.resolve(createEmail.id)
+}
+
+function saveDraft(DraftEmail) {
+    let emails = _loadFromStorage()
+    let emailIdx = emails.findIndex(email => email.id === DraftEmail.id)
+
+    emails[emailIdx].to = DraftEmail.to
+    emails[emailIdx].subject = DraftEmail.subject
+    emails[emailIdx].body = DraftEmail.body
+    emails[emailIdx].true = DraftEmail.true
+    emails[emailIdx].sentAt = ''
+
+    _saveToStorage(emails)
+    return Promise.resolve()
+}
+
+
+
+

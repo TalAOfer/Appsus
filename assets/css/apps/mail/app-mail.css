@@ -26,7 +26,7 @@
     padding-right: 10px;
     /* white-space: nowrap; */
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .email-preview {

@@ -8,29 +8,36 @@ export class AppEmail extends React.Component {
         emails: '',
         selectedStatus: 'inbox',
         searchByTxt: '',
+        searchByCtg: '',
     }
 
-    removeEvent;
-    removeEvents;
+    removeEventSearch;
+    removeEventKeep;
+    removeEventReload
 
     componentDidMount() {
         this.loadEmails()
-        this.removeEvent = eventBusService.on('search-txt', (searchByTxt) => {
+        this.removeEventSearch = eventBusService.on('search-txt', (searchByTxt) => {
             this.getSearchTxt(searchByTxt)
         })
-        this.removeEvents = eventBusService.on('search-keep', (keepToEmail) => {
+        this.removeEventKeep = eventBusService.on('search-keep', (keepToEmail) => {
             eventBusService.emit('keep-compose', keepToEmail)
+        })
+        this.removeEventReload = eventBusService.on('reload', (msg) => {
+            this.loadEmails()
         })
     }
 
     componentWillUnmount() {
-        this.removeEvent()
+        this.removeEventSearch()
+        this.removeEventKeep()
+        this.removeEventReload()
     }
 
     loadEmails = () => {
-        const { selectedStatus, searchByTxt } = this.state
+        const { selectedStatus, searchByTxt, searchByCtg } = this.state
         emailService
-            .query(selectedStatus, searchByTxt)
+            .query(selectedStatus, searchByTxt, searchByCtg)
             .then((emails) => this.setState({ emails }))
             .then(() => {
                 emailService.getUnreadMailsCount()
@@ -74,6 +81,12 @@ export class AppEmail extends React.Component {
         })
     }
 
+    getFilterCategory = (ctg) => {
+        this.setState({ searchByCtg: ctg }, () => {
+            this.loadEmails()
+        })
+    }
+
     render() {
         const { emails } = this.state
         if (!emails) return <section>Loader...</section>
@@ -82,7 +95,8 @@ export class AppEmail extends React.Component {
             <EmailList emails={emails}
                 isReadUpdate={this.getUpdateMail}
                 isStarUpdate={this.getUpdateStar}
-                removeEmail={this.getRemoveMail} />
+                removeEmail={this.getRemoveMail}
+                filterByCategory={this.getFilterCategory} />
         </section>
     }
 }

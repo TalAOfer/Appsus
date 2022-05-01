@@ -8,6 +8,7 @@ export class AppEmail extends React.Component {
         emails: '',
         selectedStatus: 'inbox',
         searchByTxt: '',
+        searchByCtg: '',
     }
 
     removeEvent;
@@ -28,9 +29,9 @@ export class AppEmail extends React.Component {
     }
 
     loadEmails = () => {
-        const { selectedStatus, searchByTxt } = this.state
+        const { selectedStatus, searchByTxt, searchByCtg } = this.state
         emailService
-            .query(selectedStatus, searchByTxt)
+            .query(selectedStatus, searchByTxt, searchByCtg)
             .then((emails) => this.setState({ emails }))
             .then(() => {
                 emailService.getUnreadMailsCount()
@@ -74,6 +75,12 @@ export class AppEmail extends React.Component {
         })
     }
 
+    getFilterCategory = (ctg) => {
+        this.setState({ searchByCtg: ctg }, () => {
+            this.loadEmails()
+        })
+    }
+
     render() {
         const { emails } = this.state
         if (!emails) return <section>Loader...</section>
@@ -82,7 +89,8 @@ export class AppEmail extends React.Component {
             <EmailList emails={emails}
                 isReadUpdate={this.getUpdateMail}
                 isStarUpdate={this.getUpdateStar}
-                removeEmail={this.getRemoveMail} />
+                removeEmail={this.getRemoveMail}
+                filterByCategory={this.getFilterCategory} />
         </section>
     }
 }

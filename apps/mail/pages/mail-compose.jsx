@@ -4,23 +4,36 @@ import { eventBusService } from "../../../services/event-bus-service.js";
 export class EmailCompose extends React.Component {
     state = {
         email: {
+            id: '',
             to: '',
             subject: '',
             body: '',
             isRead: true
         },
     }
+
     removeEvents;
+    removeInterval;
 
     componentDidMount() {
         this.removeEvents = eventBusService.on('keep-compose', (keepToEmail) => {
             this.setState({ email: { ...this.state.email, body: keepToEmail } })
         })
+
+        const emailId = this.props.location.pathname.substring(18)
+        emailService.getEmailById(emailId)
+            .then((email) => {
+                (!email) && (email = this.state.email)
+                this.setState(() => ({ email }),
+                    () => {
+                        (!emailId) ? this.getIdForDraft() : this.saveDraftInterval()
+                    })
+            })
     }
 
     componentWillUnmount() {
         this.removeEvents()
-
+        clearInterval(this.removeInterval)
     }
 
     handleChange = ({ target }) => {
@@ -28,11 +41,29 @@ export class EmailCompose extends React.Component {
         this.setState((prevState) => ({ email: { ...prevState.email, [name]: target.value } }))
     }
 
+    getIdForDraft = () => {
+        emailService.getDraftId().then((id) => {
+            this.setState((prevState) => ({ email: { ...prevState.email, id } }),
+                () => {
+                    this.saveDraftInterval()
+                })
+        })
+    }
+
+    saveDraftInterval = () => {
+        this.removeInterval = setInterval(() => {
+            const { email } = this.state
+            emailService.saveDraft(email)
+        }, 1000);
+    }
+
     onSent = (ev) => {
         ev.preventDefault()
+        if (ev.keyCode == 13) { return false; }
+
         const { email } = this.state
-        emailService.saveEmail(email).then(() => {
-            this.props.history.push('/email')
+        emailService.saveEmail(email.id).then(() => {
+            this.props.history.push('/email/sent')
         }).then(() => {
             eventBusService.emit('user-msg', {
                 type: 'success', txt: 'Email sent successfully'

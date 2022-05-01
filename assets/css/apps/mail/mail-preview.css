@@ -42,6 +42,7 @@
 .mail-body {
     color: rgb(110, 112, 117);
     font-size: 0.875rem;
+    font-family: lato-Light;
 }
 
 .mail-time {
@@ -92,17 +93,21 @@
     background-color: tomato;
 }
 
+.draft-mail:hover {
+    background-color: pink;
+}
+
 .keep-mail:hover {
     background-color: gold !important;
 }
 
-.fullmail-subject button:last-child:hover {
+/* .fullmail-subject button:last-child:hover {
     background-color: goldenrod;
-}
+} */
 
 .fullmail-btn {
     display: flex;
-    gap: 4%;
+    gap: 1%;
     height: 25px;
 }
 
@@ -135,7 +140,7 @@
 
 .toggle-unread:hover {
     cursor: pointer;
-    color: green
+    background-color: rgb(62, 148, 62);
 }
 
 @media (max-width: 450px) {

@@ -8,7 +8,9 @@ export const emailService = {
     getEmailById,
     saveEmail,
     getUnreadMailsCount,
-    changeStarStatus
+    changeStarStatus,
+    getDraftId,
+    saveDraft
 }
 
 const MAIL_KEY = 'emailDB'
@@ -166,11 +168,12 @@ const emails = [{
 
 _createEmails()
 
-function query(status, searchByTxt) {
+function query(status, searchByTxt, searchByCtg) {
     let emails = _loadFromStorage()
     let emailFilterd = []
     let emailFilterdWithSearch = []
-    searchByTxt = searchByTxt.toLowerCase()
+    let emailFilterdWithSearchAndCtg = []
+    searchByTxt = searchByTxt.toLowerCase().trim()
 
     for (const email in emails) {
         let currEmail = emails[email]
@@ -179,10 +182,12 @@ function query(status, searchByTxt) {
             if (!currEmail.isStared) continue
             emailFilterd.push(currEmail)
         }
+        
         else if (status === 'sent') { if (currEmail.sentAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
         else if (status === 'trash') { if (currEmail.removeAt) emailFilterd.push(currEmail) }
-        else if (status === 'draft') { if (currEmail.receivedAt && !currEmail.removeAt) emailFilterd.push(currEmail) }
+        else if (status === 'draft') { if (!currEmail.receivedAt && !currEmail.sentAt) {emailFilterd.push(currEmail) }}
     }
+
     for (const email in emailFilterd) {
         let currEmail = emailFilterd[email]
         if (currEmail.body.toLowerCase().includes(searchByTxt) || currEmail.subject.toLowerCase().includes(searchByTxt) ||
@@ -190,7 +195,28 @@ function query(status, searchByTxt) {
             emailFilterdWithSearch.push(currEmail)
         }
     }
-    return Promise.resolve(emailFilterdWithSearch)
+
+    if (searchByCtg && searchByCtg !== 'all') {
+        for (const email in emailFilterdWithSearch) {
+            let currEmail = emailFilterdWithSearch[email]
+            if (searchByCtg === 'read' && currEmail.isRead) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+            else if (searchByCtg === 'unread' && !currEmail.isRead) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+            else if (searchByCtg === 'starred' && currEmail.isStared) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+            else if (searchByCtg === 'unstarred' && !currEmail.isStared) {
+                emailFilterdWithSearchAndCtg.push(currEmail)
+            }
+        }
+    } else {
+        emailFilterdWithSearchAndCtg = emailFilterdWithSearch
+    }
+
+    return Promise.resolve(emailFilterdWithSearchAndCtg)
 }
 
 function _createEmails() {
@@ -258,14 +284,13 @@ function getEmailById(emailId) {
     return Promise.resolve(emails[emailIdx])
 }
 
-function saveEmail(email) {
+function saveEmail(emailId) {
     let emails = _loadFromStorage()
-    let creaetEmail;
-    creaetEmail = _createEmail(email)
-    emails.push(creaetEmail)
-
+    let emailIdx = emails.findIndex(email => email.id === emailId)
+    
+    emails[emailIdx].sentAt = Date.now()
     _saveToStorage(emails)
-    return Promise.resolve(creaetEmail.id)
+    return Promise.resolve()
 }
 
 function getUnreadMailsCount() {
@@ -275,4 +300,36 @@ function getUnreadMailsCount() {
         if (email.isRead === false) count++
     })
     return Promise.resolve(count / emails.length)
+}
+
+function getDraftId() {
+    let emails = _loadFromStorage()
+    let createEmail;
+    createEmail = _createEmail({
+        subject: '',
+        body: '',
+        isRead: true,
+        isStared: false,
+        receivedAt: '',
+        sentAt: '',
+        to: ''
+    })
+    emails.push(createEmail)
+    _saveToStorage(emails)
+
+    return Promise.resolve(createEmail.id)
+}
+
+function saveDraft(DraftEmail) {
+    let emails = _loadFromStorage()
+    let emailIdx = emails.findIndex(email => email.id === DraftEmail.id)
+
+    emails[emailIdx].to = DraftEmail.to
+    emails[emailIdx].subject = DraftEmail.subject
+    emails[emailIdx].body = DraftEmail.body
+    emails[emailIdx].true = DraftEmail.true
+    emails[emailIdx].sentAt = ''
+
+    _saveToStorage(emails)
+    return Promise.resolve()
 }

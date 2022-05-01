@@ -8,12 +8,13 @@ export class NoteSearch extends React.Component {
     handleChange = ({ target }) => {
         const { name } = target
         this.setState(() => ({ [name]: target.value }))
+        const { searchByKeep } = this.state
+        eventBusService.emit('search-keep', searchByKeep)
     }
 
     onSave = (ev) => {
         ev.preventDefault()
-        const { searchByKeep } = this.state
-        eventBusService.emit('search-keep', searchByKeep)
+        
     }
 
     render() {

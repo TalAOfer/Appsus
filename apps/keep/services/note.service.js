@@ -16,9 +16,9 @@ const gNotes = [
     {
         id: "n101",
         type: "text",
-        isPinned: true,
+        isPinned: false,
         info: {
-            txt: "Fullstack Me Baby!",
+            txt: "Been running up the hill",
             color: 'white'
         }
     },
@@ -37,18 +37,18 @@ const gNotes = [
         isPinned: false,
         info: {
             txt: `And if I only could
-        I'd make a deal with God
-        And I'd get him to swap our places
-        Be running up that road
-        Be running up that hill
-        Be running up that building`,
+            I'd make a deal with God
+            And I'd get him to swap our places
+            Be running up that road
+            Be running up that hill
+            Be running up that building`,
             color: 'white'
         }
     },
     {
         id: "n104",
         type: "image",
-        isPinned: false,
+        isPinned: true,
         info: {
             txt: `https://thumbs.dreamstime.com/b/crazy-cat-tongue-hanging-out-40087599.jpg`,
             color: '#B4FF9F'

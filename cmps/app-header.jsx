@@ -1,5 +1,5 @@
 import { EmailFilter } from "../apps/mail/cmps/mail-filter.jsx";
-import { NoteSearch } from "../apps/keep/cmps/note-serach.jsx";
+import { NoteSearch } from "../apps/keep/cmps/note-search.jsx";
 import { BookFilter } from "../apps/book/cmps/book-filter.jsx";
 
 const { Link, NavLink, withRouter } = ReactRouterDOM

@@ -1,6 +1,11 @@
 .app-home {
-    /* height: 100vh; */
+    height: calc(100vh - 138px) ;
+    background-image: url(/assets/svg/people.svg);
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-size: 500px;
     display: flex;
+    flex:1;
     margin: auto;
     align-content: center;
     justify-content: space-between;
@@ -11,7 +16,7 @@
 
 .app-home a {
     cursor: pointer;
-    height: 300px;
+    height: 100px;
     /* width: 100px; */
     display: flex;
     align-items: center;
@@ -20,7 +25,7 @@
     color: #121212;
     background-color: white;
     flex-grow: 1;
-    font-size: 60px;
+    font-size: 25px;
     margin: 10px;
     margin-top: 0;
     font-family: Lato-Light
@@ -33,6 +38,5 @@
 @media (max-width: 650px) {
     .app-home {
         flex-direction: column;
-        height: 50vh
     }
 }

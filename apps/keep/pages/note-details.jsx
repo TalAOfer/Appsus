@@ -42,6 +42,7 @@ export class NoteDetails extends React.Component {
 
             <div className="edit-container" style={{backgroundColor: this.state.color}}>
                 <div className="text-container">
+                    
                     <textarea value={this.state.text} onChange={this.onTextChange}>  </textarea>
                 </div>
 

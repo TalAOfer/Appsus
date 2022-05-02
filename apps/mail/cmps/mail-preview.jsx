@@ -90,11 +90,11 @@ export class _EmailsPreview extends React.Component {
                         <div className="fullmail-subject">
                             {email.subject}
                             <div className="fullmail-btn">
-                                <button className="delete-mail" onClick={this.onClickRemove}><img src="assets/img/mail/trash.png"></img></button>
-                                <button className="toggle-unread" onClick={this.onClickIsRead}><img src={`assets/img/mail/${readTxt}.png`}></img></button>
-                                <NavLink to={`/email/${email.id}`}><button className="expand-mail"><img src="assets/img/mail/expand.png"></img></button></NavLink>
-                                <NavLink to={`/email/new_email/:${email.id}?`}><button className="draft-mail"><img src="assets/img/mail/draft.png"></img></button></NavLink>
-                                <button className="keep-mail" onClick={this.onClickAddKeep}><img src="assets/img/mail/keepApp5.png"></img></button>
+                                <button title="Trash" className="delete-mail" onClick={this.onClickRemove}><img src="assets/img/mail/trash.png"></img></button>
+                                <button title="Read/Unread" className="toggle-unread" onClick={this.onClickIsRead}><img src={`assets/img/mail/${readTxt}.png`}></img></button>
+                                <NavLink to={`/email/${email.id}`}><button title="Expand mail" className="expand-mail"><img src="assets/img/mail/expand.png"></img></button></NavLink>
+                                <NavLink to={`/email/new_email/:${email.id}?`}><button title="Draft" className="draft-mail"><img src="assets/img/mail/draft.png"></img></button></NavLink>
+                                <button title="Save to note" className="keep-mail" onClick={this.onClickAddKeep}><img src="assets/img/mail/keepApp5.png"></img></button>
 
                             </div>
                         </div>
